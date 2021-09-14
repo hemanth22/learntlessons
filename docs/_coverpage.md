@@ -1,4 +1,4 @@
-# Quick Unix and Scripting snippets
+# Unix and Scripting snippets
 
 > Quick Unix and Scripting snippets
 
