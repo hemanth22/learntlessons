@@ -804,3 +804,18 @@ for x in *.log; do mv "$x" "${x%.log}.text";done
 
 __GREP Full Form__: _Globally search for regular expression and print_
 
+### Log purger script.
+
+**vi logpurger_enterprise.sh**
+```shell
+find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec rm -vf {} \; 1>./success."$(date +%Y%m%d_%H%M%S_%N)".log 2>./error."$(date +%Y%m%d_%H%M%S_%N)".log
+#find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec rm -vf {} \; 2>&1> ./log_ent_"$(date +%Y%m%d_%H%M%S_%N)".log
+```
+
+**vi testlogcreater.sh**
+```shell
+touch {1..100}.$(date +$Y%m%d).log
+touch {1..100}.log.date +%m%d
+touch {1..100}.log."$(date +%m%d)"
+touch {1..100}.log."$(date +%Y%m%d)"
+```
