@@ -1,4 +1,4 @@
-__What is Unix ?__  
+# What is Unix ?  
 
 - Unix is an operating system.  
 - Developed by __AT&T__ employees at __Bell Labs(1969-1971).__  
@@ -779,7 +779,7 @@ __Setting the PATH Variables__
 
 __Configuring history with variables__  
 
-Command to clear history.  
+## Command to clear history.  
 
 `$history -c`  
 
@@ -978,7 +978,7 @@ export GREP_OPTIONS="--color=auto"
 ||36 cyan|46 cyan|
 |7 reverse|37 white|47 white|
 
-__Introduction to regular expressions__
+## Introduction to regular expressions
 
 ```
 $ grep 'apple' fruit.txt 
@@ -1766,13 +1766,13 @@ __Difference between diff and cmp command__
 |---|---|
 |diff - compare files line by line|cmp - compare two files byte by byte|
 
-__Cmp command__  
+## Cmp command  
 
 ```
 $ cmp original_file.txt revised_file.txt
 original_file.txt revised_file.txt differ: byte 57, line 2
 ```
-__Xargs passing argument lists to commands__
+## Xargs passing argument lists to commands
 
 ```
 $ wc lorem_ipsum.txt 
@@ -1969,7 +1969,7 @@ find ~/web/ -name "*.html" -print0 | xargs -0 grep -l "<h3>"
 find . -nname "*fruit.txt" -print0 | xargs -0 grep -li "mango" | xargs -I {} cp {} ~/Desktop/{}
 ```
 
-### Command find the logs
+## Command find the logs
 ```bash
 find / -regextype posix-extended -regex '.*\.log([.-][0-9]+)+' -exec ls -ltra {} \;
 find / -regextype posix-extended -regex '.*\.log$' -exec ls -ltra {} \;
@@ -1977,7 +1977,7 @@ find / -regextype posix-extended -regex '.*\.log([.-][0-9a-z]+)+' -exec ls -ltra
 find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec ls -ltra {} \;
 ```
 
-### Command find and gzip the logs
+## Command find and gzip the logs
 ```bash
 find / -regextype posix-extended -regex '.*\.log([.-][0-9]+)+' -exec gzip * {} \;
 find / -regextype posix-extended -regex '.*\.log$' -exec gunzip * {} \;
@@ -1985,7 +1985,7 @@ find / -regextype posix-extended -regex '.*\.log([.-][0-9a-z]+)+' -exec gzip * {
 find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec gzip * {} \;
 ```
 
-### Command find and gunzip the logs
+## Command find and gunzip the logs
 ```bash
 find / -regextype posix-extended -regex '.*\.log([.-][0-9]+)+' -exec gunzip * {} \;
 find / -regextype posix-extended -regex '.*\.log$' -exec gunzip * {} \;
@@ -1993,7 +1993,7 @@ find / -regextype posix-extended -regex '.*\.log([.-][0-9a-z]+)+' -exec gunzip *
 find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec gunzip * {} \;
 ```
 
-### disk file system commands
+## disk file system commands
 
 ```bash
 df -hT | egrep "[9|1-9]%"
@@ -2021,7 +2021,7 @@ df -hT | sort -n |grep -vE '^Filesystem' | awk 'BEGIN{OFS="\t"}{ print $6,$5,$4"
 df -H --output=size,used,avail
 ```
 
-### disk utility command
+## disk utility command
 
 ```bash
 du -sh * | awk -F '\t' 'BEGIN{ print "{" } $1 ~ /[KGM]$/ {printf "%s\"%s\": \"%s\"", (++n>1?",\n":""), $2, $1} END{ print "\n}" }'
