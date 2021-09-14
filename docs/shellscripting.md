@@ -1353,3 +1353,156 @@ Dogs like to play catch.
 
 ## Ensuring
 
+**vi cmd_ens.sh**
+```shell
+#!/bin/bash
+# This is a basic bash script.
+if [ $# -lt 3 ]; then
+cat <<- EOM
+This command requires three arguments:
+username, userid, and favorite number.
+EOM
+else
+        # the program goes here
+        echo "Username: $1"
+        echo "UserID: $2"
+        echo "Favorite Number: $3"
+fi
+```
+
+__output__
+```
+[root@centos ~]# /bin/bash "/root/cmd_ens.sh"
+This command requires three arguments:
+username, userid, and favorite number.
+
+[root@centos ~]# /bin/bash "/root/cmd_ens.sh" scott 123
+This command requires three arguments:
+username, userid, and favorite number.
+
+[root@centos ~]# /bin/bash "/root/cmd_ens.sh" scott 123 3
+Username: scott
+UserID: 123
+Favorite Number: 3
+```
+
+**vi cmd_ens1.sh**
+```shell
+#!/bin/bash
+# This is a basic bash script.
+read -p "Favorite animal? "
+while [[ -z "$a" ]]; do
+        read -p "I need an anwer! " a
+done
+echo "$a was selected."
+```
+
+__Output__
+```
+[root@centos ~]# /bin/bash "/root/cmd_ens1.sh"
+Favorite animal? cat
+cat was selected.
+[root@centos ~]# /bin/bash "/root/cmd_ens1.sh"
+Favorite animal? 
+I need an anwer! 
+I need an anwer! 
+I need an anwer! 
+I need an anwer! cat
+cat was selected.
+```
+
+**vi cmd_ens2.sh**
+```shell
+#!/bin/bash
+# This is a basic bash script.
+read -p "Favorite animal? [cat] " a
+while [[ -z "$a" ]]; do
+        a="cat"
+done
+echo "$a was selected."
+```
+
+__Output__
+```
+[root@centos ~]# /bin/bash "/root/cmd_ens2.sh"
+Favorite animal? [cat] 
+cat was selected.
+
+[root@centos ~]# /bin/bash "/root/cmd_ens2.sh"
+Favorite animal? [cat] fish
+fish was selected.
+```
+
+**vi cmd_ens3.sh**
+```shell
+#!/bin/bash
+# This is a basic bash script.
+read -p "What year? [nnnn] " a
+while [[ ! $a =~ [0-9]{4} ]]; do
+        read -p "A year, please! [nnnn] " a
+done
+echo "Select year: $a"
+```
+
+__Output__
+```
+[root@centos ~]# /bin/bash "/root/cmd_ens3.sh"
+What year? [nnnn] 300
+A year, please! [nnnn] 2021
+Select year: 2021
+
+[root@centos ~]# /bin/bash "/root/cmd_ens3.sh"
+What year? [nnnn] year
+A year, please! [nnnn] 2021
+Select year: 2021
+```
+
+## Solutions
+
+**vi ch4_solution.sh**
+```shell
+#!/bin/bash
+# This is a basic bash script.
+rand=$RANDOM
+secret=${rand:0:1}
+
+function game {
+        read -p "Guess a random one-digit numer! " guess
+        while [[ $guess != $secret ]]; do
+                read -p "Nope, try again! " guess
+        done
+        echo "Good job, $secret is it! You're great at guessing!"
+}
+
+function generate {
+        echo "A random number is: $rand"
+        echo -e "Hint: type \033[1m$0 game\033[0m for a fun diversion!"
+}
+
+if [[ $1 =~ game|Game|GAME ]]; then
+        game
+else
+        generate
+fi
+```
+
+__output__
+```
+[root@centos ~]# /bin/bash "/root/ch4_solution.sh"
+A random number is: 6186
+Hint: type /root/ch4_solution.sh game for a fun diversion!
+
+[root@centos ~]# /bin/bash "/root/ch4_solution.sh" game
+Guess a random one-digit numer! 1
+Nope, try again! 2
+Good job, 2 is it! You're great at guessing!
+```
+
+## References:  
+
+https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html  
+https://wiki.bash-hackers.org/  
+https://wiki.bash-hackers.org/doku.php  
+https://tldp.org/LDP/abs/html/gotchas.html  
+https://stackoverflow.com/tags/bash/info  
+https://stackoverflow.com/questions/tagged/bash  
