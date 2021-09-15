@@ -33,5 +33,5 @@
 
 ### I have contributed in Tips & Tricks pages in open source for you in below issues.
 
-- OpenSoureforYou - August 2017
-- OpenSoureforYou - November 2017
+- OpenSourceforYou - August 2017
+- OpenSourceforYou - November 2017
