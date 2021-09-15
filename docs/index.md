@@ -31,7 +31,7 @@
   </tr>
 </table>
 
-### I have contributed in Tips & Tricks pages in opensoure for you in below issues.
+### I have contributed in Tips & Tricks pages in open soure for you in below issues.
 
 - OpenSoureforYou - August 2017
 - OpenSoureforYou - November 2017
