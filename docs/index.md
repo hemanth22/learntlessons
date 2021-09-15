@@ -18,7 +18,7 @@
   </tr>
   
   <tr>
-    <td align="center"><a href="https://hemanthbitra.medium.com/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.13.0/icons/medium.svg" width="100px;" alt=""/><br /><sub><b>Google Blogspot</b></sub></a>  </td>
+    <td align="center"><a href="https://hemanthbitra.medium.com/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.13.0/icons/medium.svg" width="100px;" alt=""/><br /><sub><b>Medium</b></sub></a>  </td>
   </tr>
 </table> 
 
@@ -27,7 +27,7 @@
 
 <table>
   <tr>
-    <td align="center"><a href="https://www.opensourceforu.com/"><img src="https://raw.githubusercontent.com/hemanth22/Images/master/OpenSourceForYou.jpg" width="100px;" alt=""/><br /><sub><b>Medium</b></sub></a>  </td>
+    <td align="center"><a href="https://www.opensourceforu.com/"><img src="https://raw.githubusercontent.com/hemanth22/Images/master/OpenSourceForYou.jpg" width="100px;" alt=""/><br /><sub><b>Open Source for You</b></sub></a>  </td>
   </tr>
 </table>
 
