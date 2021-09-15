@@ -16,6 +16,10 @@
     <td align="center"><a href="https://hemanth22hemu.wordpress.com/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/wordpress.svg" width="100px;" alt=""/><br /><sub><b>Wordpress</b></sub></a>  </td>
       <td align="center"><a href="https://dev.to/hemanth22"><img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" width="100px;" alt=""/><br /><sub><b>DEV.To</b></sub></a>  </td>
   </tr>
+  
+  <tr>
+    <td align="center"><a href="https://hemanthbitra.medium.com/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@3.13.0/icons/medium.svg" width="100px;" alt=""/><br /><sub><b>Google Blogspot</b></sub></a>  </td>
+  </tr>
 </table> 
 
 
