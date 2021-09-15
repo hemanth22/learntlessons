@@ -27,7 +27,7 @@
 
 <table>
   <tr>
-    <td align="center"><a href="https://www.opensourceforu.com/"><img src="https://raw.githubusercontent.com/hemanth22/Images/master/OpenSourceForYou.jpg" width="100px;" alt=""/><br /><sub><b>Open Source for You Magazine</b></sub></a>  </td>
+    <td align="center"><a href="https://www.opensourceforu.com/"><img src="https://raw.githubusercontent.com/hemanth22/Images/master/OpenSourceForYou.jpg" width="100px;" alt=""/><br /><sub><b>Medium</b></sub></a>  </td>
   </tr>
 </table>
 
