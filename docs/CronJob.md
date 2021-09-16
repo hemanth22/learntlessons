@@ -1,6 +1,6 @@
-## Cronjob scheduling
+# Cronjob scheduling
 
-1. Grant cronjob to run job based on user.  
+## Grant cronjob to run job based on user.  
 
 First check whether you have cron.allow  
 
@@ -14,7 +14,7 @@ if there is then execute below command to add access to user.
 echo "centos" /etc/cron.allow
 ```
 
-2. Create cron file  
+## Create cron file  
 
 Create a `cron` file for `root` user  
 
@@ -30,7 +30,7 @@ Create a `cron` file for `centos` user
 # /usr/bin/crontab /var/spool/cron/centos
 ```
 
-3. Schedule your job  
+## Schedule your job  
 
 create some dummy jobs. To give a demonstration I will schedule a job to clear temporary files every midnight for both the user  
 
@@ -40,7 +40,7 @@ create some dummy jobs. To give a demonstration I will schedule a job to clear t
 # echo "0 0 * * * rm -f /tmp/centos/*" >> /var/spool/cron/centos
 ```
 
-4. Validate the cron job content  
+## Validate the cron job content  
 
 Here you can use `-u` to define the username for which you wish to perform the cron action  
 
@@ -54,7 +54,7 @@ Here you can use `-u` to define the username for which you wish to perform the c
 
 So our cron jobs are updated successfully for both `root` and `centos` user.  
 
-5. Script to create cron job using bash shell script  
+## Script to create cron job using bash shell script  
 
 **vi cronjobdeployer.sh**
 ```shell
@@ -104,13 +104,13 @@ esac
 
 Here I have shared two methods to update cron job using a shell script for `root` and `centos` user.  
 
-Command to execute
+## Command to execute
 
 ```shell
 # /root/cronjobdeployer.sh install
 ```
 
-6. List the cron jobs  
+## List the cron jobs  
 
 ```
 # crontab -u root -l
