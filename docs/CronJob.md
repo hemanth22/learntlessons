@@ -37,7 +37,7 @@ create some dummy jobs. To give a demonstration I will schedule a job to clear t
 ```shell
 # echo "0 0 * * * rm -f /tmp/root/*" >> /var/spool/cron/root
 
-# echo "0 0 * * * rm -f /tmp/deepak/*" >> /var/spool/cron/centos
+# echo "0 0 * * * rm -f /tmp/centos/*" >> /var/spool/cron/centos
 ```
 
 4. Validate the cron job content  
@@ -116,6 +116,6 @@ Command to execute
 # crontab -u root -l
 0 0 * * * rm -f /home/root/cleanup_script.sh
 
-# crontab -u deepak -l
-0 0 * * * rm -f /home/root/cleanup_script.sh
+# crontab -u centos -l
+0 0 * * * rm -f /home/centos/cleanup_script.sh
 ```
