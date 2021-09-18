@@ -119,3 +119,69 @@ Here I have shared two methods to update cron job using a shell script for `root
 # crontab -u centos -l
 0 0 * * * rm -f /home/centos/cleanup_script.sh
 ```
+
+## Cronjob script with many options
+
+```shell
+#!/bin/bash
+   if [ `id -u` -ne 0 ]; then
+      echo "This script can be executed only as root, Exiting.."
+      exit 1
+   fi
+
+case "$1" in
+   install|update)
+
+	CRON_FILE="/var/spool/cron/root"
+
+	if [ ! -f $CRON_FILE ]; then
+	   echo "cron file for root doesnot exist, creating.."
+	   touch $CRON_FILE
+	   /usr/bin/crontab $CRON_FILE
+	fi
+
+	# Method 1 for root user
+	grep -qi "cleanup_script" $CRON_FILE
+	if [ $? != 0 ]; then
+	   echo "Deployment Completed."
+           /bin/echo "0 0 * * * rm -f /root/cleanup_script.sh" >> $CRON_FILE
+	fi
+
+	# Method 2 for user level
+	#grep -qi "cleanup_script" $CRON_FILE
+	#if [ $? != 0 ]; then
+	#   echo "Updating cron job for cleaning temporary files"
+	#   crontab -u deepak -l >/tmp/crontab
+    #       /bin/echo "0 0 * * * rm -f /home/deepak/cleanup_script.sh" >> /tmp/crontab
+	#   crontab -u deepak /tmp/crontab
+	#fi
+
+	;;
+
+	disable)
+	
+	grep -qi --extended-regexp "^#.*cleanup_script.*" /var/spool/cron/root
+	if [ $? != 0 ]
+	then
+		crontab -l | sed "/^[^#].*cleanup_script/s/^/#/" | crontab -
+		echo -e "\033[5;32;47mDisabled cronjob\033[0m"
+	else
+		echo -e "\033[5;31;40mERROR: \033[0m\033[31;40mCron Job is already disable.\033[m"
+	fi
+	
+	;;
+
+	enable)
+
+	crontab -l | sed "/^#.*cleanup_script/s/^#//" | crontab -
+	;;
+	
+	*)
+	
+	echo "Usage: $0 {install|update|disable|enable}"
+	exit 1
+    ;;
+
+esac
+```
+
