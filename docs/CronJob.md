@@ -143,8 +143,8 @@ case "$1" in
 	# Method 1 for root user
 	grep -qi "cleanup_script" $CRON_FILE
 	if [ $? != 0 ]; then
-	   echo "Deployment Completed."
-           /bin/echo "0 0 * * * rm -f /root/cleanup_script.sh" >> $CRON_FILE
+	   echo -e "\033[5;32mDeployment Completed.\033[0"
+           /bin/echo "* * * * * root /root/cleanup_script.sh" >> $CRON_FILE
 	fi
 
 	# Method 2 for user level
@@ -164,7 +164,7 @@ case "$1" in
 	if [ $? != 0 ]
 	then
 		crontab -l | sed "/^[^#].*cleanup_script/s/^/#/" | crontab -
-		echo -e "\033[5;32;47mDisabled cronjob\033[0m"
+		echo -e "\033[5;32mDisabled cronjob\033[0m"
 	else
 		echo -e "\033[5;31;40mERROR: \033[0m\033[31;40mCron Job is already disable.\033[m"
 	fi
@@ -184,4 +184,3 @@ case "$1" in
 
 esac
 ```
-
