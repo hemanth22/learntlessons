@@ -2046,4 +2046,28 @@ du -a /root/ | sort -n -r | head -n 20
 ```shell
 du -sm * | sort -rn | head
 ```
+
+```shell
+find . -xdev -type f -size +100M
+```
+
+```shell
+find . -xdev -type f -size +100M -print | xargs ls -lh | sort -k5,5 -h -r
+find / -xdev -type f -size +100M -exec ls -la {} \; | sort -nk 5
+```
+
+```shell
+du -ahx . | sort -rh | head -5
+du -ahx / | sort -rh | head -20
+du -ax / | sort -rn | head -20
+du -ahx / | grep -E '\d+G\s+'
+```
+
+```shell
+find . -type f -print | xargs du -sk | sort -rn
+find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50
+```
+
+__Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
+
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
