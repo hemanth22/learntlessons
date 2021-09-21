@@ -2030,4 +2030,20 @@ du -sh * | awk -F '\t' 'BEGIN{ print "{" } $1 ~ /[KGM]$/ {printf "%s\"%s\": \"%s
 ```bash
 du -sh * | grep -E '^[0-9.]+[KMG]' | sort -hr | awk -F'\t' 'BEGIN { print "{" }NR > 1 { print "," }{ printf "\"" $2 "\": \"" $1 "\"" }END{ print "\n}"}'
 ```
+
+```shell
+du -ah /root/* | sort -n -r
+```
+
+```shell
+du -hs * | sort -rh | head -n 20
+```
+
+```shell
+du -a /root/ | sort -n -r | head -n 20
+```
+
+```shell
+du -sm * | sort -rn | head
+```
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
