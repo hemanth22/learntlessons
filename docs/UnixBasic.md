@@ -2068,6 +2068,12 @@ find . -type f -print | xargs du -sk | sort -rn
 find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50
 ```
 
+## Sed command to convert dos2unix
+
+```shell
+sed -i -e 's/\r$//' filename
+```
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
