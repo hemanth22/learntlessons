@@ -1992,6 +1992,7 @@ find / -regextype posix-extended -regex '.*\.log$' -exec gunzip * {} \;
 find / -regextype posix-extended -regex '.*\.log([.-][0-9a-z]+)+' -exec gunzip * {} \;
 find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec gunzip * {} \;
 find / -regextype posix-extended -regex '.*([.-][0-9a-zA-Z]+)+[.-]log' -type f -exec ls -ltrh {} \;
+find /root/logs -regextype posix-extended -regex '.*([0-9]{4})([0-9]{2})([0-9]{2})[.-]log' -type f -exec ls -ltrh {} \;
 ```
 
 ## disk file system commands
