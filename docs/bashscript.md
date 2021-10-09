@@ -810,6 +810,8 @@ __GREP Full Form__: _Globally search for regular expression and print_
 ```shell
 find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec rm -vf {} \; 1>./success."$(date +%Y%m%d_%H%M%S_%N)".log 2>./error."$(date +%Y%m%d_%H%M%S_%N)".log
 #find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec rm -vf {} \; 2>&1> ./log_ent_"$(date +%Y%m%d_%H%M%S_%N)".log
+#find /root/logs -regextype posix-extended -regex '.*([0-9]{4})([0-9]{2})([0-9]{2})[.-]log' -type f -exec ls -ltrh {} \;
+#find /root/logs -regextype posix-extended -regex '.*([0-9]{4})([0-9]{2})([0-9]{2})[.-]log.gz' -type f -exec ls -ltrh {} \;
 ```
 
 **vi testlogcreater.sh**
