@@ -4,4 +4,5 @@
 * [Up and Running with Bash scripting](./shellscripting.md)
 * [SED](./SEDLearning.md)
 * [AWK](./AWKLearning.md)
+* [REGEX](./regularexp.md)
 * [Cron Job](./CronJob.md)
