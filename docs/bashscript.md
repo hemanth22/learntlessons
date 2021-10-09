@@ -819,3 +819,82 @@ touch {1..100}.log.date +%m%d
 touch {1..100}.log."$(date +%m%d)"
 touch {1..100}.log."$(date +%Y%m%d)"
 ```
+### Log rotate script
+
+**vi precode.sh**
+```shell
+#!/bin/bash
+logfile=$1
+#First give filename as parameter
+logdir=$2
+#Second give file_path as parameter
+cd $logdir
+#switch to file_path
+staticlogfsize=104857600
+#Static file : 100MB
+logfsize=`du -b $1 | tr -s '\t' ' ' | cut -d' ' -f1`
+#Get file size in MB
+#/root/logs/hemanth/bitra
+#bash.log
+#if [ ! -f $logfile ]
+#then
+  #echo "log file not found $logfile"
+  #exit 1
+#fi
+if [[ ! -f $logfile ]]
+then
+  echo "log file not found: $logfile"
+elif [[ -f $logfile && $logfsize -gt $staticlogfsize ]]
+then
+    echo "log file is greater than 100M: $logfile"
+    timestamp=`date +%Y%m%d.%H%M%S`
+    newlogfile=$logfile.$timestamp
+    cp -vf $logfile $newlogfile
+    cat /dev/null > $logfile
+    gzip -f -9 $newlogfile
+else
+    echo "log file is less than 100M: $logfile"
+fi
+#./precode.sh bash.log '/root/logs/hemanth/bitra'
+#./precode.sh bashy.log '/root/logs/hemanth/bitra'
+#./precode.sh basher.log '/root/logs/hemanth/bitra'
+```
+
+**vi logscript.sh**
+```shell
+#!/bin/bash
+logfile=$1
+#First give filename as parameter
+logdir=$2
+#Second give file_path as parameter
+cd $logdir
+#switch to file_path
+staticlogfsize=104857600
+#Static file : 100MB
+logfsize=`du -b $1 | tr -s '\t' ' ' | cut -d' ' -f1`
+#Get file size in MB
+#/root/logs/hemanth/bitra
+#bash.log
+#if [ ! -f $logfile ]
+#then
+  #echo "log file not found $logfile"
+  #exit 1
+#fi
+if [[ ! -f $logfile ]]
+then
+  echo "log file not found: $logfile"
+elif [[ -f $logfile && $logfsize -gt $staticlogfsize ]]
+then
+    echo "log file is greater than 100M: $logfile"
+    timestamp=`date +%Y%m%d.%H%M%S`
+    newlogfile=$logfile.$timestamp
+    cp -vf $logfile $newlogfile
+    cat /dev/null > $logfile
+    gzip -f -9 $newlogfile
+else
+    echo "log file is less than 100M: $logfile"
+fi
+#./precode.sh bash.log '/root/logs/hemanth/bitra'
+#./precode.sh bashy.log '/root/logs/hemanth/bitra'
+#./precode.sh basher.log '/root/logs/hemanth/bitra'
+```
