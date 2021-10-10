@@ -2081,3 +2081,5 @@ __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
 
 __Redirecting output reference:__ https://unix.stackexchange.com/questions/20469/difference-between-21-output-log-and-21-tee-output-log  
+
+__Reference on du:__ https://www.thegeekstuff.com/2010/07/logrotate-examples/
