@@ -2070,6 +2070,12 @@ find . -type f -print | xargs du -sk | sort -rn
 find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50
 ```
 
+## Command to change extension from .txt to .log for 1000 files
+
+```shell
+for x in *.txt; do mv "$x" "${x%.txt}.log";done
+```
+
 ## Sed command to convert dos2unix
 
 ```shell
