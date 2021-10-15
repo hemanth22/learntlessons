@@ -2070,6 +2070,27 @@ find . -type f -print | xargs du -sk | sort -rn
 find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50
 ```
 
+## How to logrotate in linux
+
+**vi /etc/logrotate.d/catalina**
+
+```shell
+/root/logs/india/tomcat-india/catalina.log {
+        size 1k
+        daily
+        copytruncate
+        dateext
+        rotate 4
+        compress
+}
+```
+
+## Command to debug and force start the logs
+
+```shell
+logrotate -v -f  /etc/logrotate.d/catalina
+```
+
 ## Command to change extension from .txt to .log for 1000 files
 
 ```shell
