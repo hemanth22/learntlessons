@@ -463,6 +463,412 @@ there are 4 elements in the array
 
 ## Slicing
 
+**vi slices.pl**
+
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @array = ( 1 .. 10 );
+    message(join(':', @array));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+[root@centos perls]# perl slices.pl
+1:2:3:4:5:6:7:8:9:10
+```
+
+**vi slices1.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @array = ( 1 .. 10 );
+    message(join(':', @array[1,4,7]));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+[root@centos perls]# perl slices1.pl
+2:5:8
+```
+
+**vi slices2.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @array = ( 1 .. 10 );
+    message(join(':', @array[0..2,7]));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+ 
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+
+```
+
+```perl
+[root@centos perls]# perl slices2.pl
+1:2:3:8
+```
+
+**vi slices3.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @array = ( 1 .. 10 );
+    message(join(':', @array[9,3,5]));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+ 
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+
+```
+
+```perl
+[root@centos perls]# perl slices3.pl
+10:4:6
+```
+
+## Hashes
+
+**vi hashes.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = ( "this" => "foo", "that" => "bar", "other" => "baz" );
+    message($hash{"that"});
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+[root@centos perls]# perl hashes.pl
+bar
+```
+
+**vi hashes1.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = ( "this" , "foo", "that" , "bar", "other" , "baz" );
+    message($hash{"that"});
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+[root@centos perls]# perl hashes1.pl
+bar
+```
+
+**vi hashes2.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = ( "this" => "foo", "that" => "bar", "other" => "baz" );
+    message(join(':', keys(%hash)));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+[root@centos perls]# perl hashes2.pl
+other:that:this
+```
+
+**vi hashes3.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = ( "this" => "foo", "that" => "bar", "other" => "baz" );
+    message(join(':', sort(values(%hash))));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+[root@centos perls]# perl hashes3.pl
+other:that:this
+```
+
+**vi hashes4.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = ( "this" => "foo", "that" => "bar", "other" => "baz" );
+    message(join(':', sort(keys(%hash))));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+perl hashes4.pl
+other:that:this
+```
+
+**vi hashes5.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = ( "this" => "foo", "that" => "bar", "other" => "baz" );
+    message(join(':', sort(values(%hash))));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+[root@centos perls]# perl hashes5.pl
+bar:baz:foo
+```
+
+**vi hashes6.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = ( "this" => "foo", "that" => "bar", "other" => "baz" );
+    foreach my $k ( sort keys %hash ) {
+        my $v = $hash{$k};
+        message("$k is $v")
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+```perl
+[root@centos perls]# perl hashes6.pl
+other is baz
+that is bar
+this is foo
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
