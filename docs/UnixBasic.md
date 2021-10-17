@@ -2080,6 +2080,7 @@ find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50
         daily
         copytruncate
         dateext
+	dateformat -%Y%m%d-%s
         rotate 4
         compress
 }
