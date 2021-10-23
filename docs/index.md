@@ -9,6 +9,7 @@
 |5  | [AWK](./AWKLearning.md) |
 |6  | [Regex](./regularexp.md) |
 |7  | [Cron Job](./CronJob.md) |
+|8  | [Vim](./Vim.md) |
 
 ## About my blogs
 
