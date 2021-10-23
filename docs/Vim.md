@@ -83,6 +83,27 @@ Undo last edit u
 :se ai
 ```
 
+### Vim To change file format to UNIX execute following command
+```vim
+:set ff = unix
+```
+
+
+### Vim To change file format to DOS execute following command
+```vim
+:set ff = dos
+```
+
+### Vim command to execute linux terminal command
+```vim
+:!ls
+```
+
+### Vim command to execute last command
+```vim
+:!!
+```
+
 ## Reference
 
 ReferenceLinks: [VIM Help](https://github.com/hemanth22/lessonslearnt/blob/main/docs/viHelp.pdf)  
