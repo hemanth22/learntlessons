@@ -104,6 +104,11 @@ Undo last edit u
 :!!
 ```
 
+### Vim command to switch to bash terminal
+```vim
+:!bash
+```
+
 ## Reference
 
 ReferenceLinks: [VIM Help](https://github.com/hemanth22/lessonslearnt/blob/main/docs/viHelp.pdf)  
