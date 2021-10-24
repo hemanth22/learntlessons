@@ -109,6 +109,18 @@ Undo last edit u
 :!bash
 ```
 
+### Vim command to copy, cut and paste
+```vim
+Yank yy(copy)
+Paste p
+Yank nlines nyy
+```
+
+### Vim command to search
+```vim
+/search
+```
+
 ## Reference
 
 ReferenceLinks: [VIM Help](https://github.com/hemanth22/lessonslearnt/blob/main/docs/viHelp.pdf)  
