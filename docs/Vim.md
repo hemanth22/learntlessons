@@ -121,6 +121,11 @@ Yank nlines nyy
 /search
 ```
 
+### Vim command to search and print matching search
+```vim
+:g/search
+```
+
 ## Reference
 
 ReferenceLinks: [VIM Help](https://github.com/hemanth22/lessonslearnt/blob/main/docs/viHelp.pdf)  
