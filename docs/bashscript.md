@@ -874,7 +874,8 @@ fi
 
 **vi diskspace.sh**
 ```bash
-printf "Used\tAvail\tUsed\tFilesystem\n"
+printf "Filesystem\t\t\tType\tSize\tUsed Avail Use Mounted on:\n"
+#printf "Used\tAvail\tUsed\tFilesystem\n"
 #echo -e "Used\tAvail\tUsed\tFilesystem"
 #df -hT | sort -n |grep -vE '^Filesystem' | awk 'BEGIN{OFS="\t"}{ print $6,$5,$4"\t" $1 }'
 df -hT | egrep "(100)%"
