@@ -889,3 +889,17 @@ df -hT | egrep "([20][0-9])%"
 df -hT | egrep "([10][0-9])%"
 df -hT | egrep "([0-9])%"
 ```
+### Clear space using script
+
+**vi clearspace.sh**
+```bash
+echo "====================== SPACE MANGEMENT ========================"
+echo "[TASK 1] Zip files older than 1 day"
+find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -type f -mtime +1 -exec gzip {} \;
+find / -regextype posix-extended -regex '.*([.-][0-9a-zA-Z]+)+[.-]log' -type f -mtime +1 -exec gzip {} \;
+find / -regextype posix-extended -regex '.*[-_]([0-9])+.log' -type f -mtime +1 -exec gzip {} \;
+echo "[TASK 2] Delete files older than 7 day"
+find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -type f -mtime +7 -exec rm -vf {} \;
+find / -regextype posix-extended -regex '.*([.-][0-9a-zA-Z]+)+[.-]log.gz' -type f -mtime +7 -exec rm -vf {} \;
+find / -regextype posix-extended -regex '.*[-_]([0-9])+.log.gz' -type f -mtime +7 -exec rm -vf {} \;
+```
