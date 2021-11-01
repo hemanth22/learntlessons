@@ -8,5 +8,5 @@ sed -i -e 's/<pre>134m\*0m Process Healthcheck 134m\*0m<\/pre>/<pre>* Process He
 sed -i -e 's/<pre>134m/<pre bgcolor=blue>/g' reporthealthcheck20211031.html
 sed -i -e 's/0m<\/pre>/<\/pre>/g' reporthealthcheck20211031.html
 sed -i -e 's/<pre>032m/<pre bgcolor=green>/g' reporthealthcheck20211031.html
-sed -i -e 's/<pre>031m/<pre bgcolor=green>/g' reporthealthcheck20211031.html
+sed -i -e 's/<pre>031m/<pre bgcolor=red>/g' reporthealthcheck20211031.html
 python3 mailreporting.py
