@@ -165,3 +165,65 @@ chmod a+x start_gateway
 ```
 ./start_gateway
 ```
+
+## How to install nodeprobe
+
+1. create a folder netprobe
+
+```shell
+mkdir netprobe
+```
+2. copy the gzip file to folder
+
+```shell
+cp netprobe*gz netprobe/
+```
+
+3. Extract the gzip files
+
+```shell
+tar xvfz *gz
+```
+
+4. First setup gateway password.
+
+```shell
+cd ../gateway
+```
+
+5. create encrypted password
+
+```shell
+./gateway2.linux -pw itrsgroup
+```
+
+6. create startup script for netprobe with template
+
+```shell
+cp templates/start_netprobe.tmpl start_netprobe
+```
+7. edit the start up script
+
+**vi start_netprobe**
+```
+setenv ENCODED_PASSWORD passwordhere
+setenv NET_PORT 7024
+setenv NAME sysmon_probe
+commnt on all foreground netprobe
+uncomment on all background netprobe
+
+setenv LOG_FILENAME netprobe.log
+switch($OS)
+    case:
+        nohup ./netprobe.sh &
+```
+
+8. Execute below script to start
+
+```shell
+./start_netprobe
+```
+
+## File Keyword Monitor (FKM)
+
+
