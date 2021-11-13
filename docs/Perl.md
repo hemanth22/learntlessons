@@ -982,6 +982,193 @@ Use of uninitialized value $x in concatenation (.) or string at undef.pl line 13
 x is 
 ```
 
+**vi undef1.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $x = '';
+    message("x is $x");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**Output**
+```perl
+# perl undef1.pl
+x is 
+```
+
+**vi undef2.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $x = 'value';
+    message("x is $x");
+    $x = undef;
+    message("x is $x");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**Output**
+```perl
+perl undef2.pl
+x is value
+Use of uninitialized value $x in concatenation (.) or string at undef2.pl line 15.
+x is 
+```
+
+**vi undef3.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $x = '42';
+    if(defined isnum($x)) {
+        message("x is a number ($x)");
+    }
+    else
+    {
+        message("$x is not a number");
+    }
+}
+sub isnum
+{
+    my $n = shift;
+    return $n unless defined $n;
+    if($n =~ /[^0-9]/)
+    {
+        return undef;
+    } 
+    else 
+    {
+        return $n;
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```perl
+perl undef3.pl
+x is a number (42)
+```
+
+**vi undef4.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $x = '0';
+    if(isnum($x)) {
+        message("x is a number ($x)");
+    }
+    else
+    {
+        message("$x is not a number");
+    }
+}
+sub isnum
+{
+    my $n = shift;
+    return $n unless defined $n;
+    if($n =~ /[^0-9]/)
+    {
+        return undef;
+    } 
+    else 
+    {
+        return $n;
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**output**
+```perl
+perl undef4.pl
+0 is not a number
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
