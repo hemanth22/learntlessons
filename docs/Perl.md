@@ -869,6 +869,119 @@ that is bar
 this is foo
 ```
 
+## each
+
+**vi each-begin.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = ( "this" => "foo", "that" => "bar", "other" => "baz" );
+    while(my ($k, $v) = each %hash) {
+        message("$k is $v");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi each-begin1.pl**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = %ENV;
+    while(my ($k, $v) = each %hash) {
+        message("$k is $v");
+    }
+    message("=============================");
+    foreach my $k ( sort keys %hash ) {
+        my $v = $hash{$k};
+        message("$k is $v");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+## undef
+
+**vi undef**
+```perl
+#!/usr/bin/perl
+# variables.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $x = undef;
+    message("x is $x");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+__Output__
+```perl
+perl undef.pl
+Use of uninitialized value $x in concatenation (.) or string at undef.pl line 13.
+x is 
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
