@@ -128,5 +128,40 @@ cp gateway*.gz gateway
 tar xvfz *gz
 ```
 
-4. under templates folder there will be startup scripts templates
+4. under templates folder there will be startup scripts templates, copy the start template script.
 
+```shell
+cp templates/start_gateway2.tmpl start_gateway
+```
+
+5. Edit start gateway script and make changes as below.  
+
+**vi start_gateway__**
+```shell
+#./gateway.linux
+nohup ./gateway.linux -log gateway2.log &
+```
+
+6. Later copy gateway setup templates
+
+```shell
+cp templates/gateway.setup.withdefaults.xml.templ gatway.setup.xml
+```
+
+7. edit gateway.setup.xml file
+
+**vi gateway.setup.xml**
+```xml
+<gatewayName>SYSMON</gatewayName>
+<listenport>7023</listenport>
+```
+
+8. Change permission and start the script.
+
+```
+chmod a+x start_gateway
+```
+
+```
+./start_gateway
+```
