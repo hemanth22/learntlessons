@@ -226,4 +226,37 @@ switch($OS)
 
 ## File Keyword Monitor (FKM)
 
+__Active Console__ -> __Gateway setup editor__ -> __probe__ -> __new probe__ -> __Sampler__ -> __new sampler__  
 
+```
+under new probe give below details.  
+
+Basic
+Name:
+Hostname:
+Port:
+```
+
+```
+under new sampler enter below details  
+
+Name:
+Plugin: FKM
+Basic: source
+Filename: /path
+Advanced: Trigger mode
+mode: multiple
+```
+
+Next Goto -> Managed Entity, fill below details.  
+
+```
+Name:
+option: probe
+sampler: FKM
+```
+
+Go to sample of FKM created earlier   
+
+select __tables__ -> __addNew__ -> __severity: fail__ -> __keytable: data__ -> __Data: add key__  
+__set__ -> __key__ -> __match-searchstring__ -> __select Match__ -> __search string__ -> __Rules: Basic__ -> __clear key__ -> __search string__  
