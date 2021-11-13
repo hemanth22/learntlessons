@@ -100,3 +100,33 @@ Listen Port: __7040__
 
 ## How to download ITRS
 
+1. Visit website: https://www.itrsgroup.com/
+2. sign up and sign in
+3. Download below files
+
+geneos-desktop-activeconsole.windwos.SG.zip for windows  
+gateway2.linux.GA.tar.gz for linux gateway  
+netprobe.linux.GA.tar.gz  
+
+## How to install gateway for active console
+
+1. First create a folder with gateway
+
+```shell
+mkdir gateway
+```
+
+2. copy the download gatway zip file to folder
+
+```shell
+cp gateway*.gz gateway
+```
+
+3. extract the file inside folder
+
+```shell
+tar xvfz *gz
+```
+
+4. under templates folder there will be startup scripts templates
+
