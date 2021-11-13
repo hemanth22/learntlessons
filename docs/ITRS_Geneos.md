@@ -260,3 +260,19 @@ Go to sample of FKM created earlier
 
 select __tables__ -> __addNew__ -> __severity: fail__ -> __keytable: data__ -> __Data: add key__  
 __set__ -> __key__ -> __match-searchstring__ -> __select Match__ -> __search string__ -> __Rules: Basic__ -> __clear key__ -> __search string__  
+
+Now create a rule.
+
+__Rule:__ FKM  
+
+```shell
+if Value like "" then
+    severity undefined
+else if value like "WARN" then
+    severity warning
+else if value like "FAIL" then
+    severity critical
+else
+    severity ok
+endif
+```
