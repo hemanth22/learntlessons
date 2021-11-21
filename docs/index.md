@@ -10,6 +10,13 @@
 |6  | [Regex](./regularexp.md) |
 |7  | [Cron Job](./CronJob.md) |
 |8  | [Vim](./Vim.md) |
+|9  | [Powershell: Getting started](./PowerShell1.md) |
+|10 | [Powershell Intro](./PowerShell2.md) |
+|11 | [Powershell docker](./PowerShell3.md) |
+|12 | [Powershell first day](./PowerShell4.md) |
+|13 | [Putting Powershell to work](./PowerShell5.md) |
+|14 | [Powershell Netwoking](./PowerShell6.md) |
+|15 | [Powershell Automation](./PowerShell7.md) |
 
 ## About my blogs
 
