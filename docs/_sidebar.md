@@ -14,5 +14,3 @@
 * [Putting Powershell to work](./PowerShell5.md)
 * [Powershell Netwoking](./PowerShell6.md)
 * [Powershell Automation](./PowerShell7.md)
-* [Python Flask](./Flask.md)
-* [Python FASTAPI](./fastapi.md)
