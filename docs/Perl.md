@@ -1431,6 +1431,135 @@ foo
 1
 ```
 
+### Blocks
+
+Everything mentioned on curly brackets is block.  
+
+**vi block.pl**
+```
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if(1) {
+        message("this");
+        message("that");
+    } else {
+        message("This is the template.pl exercise file from Perl 5 Essential Training.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl blocks.pl 
+this
+that
+```
+
+**vi block1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if(0) {
+        message("this");
+        message("that");
+    } else {
+        message("This is the template.pl exercise file from Perl 5 Essential Training.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__Output__
+```perl
+[root@centos perls]# perl blocks1.pl 
+This is the template.pl exercise file from Perl 5 Essential Training.
+```
+
+**vi block2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if(1) {
+        message("this");
+        message("that")
+    } else {
+        message("This is the template.pl exercise file from Perl 5 Essential Training.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+__output__
+```perl
+[root@centos perls]# perl blocks2.pl
+this
+that
+```
+__Note:__ last system doesn't need to have a semi-colon it is an option.  
+But it is a good practise to keep semi-colon  
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
