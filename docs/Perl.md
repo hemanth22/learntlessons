@@ -1560,6 +1560,125 @@ that
 __Note:__ last statement doesn't need to have a semi-colon it is an option.  
 But it is a good practise to keep semi-colon  
 
+### Scope
+
+**vi scope.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    message("This is the template.pl exercise file from Perl 5 Essential Training.");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $m\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl scope.pl
+Global symbol "$m" requires explicit package name at scope.pl line 24.
+Execution of scope.pl aborted due to compilation errors.
+```
+__Note:__ Here it shows error due to `$m` is not declared under subroutine error.  
+
+**vi scope1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+my $m = "this is a variable \$m"; #This is global declaration variables
+
+main(@ARGV);
+
+sub main
+{
+    message("This is the template.pl exercise file from Perl 5 Essential Training.");
+    error("this is an error message");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $m\n");
+    exit 0;
+}
+```
+__output__
+
+```perl
+perl scope1.pl
+This is the template.pl exercise file from Perl 5 Essential Training.
+scope1.pl: this is a variable $m
+```
+__Note:__ Here m global variable is declared outside error subroutine hence there is no errors.
+
+**vi scope2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+my $m = "this is a variable \$m"; #This is global declaration variables
+
+main(@ARGV);
+
+sub main
+{
+    message("This is the template.pl exercise file from Perl 5 Essential Training.");
+    error("this is an error message");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $m = shift || 'unkown error';
+    print("$0: $m\n");
+    exit 0;
+}
+```
+__Output__
+```perl
+perl scope2.pl
+This is the template.pl exercise file from Perl 5 Essential Training.
+scope2.pl: this is an error message
+```
+__note:__ here m is declared inside the error subroutine, hence error message is displayed.  
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
