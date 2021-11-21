@@ -1557,7 +1557,7 @@ __output__
 this
 that
 ```
-__Note:__ last system doesn't need to have a semi-colon it is an option.  
+__Note:__ last statement doesn't need to have a semi-colon it is an option.  
 But it is a good practise to keep semi-colon  
 
 ## References
