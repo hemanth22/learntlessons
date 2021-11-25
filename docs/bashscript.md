@@ -922,3 +922,8 @@ find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -type f -mt
 find / -regextype posix-extended -regex '.*([.-][0-9a-zA-Z]+)+[.-]log.gz' -type f -mtime +7 -exec rm -vf {} \;
 find / -regextype posix-extended -regex '.*[-_]([0-9])+.log.gz' -type f -mtime +7 -exec rm -vf {} \;
 ```
+### Sed command to delete specific word
+
+```shell
+sed -i -e '/up/d' lorem_ipsum.txt
+```
