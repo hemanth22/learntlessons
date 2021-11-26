@@ -1736,6 +1736,11 @@ sub error
     exit 0;
 }
 ```
+__output__
+```perl
+[root@centos perls]# perl examples_if.pl 
+This is true.
+```
 
 **vi examples_if1.pl**
 ```perl
@@ -1768,6 +1773,11 @@ sub error
     exit 0;
 }
 ```
+__output__
+```perl
+[root@centos perls]# perl examples_if1.pl
+[root@centos perls]# 
+```
 
 **vi examples_if2.pl**
 ```perl
@@ -1799,6 +1809,282 @@ sub error
     print("$0: $e\n");
     exit 0;
 }
+```
+__output__
+```perl
+[root@centos perls]# perl examples_if2.pl
+This is true.
+```
+
+**Vi examples_if3.pl**
+
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if ( "this is a string" ) {
+        message("This is true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_if3.pl
+This is true.
+```
+
+
+**vi examples_if4.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if ( "" ) {
+        message("This is true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_if4.pl
+[root@centos perls]# 
+```
+
+**vi examples_if5.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if ( undef ) {
+        message("This is true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_if5.pl
+[root@centos perls]# 
+```
+
+**vi examples_if6.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if ( 5 + 5 ) {
+        message("This is true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_if6.pl
+This is true.
+```
+
+**vi examples_if7.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if ( 5 - 5 ) {
+        message("This is true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_if7.pl
+[root@centos perls]# 
+```
+
+**vi examples_if8.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+use constant {
+    TRUE => 1,
+    FALSE => ''
+};
+
+main(@ARGV);
+
+sub main
+{
+    if ( TRUE ) {
+        message("This is true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_if8.pl
+This is true.
+```
+
+**vi examples_if9.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+use constant {
+    TRUE => 1,
+    FALSE => ''
+};
+
+main(@ARGV);
+
+sub main
+{
+    if ( FALSE ) {
+        message("This is true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_if9.pl
+[root@centos perls]# 
 ```
 
 ## References
