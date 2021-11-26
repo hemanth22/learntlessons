@@ -1679,6 +1679,31 @@ This is the template.pl exercise file from Perl 5 Essential Training.
 scope2.pl: this is an error message
 ```
 __note:__ here m is declared inside the error subroutine, hence error message is displayed.  
+
+## Conditional Statements
+
+### Understanding conditional statement
+
+- Conditionals execute code selectivity  
+
+```perl
+if (condition) {
+  statement
+}
+```
+- Conditionals may provide alternative code
+```perl
+if (condition) {
+  statement_1
+} else {
+  statement_2
+}
+```
+
+- Beginning with version __5.10__, Perl also provides a switch statement
+  - Uses given and when
+  - Requires the latest version of Perl
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
