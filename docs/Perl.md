@@ -2087,6 +2087,96 @@ __output__
 [root@centos perls]# 
 ```
 
+## else condition
+
+**vi examples_else.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+use constant {
+    TRUE => 1,
+    FALSE => ''
+};
+
+main(@ARGV);
+
+sub main
+{
+    if ( TRUE ) {
+        message("This is true.");
+    } else {
+        message("This is false.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_else.pl
+This is true.
+```
+
+**vi examples_else1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+use constant {
+    TRUE => 1,
+    FALSE => ''
+};
+
+main(@ARGV);
+
+sub main
+{
+    if ( FALSE ) {
+        message("This is true.");
+    } else {
+        message("This is false.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl examples_else1.pl
+This is false.
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
