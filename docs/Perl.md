@@ -2177,6 +2177,84 @@ __output__
 This is false.
 ```
 
+**vi examples_elsif.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if ( 0 ) {
+        message("This is true.");
+    } elsif ( 1 ) {
+        message("But this one is true.");
+    } else {
+        message("This is not true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi examples_elsif1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    if ( 0 ) {
+        message("This is true.");
+    } elsif ( 0 ) {
+        message("But this one is true.");
+    } elsif ( 0 ) {
+        message("But this one is true.");
+    } elsif ( 0 ) {
+        message("But this one is different than the true.");
+    } elsif ( 0 ) {
+        message("But this one is true.");
+    } else {
+        message("This is not true.");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
