@@ -2761,7 +2761,7 @@ sub error
 
 __output__
 ```perl
-[root@centos perls]# perl example_for.pl
+[root@centos perls]# perl example_for1.pl
 one
 two
 three
