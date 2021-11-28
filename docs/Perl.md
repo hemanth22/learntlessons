@@ -2572,7 +2572,7 @@ sub main
 {
     my $line;
     open(FH, "linesfile.txt");
-    print $line until( ($line = <FH>) =~ /3/ );
+    print $line until ($line = <FH>) =~ /3/;
     close FH;
 }
 
