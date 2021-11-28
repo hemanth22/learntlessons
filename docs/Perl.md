@@ -2680,6 +2680,95 @@ four
 five
 ```
 
+## for loop condition
+
+**vi example_for.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = ("one","two","three","four","five");
+    my $i;
+    for($i =0; $list[$i]; $i++){
+        message($list[$i])
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+ perl example_for.pl
+one
+two
+three
+four
+five
+```
+
+**vi example_for1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = ("one","two","three","four","five");
+    my $i;
+    for($i =0; $list[$i]; $i++){
+        message("index is $i " . $list[$i])
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+__output__
+```perl
+[root@centos perls]# perl example_for.pl
+one
+two
+three
+four
+five
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
