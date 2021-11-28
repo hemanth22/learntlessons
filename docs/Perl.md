@@ -2410,6 +2410,25 @@ __output__
 number is in range
 ```
 
+## Understanding Loops
+
+- Loops are used for repeating code
+
+```perl
+while ( condition ) {
+	statement1;
+	statement2;
+}
+```
+
+- Perl provides two basic types of loops
+  - while/until loops
+  - for/foreach loops
+
+## While conditions
+
+
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
