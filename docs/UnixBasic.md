@@ -2104,7 +2104,7 @@ for x in *.txt; do mv "$x" "${x%.txt}.log";done
 sed -i -e 's/\r$//' filename
 ```
 
-### Sed command to delete specific word
+## Sed command to delete specific word
 
 ```shell
 sed -i -e '/up/d' lorem_ipsum.txt
