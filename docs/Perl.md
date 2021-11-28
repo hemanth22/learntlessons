@@ -3193,6 +3193,166 @@ perl example_spc_var3.pl
 sixseveneight
 ```
 
+**Vi example_filehandler.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    error("This is the template.pl exercise file from Perl 5 Essential Training.");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print(STDOUT "$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```
+ perl example_filehandler.pl
+example_filehandler.pl: This is the template.pl exercise file from Perl 5 Essential Training.
+```
+
+**vi example_filehandler1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    while(<>){
+        print;
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print(STDOUT "$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl example_filehandler1.pl example_filehandler.pl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    error("This is the template.pl exercise file from Perl 5 Essential Training.");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print(STDOUT "$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_filehandler2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    while(<>){
+        print "$. $_";
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print(STDOUT "$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl example_filehandler2.pl example_filehandler1.pl
+1 #!/usr/bin/perl
+2 # statements.pl by Bill Weinman <http://bw.org/contact/>
+3 # Copyright (c) 2010 The BearHeart Group, LLC
+4 #
+5 use strict;
+6 use warnings;
+7 
+8 main(@ARGV);
+9 
+10 sub main
+11 {
+12     while(<>){
+13         print;
+14     }
+15 }
+16 
+17 sub message
+18 {
+19     my $m = shift or return;
+20     print(STDOUT "$m\n");
+21 }
+22 
+23 sub error
+24 {
+25     my $e = shift || 'unkown error';
+26     print(STDERR "$0: $e\n");
+27     exit 0;
+28 }
+```
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
