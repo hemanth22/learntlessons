@@ -2176,7 +2176,7 @@ __output__
 [root@centos perls]# perl examples_else1.pl
 This is false.
 ```
-## else-if condition
+### else-if condition
 
 **vi examples_elsif.pl**
 ```perl
@@ -2256,7 +2256,7 @@ sub error
 }
 ```
 
-## postfix
+### postfix
 
 **vi example_postfix.pl**
 ```perl
@@ -2295,7 +2295,7 @@ __output__
 number is in range!
 ```
 
-## unless
+### unless
 
 **vi example_unless.pl**
 ```perl
@@ -2371,7 +2371,7 @@ __output__
 number is out of range
 ```
 
-## ternary
+### ternary
 
 **vi example_ternary.pl**
 ```perl
@@ -2425,7 +2425,7 @@ while ( condition ) {
   - while/until loops
   - for/foreach loops
 
-## While conditions
+### While conditions
 
 **vi example_while.pl**
 ```perl
@@ -2506,7 +2506,7 @@ line3
 line4
 ```
 
-## until condition
+### until condition
 
 **vi example_until.pl**
 ```perl
@@ -2596,7 +2596,7 @@ line 1
 line 2
 ```
 
-## for_each condition
+### for_each condition
 
 **vi example_foreach.pl**
 ```perl
@@ -2680,7 +2680,7 @@ four
 five
 ```
 
-## for loop condition
+### for loop condition
 
 **vi example_for.pl**
 ```perl
@@ -2858,7 +2858,7 @@ line 4
 line 5
 ```
 
-## postfix
+### postfix
 
 **vi example_loops_postfix.pl**
 ```perl
@@ -3024,7 +3024,7 @@ three
 four
 five
 ```
-## Special vars
+## Special variables
 
 __How Perl uses special variables__
 
@@ -3047,7 +3047,7 @@ __How Perl uses special variables__
 |`@INC`|List of paths Perl searches for libraries and modules|
 |`%ENV`|Hash of environment variables|
 
-## using
+### using
 
 **vi example_spc_var.pl**
 ```perl
@@ -3193,7 +3193,7 @@ perl example_spc_var3.pl
 sixseveneight
 ```
 
-**Vi example_filehandler.pl**
+**vi example_filehandler.pl**
 ```perl
 #!/usr/bin/perl
 # statements.pl by Bill Weinman <http://bw.org/contact/>
@@ -3354,7 +3354,7 @@ perl example_filehandler2.pl example_filehandler1.pl
 28 }
 ```
 
-## constants
+### constants
 
 **vi example_constants.pl**
 ```perl
