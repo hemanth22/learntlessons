@@ -2427,7 +2427,84 @@ while ( condition ) {
 
 ## While conditions
 
+**vi example_while.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
 
+main(@ARGV);
+
+sub main
+{
+    open(FH, "linesfile.txt");
+    message("the file is open");
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl example_while.pl
+the file is open
+```
+
+**vi example_while1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, "linesfile.txt");
+    while( my $line = <FH> ) {
+        print $line;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```
+[root@centos perls]# perl example_while1.pl
+line1
+line2
+line3
+line4
+```
 
 ## References
 
