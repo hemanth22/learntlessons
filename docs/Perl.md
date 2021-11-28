@@ -3035,6 +3035,19 @@ __How Perl uses special variables__
 - Over 70 special variables
   - Full list in Perl documentation page "perlvar"
 
+|variable|details|
+|---|---|
+|`$_`|Default input|
+|`$1, $2, $3, etc.`|Pattern results|
+|`$!`|System error number or string|
+|`$@`|eval() error|
+|`$$`|Process ID(PID)|
+|`@_`|List of arguments for subroutine|
+|`@ARGV`|List of command-line arguments|
+|`@INC`|List of paths Perl searches for libraries and modules|
+|`%ENV`|Hash of environment variables|
+
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
