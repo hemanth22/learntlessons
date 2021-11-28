@@ -17,6 +17,7 @@
 |13 | [Putting Powershell to work](./PowerShell5.md) |
 |14 | [Powershell Netwoking](./PowerShell6.md) |
 |15 | [Powershell Automation](./PowerShell7.md) |
+|16 | [Perl Scripting](./Perl.md) |
 
 ## About my blogs
 
