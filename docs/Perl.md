@@ -2874,7 +2874,8 @@ main(@ARGV);
 sub main
 {
     open(FH, "linesfile.txt");
-    print $_ while (<FH>);
+    # print $_ while (<FH>);
+    print while (<FH>);
     close FH;
 }
 
