@@ -3084,6 +3084,41 @@ perl example_spc_var.pl one two three four five
 one:two:three:four:five
 ```
 
+**vi example_spc_var1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main("six","seven","eight");
+
+sub main
+{
+    message(join(':', @_));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl example_spc_var1.pl one two three four five
+six:seven:eight
+```
+
 
 ## References
 
