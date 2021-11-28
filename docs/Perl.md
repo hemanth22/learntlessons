@@ -2506,6 +2506,57 @@ line3
 line4
 ```
 
+## until condition
+
+**vi example_until.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $line;
+    open(FH, "linesfile.txt");
+    until( ($line = <FH>) =~ /3/ ) {
+        print $line;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl example_until.pl 
+line 1
+line 2
+```
+**vi linesfile.txt**
+```txt
+line 1
+line 2
+line 3
+line 4
+line 5
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
