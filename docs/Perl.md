@@ -3353,6 +3353,152 @@ perl example_filehandler2.pl example_filehandler1.pl
 27     exit 0;
 28 }
 ```
+
+## constants
+
+**vi example_constants.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    message("The filename is " . __FILE__);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print(STDOUT "$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl example_constants.pl
+The filename is example_constants.pl
+```
+
+**vi example_constants1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    message("The line number is " . __LINE__);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print(STDOUT "$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl example_constants1.pl
+The filename is 12
+```
+
+**vi example_constants2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    message("The package is " . __PACKAGE__);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print(STDOUT "$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+[root@centos perls]# perl example_constants2.pl 
+The package is main
+```
+
+**vi example_constants3.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    message("The package is " . __PACKAGE__);
+}
+
+__END__
+
+sub message
+{
+    my $m = shift or return;
+    print(STDOUT "$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```
+[root@centos perls]# perl example_constants3.pl
+Undefined subroutine &main::message called at example_constants3.pl line 12.
+```
+
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
