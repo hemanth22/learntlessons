@@ -5,6 +5,7 @@
 * [SED](./SEDLearning.md)
 * [AWK](./AWKLearning.md)
 * [REGEX](./regularexp.md)
+* [Perl](./Perl.md)
 * [Cron Job](./CronJob.md)
 * [Vim](./Vim.md)
 * [Powershell: Getting started](./PowerShell1.md)
