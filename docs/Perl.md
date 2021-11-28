@@ -2858,6 +2858,49 @@ line 4
 line 5
 ```
 
+## postfix
+
+**vi example_loops_postfix.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, "linesfile.txt");
+    print $_ while (<FH>);
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```
+perl example_loops_postfix.pl
+line 1
+line 2
+line 3
+line 4
+line 5
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line
