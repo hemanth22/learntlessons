@@ -3024,6 +3024,16 @@ three
 four
 five
 ```
+## Special vars
+
+__How Perl uses special variables__
+
+- Perl uses special variables for a number of purposes
+- Default values for functions and loops
+- Error codes and messages
+- Information about the system and its environment
+- Over 70 special variables
+  - Full list in Perl documentation page "perlvar"
 
 ## References
 
