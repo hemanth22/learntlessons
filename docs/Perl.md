@@ -3119,6 +3119,79 @@ perl example_spc_var1.pl one two three four five
 six:seven:eight
 ```
 
+**vi example_spc_var2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main("six","seven","eight");
+
+sub main
+{
+    foreach ( @_ ) {
+        print;
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl example_spc_var2.pl
+sixseveneight
+```
+
+**vi example_spc_var3.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main("six","seven","eight");
+
+sub main
+{
+    foreach $_ ( @_ ) {
+        print $_;
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl example_spc_var3.pl
+sixseveneight
+```
 
 ## References
 
