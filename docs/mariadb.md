@@ -246,7 +246,7 @@ MariaDB [nation]> SELECT table_schema DB_NAME, table_name TABLE_NAME, ROUND((dat
 10 rows in set (0.016 sec)
 ```
 
-* command run mariadb using podman
+## command run mariadb using podman
 
 ```podman
 podman run -d -e MARIADB_ROOT_PASSWORD=Password1 --name mariadb -p 3000:3306 mariadb:10.7.1
