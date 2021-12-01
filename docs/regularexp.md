@@ -973,6 +973,22 @@ HTML samples
 
 - `/^(?:3[47]\d{2}([\- ]?)\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ]?)\d{4}\2\d{4}\2\d{4})$/m`
 
+
+## To match program error logs
+
+- `(\w+)\(([\w\.]+):(\d+)\)`
+
+## To match the tags html or xml tags
+
+- To match first open tag
+  - `<(\w+).`
+
+- To match the data between the tag
+  - `>([\w\s]*)<`
+
+- To match the attribute of the tag like color class
+  - `='([\w://.]*)'`
+
 ## Reference:
 
 https://www.geeksforgeeks.org/regular-expression-grep/  
