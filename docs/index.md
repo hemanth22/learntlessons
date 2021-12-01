@@ -18,6 +18,9 @@
 |14 | [Powershell Netwoking](./PowerShell6.md) |
 |15 | [Powershell Automation](./PowerShell7.md) |
 |16 | [Perl Scripting](./Perl.md) |
+|17 | [mysql cheatsheet](./mysql-cheatsheet.md) |
+|18 | [mysql guide](./mysql_guide.md) |
+|19 | [mariadb](./mariadb.md) |
 
 ## About my blogs
 
