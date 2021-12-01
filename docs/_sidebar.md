@@ -15,3 +15,6 @@
 * [Putting Powershell to work](./PowerShell5.md)
 * [Powershell Netwoking](./PowerShell6.md)
 * [Powershell Automation](./PowerShell7.md)
+* [mysql cheatsheet](./mysql-cheatsheet.md)  
+* [mysql guide](./mysql_guide.md)  
+* [mariadb](./mariadb.md)  
