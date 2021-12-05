@@ -3498,6 +3498,241 @@ __output__
 Undefined subroutine &main::message called at example_constants3.pl line 12.
 ```
 
+## Operators
+
+## Operation Arithmetic
+
+**vi exampleoperation1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $n = 42 + 12;
+    my $ns = 42 - 12;
+    my $nm = 42 * 12;
+    my $nd = 42 / 12;
+    message("The addition number is: " . $n);
+    message("The subtraction number is: " . $ns);
+    message("The multiplication number is: " . $nm);
+    message("The division number is: " . $nd);
+
+    my $ax = 42;
+    $ax++;
+    message("Post Increment Number: " . $ax);
+
+    my $ay = 42;
+    $ay--;
+    message("Post Decrement Number: " . $ay);
+
+    my $bx = 42;
+    $bx++;
+    message("Pre Increment Number: " . $bx);
+
+    my $by = 42;
+    $by--;
+    message("Pre Decrement Number: " . $by);
+
+    message("==========================");
+    my $nypd = 42;
+    message("The number is: " . $nypd++);
+    message("The number is: " . $nypd);
+
+    message("==========================");
+    my $nypc = 42;
+    message("The number is: " . ++$nypc);
+    message("The number is: " . $nypc);
+
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl exampleoperation1.pl
+The addition number is: 54
+The subtraction number is: 30
+The multiplication number is: 504
+The division number is: 3.5
+Post Increment Number: 43
+Post Decrement Number: 41
+Pre Increment Number: 43
+Pre Decrement Number: 41
+==========================
+The number is: 42
+The number is: 43
+==========================
+The number is: 43
+The number is: 43
+```
+
+## comparison
+
+**vi example_comparison.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    message("=======TRUE CASE=====");
+
+    if(5==5) {
+        message("this is true")
+    } else {
+        message("this is NOT true");
+    }
+
+    message("=======FALSE CASE=====");
+
+    if(5!=5) {
+        message("this is true")
+    } else {
+        message("this is NOT true");
+    }
+
+    message("=======LESS THAN CASE=====");
+    
+    if(5 < 6) {
+        message("this is less")
+    } else {
+        message("this is greater");
+    }
+
+    message("=======GREATER THAN CASE=====");
+    
+    if(6 > 5) {
+        message("this is greater")
+    } else {
+        message("this is less");
+    }
+
+    message("=======LESS THAN OR EQUAL CASE=====");
+    
+    if(5 <= 6) {
+        message("this is less")
+    } else {
+        message("this is greater");
+    }
+
+    message("=======GREATER THAN OR EQUAL CASE=====");
+    
+    if(6 => 5) {
+        message("this is greater")
+    } else {
+        message("this is less");
+    }
+
+    message("======= eq =====");
+    
+    if("six" eq "six") {
+        message("this is true")
+    } else {
+        message("this is NOT true");
+    }
+
+    message("======= eq =====");
+    
+    if("four" eq "five") {
+        message("this is true")
+    } else {
+        message("this is NOT true");
+    }
+
+    message("======= gt =====");
+    
+    if("four" gt "five") {
+        message("this is true")
+    } else {
+        message("this is NOT true");
+    }
+
+    message("======= lt =====");
+    
+    if("four" lt "five") {
+        message("this is true")
+    } else {
+        message("this is NOT true");
+    }
+
+    message("======= ne =====");
+    
+    if("four" ne "five") {
+        message("this is true")
+    } else {
+        message("this is NOT true");
+    }
+
+
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl example_comparison.pl
+Useless use of a constant (6) in void context at example_comparison.pl line 58.
+=======TRUE CASE=====
+this is true
+=======FALSE CASE=====
+this is NOT true
+=======LESS THAN CASE=====
+this is less
+=======GREATER THAN CASE=====
+this is greater
+=======LESS THAN OR EQUAL CASE=====
+this is less
+=======GREATER THAN OR EQUAL CASE=====
+this is greater
+======= eq =====
+this is true
+======= eq =====
+this is NOT true
+======= gt =====
+this is true
+======= lt =====
+this is NOT true
+======= ne =====
+this is true
+```
+Perl documentation command: `perldoc perlop`  
+
+
 
 ## References
 
