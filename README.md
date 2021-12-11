@@ -1,2 +1,3 @@
 # lessonslearnt
-lessonslearnt is a copy to secret repository where i have written which i have leanrt from different source of learning channel.
+lessonslearnt is a copy to secret repository.
+Help to access docsify through Azure App Services.
