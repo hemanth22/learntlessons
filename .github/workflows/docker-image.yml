@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build a Docker image
-      run: docker build -t lessonslearnt:v1 .
+      run: docker build -t lessonslearnt:v1 -f ./docs/Dockerfile .
     - name: Build a Docker image
       run: docker ps -a; docker images
     - name: Run Snyk to check Docker image for vulnerabilities
@@ -56,6 +56,6 @@ jobs:
         image: bitroid/lessonslearnt
         tags: v1, latest
         registry: docker.io
-        dockerfile: /docs/Dockerfile
+        dockerfile: ./docs/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
