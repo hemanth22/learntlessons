@@ -16,7 +16,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
         image-name: urlshortener # Provide only Docker image name, tag will be automatically set to latest
-        dockerfile: Dockerfile
+        dockerfile: /docs/Dockerfile
     
   snyk:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
         image: lessonslearn:v1
-        args: --file=docs/Dockerfile
+        args: --file=/docs/Dockerfile
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v1
       with:
