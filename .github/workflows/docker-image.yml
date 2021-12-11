@@ -1,0 +1,59 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2 # Checking out the repo
+    - name: Build and Publish latest Docker image
+      uses: VaultVulp/gp-docker-action@1.1.7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
+        image-name: urlshortener # Provide only Docker image name, tag will be automatically set to latest
+        dockerfile: Dockerfile
+    
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build a Docker image
+      run: docker build -t urlshortener:v1 .
+    - name: Run Snyk to check Docker image for vulnerabilities
+      # Snyk can be used to break the build when it detects vulnerabilities.
+      # In this case we want to upload the issues to GitHub Code Scanning
+      continue-on-error: true
+      uses: snyk/actions/docker@master
+      env:
+        # In order to use the Snyk Action you will need to have a Snyk API token.
+        # More details in https://github.com/snyk/actions#getting-your-snyk-token
+        # or you can signup for free at https://snyk.io/login
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        image: lessonslearn:v1
+        args: --file=Dockerfile
+    - name: Upload result to GitHub Code Scanning
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: snyk.sarif
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out code
+
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      name: Build & push Docker image
+      with:
+        image: bitroid/lessonslearn
+        tags: v1, latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
