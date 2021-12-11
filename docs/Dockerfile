@@ -5,7 +5,7 @@ LABEL Quickly serve static files using Python http.server module.
 
 WORKDIR /usr/app
 
-ADD . /usr/app
+ADD docs/. /usr/app
 
 RUN echo "Hello World" && \
   apk add python3 && \
