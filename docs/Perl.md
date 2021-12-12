@@ -4378,9 +4378,9 @@ Operator Precedence and Associativity in Perl
 | nonassoc |  `< > <= >= lt gt le ge`               |
 | nonassoc |  `== != <=> eq ne cmp ~~`              |
 | left     |  ```&```                                   |
-| left     |  ```| ^```                                 |
+| left     |  `|` `^`                                 |
 | left     |  ```&&```                                  |
-| left     |  ```|| //```                               |
+| left     |  `||` `//`                               |
 | nonassoc |  `.. ...`                              |
 | right    |  `?:`                                  |
 | right    |  `= += -= *= etc.`                     |
