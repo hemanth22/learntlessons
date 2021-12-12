@@ -4322,7 +4322,73 @@ This is the "template.pl" (42) exercise file from Perl 5 Essential Training.
 
 ## precendence
 
+**vi precendence.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
 
+main(@ARGV);
+
+sub main
+{
+    my $n = ( 3 + 7 ) * 5;
+    my $nm =  3 + 7  * 5;
+    message("Value of $n");
+    message("Value of $nm");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl precendence.pl
+Value of 50
+Value of 38
+```
+
+Operator Precedence and Associativity in Perl
+=============================================
+|Associativity | Operator |
+|---|---|
+| left     |  `terms and list operators (leftward)` |
+| left     |  `->`                                  |
+| nonassoc |  `++ --`                               |
+| right    |  `**`                                  |
+| right    |  `! ~ \ and unary + and -`             |
+| left     |  `=~ !~`                               |
+| left     |  `* / % x`                             |
+| left     |  `+ - .`                               |
+| left     |  `<< >>`                               |
+| nonassoc |  `named unary operators`               |
+| nonassoc |  `< > <= >= lt gt le ge`               |
+| nonassoc |  `== != <=> eq ne cmp ~~`              |
+| left     |  `&`                                   |
+| left     |  `| ^`                                 |
+| left     |  `&&`                                  |
+| left     |  `|| //`                               |
+| nonassoc |  `.. ...`                              |
+| right    |  `?:`                                  |
+| right    |  `= += -= *= etc.`                     |
+| left     |  `, =>`                                |
+| nonassoc |  `list operators (rightward)`          |
+| right    |  `not`                                 |
+| left     |  `and`                                 |
+| left     |  `or xor`                              |
  
 ## References
 
