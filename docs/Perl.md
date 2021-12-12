@@ -3874,6 +3874,39 @@ this is true
 ```
 ## Filetest
 
+**vi example_filetest.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @dirlist = <*>;
+    foreach my $fn (@dirlist) {
+        message($fn);
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
 **vi example_filetest2.pl**
 ```perl
 #!/usr/bin/perl
@@ -3997,6 +4030,132 @@ undef2.pl is a plan file
 undef3.pl is a plan file
 undef4.pl is a plan file
 ```
+
+**vi example_filetest3.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @dirlist = <*>;
+    foreach my $fn (@dirlist) {
+        if( -f $fn ) {
+            my $size = -s $fn;
+            message("$fn is a plan file ($size bytes)");
+        } elsif ( -d $fn ) {
+            message("$fn is a directory");
+        } else {
+            message("$fn is something else");
+        }
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl example_filetest.pl
+assignments.pl is a plan file (374 bytes)
+assignments1.pl is a plan file (383 bytes)
+assignments2.pl is a plan file (403 bytes)
+blocks.pl is a plan file (499 bytes)
+blocks1.pl is a plan file (499 bytes)
+blocks2.pl is a plan file (498 bytes)
+conditions.pl is a plan file (0 bytes)
+countlines.pl is a plan file (437 bytes)
+countlines2.pl is a plan file (529 bytes)
+countlines3.pl is a plan file (1053 bytes)
+Directory is a directory
+each-begin.pl is a plan file (470 bytes)
+each-begin1.pl is a plan file (568 bytes)
+example_comparison.pl is a plan file (2018 bytes)
+example_constants.pl is a plan file (384 bytes)
+example_constants1.pl is a plan file (387 bytes)
+example_constants2.pl is a plan file (386 bytes)
+example_constants3.pl is a plan file (395 bytes)
+example_control.pl is a plan file (457 bytes)
+example_control1.pl is a plan file (457 bytes)
+example_filehandler.pl is a plan file (424 bytes)
+example_filehandler1.pl is a plan file (376 bytes)
+example_filehandler2.pl is a plan file (384 bytes)
+example_filetest.pl is a plan file (643 bytes)
+example_for.pl is a plan file (455 bytes)
+example_for1.pl is a plan file (474 bytes)
+example_foreach.pl is a plan file (413 bytes)
+example_logical.pl is a plan file (1853 bytes)
+example_loops_postfix.pl is a plan file (395 bytes)
+example_loops_postfix1.pl is a plan file (429 bytes)
+example_loops_postfix2.pl is a plan file (437 bytes)
+example_loops_postfix3.pl is a plan file (414 bytes)
+example_postfix.pl is a plan file (510 bytes)
+example_spc_var.pl is a plan file (357 bytes)
+example_spc_var1.pl is a plan file (370 bytes)
+example_spc_var2.pl is a plan file (384 bytes)
+example_spc_var3.pl is a plan file (390 bytes)
+example_ternary.pl is a plan file (443 bytes)
+example_unless.pl is a plan file (411 bytes)
+example_until.pl is a plan file (451 bytes)
+example_until1.pl is a plan file (432 bytes)
+example_while.pl is a plan file (406 bytes)
+example_while1.pl is a plan file (431 bytes)
+exampleoperation1.pl is a plan file (1200 bytes)
+examples_else.pl is a plan file (484 bytes)
+examples_else1.pl is a plan file (485 bytes)
+examples_elsif.pl is a plan file (496 bytes)
+examples_elsif1.pl is a plan file (701 bytes)
+examples_if.pl is a plan file (383 bytes)
+examples_if1.pl is a plan file (383 bytes)
+examples_if2.pl is a plan file (385 bytes)
+examples_if3.pl is a plan file (400 bytes)
+examples_if4.pl is a plan file (384 bytes)
+examples_if5.pl is a plan file (387 bytes)
+examples_if6.pl is a plan file (387 bytes)
+examples_if7.pl is a plan file (387 bytes)
+examples_if8.pl is a plan file (436 bytes)
+examples_if9.pl is a plan file (437 bytes)
+expressions.pl is a plan file (369 bytes)
+expressions1.pl is a plan file (373 bytes)
+expressions2.pl is a plan file (388 bytes)
+expressions3.pl is a plan file (378 bytes)
+hashes.pl is a plan file (498 bytes)
+hello-simple.pl is a plan file (24 bytes)
+hello.pl is a plan file (168 bytes)
+linesfile.txt is a plan file (34 bytes)
+lists.pl is a plan file (562 bytes)
+lists2.pl is a plan file (456 bytes)
+numbers.pl is a plan file (691 bytes)
+sample_help.pl is a plan file (414 bytes)
+scope.pl is a plan file (414 bytes)
+scope1.pl is a plan file (526 bytes)
+scope2.pl is a plan file (526 bytes)
+slices.pl is a plan file (395 bytes)
+strings.pl is a plan file (893 bytes)
+syntax.pl is a plan file (412 bytes)
+undef.pl is a plan file (369 bytes)
+undef1.pl is a plan file (366 bytes)
+undef2.pl is a plan file (411 bytes)
+undef3.pl is a plan file (642 bytes)
+undef4.pl is a plan file (633 bytes)
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
