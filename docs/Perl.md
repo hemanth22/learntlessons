@@ -3875,6 +3875,6 @@ this is true
 
 ## References
 
-https://perlmaven.com/perl-on-the-command-line
-https://www.thegeekstuff.com/2010/06/perl-command-line-options/
-https://www.thegeekstuff.com/category/perl/
+https://perlmaven.com/perl-on-the-command-line  
+https://www.thegeekstuff.com/2010/06/perl-command-line-options/  
+https://www.thegeekstuff.com/category/perl/  
