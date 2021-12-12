@@ -3732,7 +3732,146 @@ this is true
 ```
 Perl documentation command: `perldoc perlop`  
 
+## Logical
 
+**vi example_logical.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $x = ( 5 == 5 );
+    message("x is $x");
+    if(1){
+        message("this is true");
+    } else {
+        message("this is NOT true");
+    }
+
+    message("\n");
+    message("Below with fail to give as false as zero is considered as string in perl!");
+    message("\n");
+    my $y = ( 5 != 5 );
+    message("y is $y");
+    if(1){
+        message("this is true");
+    } else {
+        message("this is NOT true");
+    }
+
+    message("\n");
+    my $z = ( 5 != 5 );
+    message("z is '$z'");
+    if(1){
+        message("this is true");
+    } else {
+        message("this is NOT true");
+    }
+
+
+    message("\n");
+    message("Logical OR");
+
+    if( (5 == 6) || (6 == 7) ){
+        message("this is true");
+    } else {
+        message("this is NOT true");
+    }
+
+    message("\n");
+    message("Logical AND");
+
+    if( (5 == 6) && (6 == 7) ){
+        message("this is true");
+    } else {
+        message("this is NOT true");
+    }
+
+    message("\n");
+    message("Logical or in different");
+
+    if( (6 == 6) or (7 == 7) ){
+        message("this is true");
+    } else {
+        message("this is NOT true");
+    }
+
+    message("\n");
+    message("Logical and in different");
+
+    if( (6 == 6) and (7 == 7) ){
+        message("this is true");
+    } else {
+        message("this is NOT true");
+    }
+
+    message("==================================");
+    my $s = $ARGV[1] || "default";
+    message($s);
+    if( (6 == 6) or (7 == 7) ){
+        message("this is true");
+    } else {
+        message("this is NOT true");
+    }
+
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+ perl example_logical.pl
+x is 1
+this is true
+
+
+Below with fail to give as false as zero is considered as string in perl!
+
+
+y is 
+this is true
+
+
+z is ''
+this is true
+
+
+Logical OR
+this is NOT true
+
+
+Logical AND
+this is NOT true
+
+
+Logical or in different
+this is true
+
+
+Logical and in different
+this is true
+==================================
+default
+this is true
+```
 
 ## References
 
