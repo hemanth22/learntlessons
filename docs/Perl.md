@@ -3872,7 +3872,131 @@ this is true
 default
 this is true
 ```
+## Filetest
 
+**vi example_filetest2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @dirlist = <*>;
+    foreach my $fn (@dirlist) {
+        if( -f $fn ) {
+            message("$fn is a plan file");
+        } elsif ( -d $fn ) {
+            message("$fn is a directory");
+        } else {
+            message("$fn is something else");
+        }
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+$perl example_filetest2.pl
+assignments.pl is a plan file
+assignments1.pl is a plan file
+assignments2.pl is a plan file
+blocks.pl is a plan file
+blocks1.pl is a plan file
+blocks2.pl is a plan file
+conditions.pl is a plan file
+countlines.pl is a plan file
+countlines2.pl is a plan file
+countlines3.pl is a plan file
+Directory is a directory
+each-begin.pl is a plan file
+each-begin1.pl is a plan file
+example_comparison.pl is a plan file
+example_constants.pl is a plan file
+example_constants1.pl is a plan file
+example_constants2.pl is a plan file
+example_constants3.pl is a plan file
+example_control.pl is a plan file
+example_control1.pl is a plan file
+example_filehandler.pl is a plan file
+example_filehandler1.pl is a plan file
+example_filehandler2.pl is a plan file
+example_filetest.pl is a plan file
+example_for.pl is a plan file
+example_for1.pl is a plan file
+example_foreach.pl is a plan file
+example_logical.pl is a plan file
+example_loops_postfix.pl is a plan file
+example_loops_postfix1.pl is a plan file
+example_loops_postfix2.pl is a plan file
+example_loops_postfix3.pl is a plan file
+example_postfix.pl is a plan file
+example_spc_var.pl is a plan file
+example_spc_var1.pl is a plan file
+example_spc_var2.pl is a plan file
+example_spc_var3.pl is a plan file
+example_ternary.pl is a plan file
+example_unless.pl is a plan file
+example_until.pl is a plan file
+example_until1.pl is a plan file
+example_while.pl is a plan file
+example_while1.pl is a plan file
+exampleoperation1.pl is a plan file
+examples_else.pl is a plan file
+examples_else1.pl is a plan file
+examples_elsif.pl is a plan file
+examples_elsif1.pl is a plan file
+examples_if.pl is a plan file
+examples_if1.pl is a plan file
+examples_if2.pl is a plan file
+examples_if3.pl is a plan file
+examples_if4.pl is a plan file
+examples_if5.pl is a plan file
+examples_if6.pl is a plan file
+examples_if7.pl is a plan file
+examples_if8.pl is a plan file
+examples_if9.pl is a plan file
+expressions.pl is a plan file
+expressions1.pl is a plan file
+expressions2.pl is a plan file
+expressions3.pl is a plan file
+hashes.pl is a plan file
+hello-simple.pl is a plan file
+hello.pl is a plan file
+linesfile.txt is a plan file
+lists.pl is a plan file
+lists2.pl is a plan file
+numbers.pl is a plan file
+sample_help.pl is a plan file
+scope.pl is a plan file
+scope1.pl is a plan file
+scope2.pl is a plan file
+slices.pl is a plan file
+strings.pl is a plan file
+syntax.pl is a plan file
+undef.pl is a plan file
+undef1.pl is a plan file
+undef2.pl is a plan file
+undef3.pl is a plan file
+undef4.pl is a plan file
+```
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
