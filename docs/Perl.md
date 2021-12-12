@@ -4272,6 +4272,57 @@ perl concat.pl
 string 1 string 2
 ```
 
+## quoteop
+
+**vi quoteop.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $x = 42;
+    message("This is the \"template.pl\" exercise file from Perl 5 Essential Training.");
+    message(q[This is the "template.pl" exercise file from Perl 5 Essential Training.]);
+    message(q/This is the "template.pl" exercise file from Perl 5 Essential Training./);
+    message(q{This is the "template.pl" exercise file from Perl 5 Essential Training.});
+    message(qq{This is the "template.pl" ($x) exercise file from Perl 5 Essential Training.});
+    message(qq{<p class="example">This is the "template.pl" ($x) exercise file from Perl 5 Essential Training.});
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl quoteop.pl
+This is the "template.pl" exercise file from Perl 5 Essential Training.
+This is the "template.pl" exercise file from Perl 5 Essential Training.
+This is the "template.pl" exercise file from Perl 5 Essential Training.
+This is the "template.pl" exercise file from Perl 5 Essential Training.
+This is the "template.pl" (42) exercise file from Perl 5 Essential Training.
+<p class="example">This is the "template.pl" (42) exercise file from Perl 5 Essential Training.
+```
+
+## precendence
+
+
  
 ## References
 
