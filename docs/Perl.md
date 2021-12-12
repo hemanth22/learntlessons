@@ -4156,6 +4156,83 @@ undef3.pl is a plan file (642 bytes)
 undef4.pl is a plan file (633 bytes)
 ```
 
+## Range
+
+**vi range.pl**
+
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    print foreach ( 1 .. 9 );
+    message("\n");
+    message("=============");
+
+    print foreach ( 'a' .. 'z' );
+    message("\n");
+    message("=============");
+
+    print foreach ( 'a' .. 'z', 'A' .. 'Z' );
+    message("\n");
+    message("=============");
+
+    print foreach ( 0 .. 9, 'a' .. 'f' );
+    message("\n");
+    message("=============");
+
+    print foreach ( '00' .. '31' );
+    message("\n");
+    message("=============");
+
+    print join(',',( '00' .. '31' ));
+    message("\n");
+    message("=============");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```perl
+perl range.pl
+123456789
+
+=============
+abcdefghijklmnopqrstuvwxyz
+
+=============
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+=============
+0123456789abcdef
+
+=============
+0001020304050607080910111213141516171819202122232425262728293031
+
+=============
+00,01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
+
+=============
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
