@@ -4632,6 +4632,269 @@ sub error
 }
 ```
 
+## Parens
+
+**vi example_parens.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $time = "05:24:37";
+    my ($hour, $min, $sec) = $time =~ /(..):(..):(..)/;
+    # Here time become list of hour,min,sec
+    message("hour: $hour, min: $min, sec: $sec");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+## wildcard
+
+**vi example_wildcards.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(<FH>) {
+        /(^....)/; #This will display first four letters
+        message($1) if $1;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_wildcards1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(<FH>) {
+        /(....)$/; #This will display last four letters
+        message($1) if $1;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_wildcards2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(<FH>) {
+        /(a...)/; #This will display last four letters
+        message($1) if $1;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_wildcards3.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(<FH>) {
+        my @list = /(a.{3})/g;
+        message(join(':', @list)) if @list;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+## Classes
+
+**vi example_classes.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'perlre.txt');
+    while(<FH>) {
+        my @list = /[0-9]/g; #This is for digits
+        #my @list = /[a-zA-Z]/g; #This is for characters
+        #my @list = /[173]/g;
+        #my @list = /([173]+)/g;
+        #my @list = /([0-9]+)/g;
+        #my @list = /(\d+)/g;
+        #my @list = /([[:digit:]]+)/g;
+        #my @list = /([[:punct:]]+)/g;
+        #my @list = /(\D+)/g;
+        #my @list = /(\w+)/g;
+        #my @list = /(\W+)/g;
+        message(join(':', @list)) if @list;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+## Split
+
+**vi example_split.pl**
+```perl
+
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $time = "05:27:32";
+    my ($hour, $min, $sec) = split(/:/, $time);
+    message("hour: $hour, min: $min, sec: $sec");
+    error("this is an error message");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    my @me = split(m|[\\/]|, $0);
+    print(STDERR "$me[-1]: $e\n");
+    exit 0;
+}
+```
+
+## Subroutines
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
