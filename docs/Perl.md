@@ -4389,7 +4389,22 @@ Operator Precedence and Associativity in Perl
 | right    |  `not`                                 |
 | left     |  `and`                                 |
 | left     |  `or xor`                              |
- 
+
+## Regular Expressions
+
+### Understanding regular expressions
+
+- Regular expressions are very powerful method of matching patterns in text
+  - They're often called "regex" or the plural "regexes"
+- They are used within other languages, like Perl
+- Commonly used for search-and-replace operations
+- Regexes can be very simple or very complex
+- The regex expression language is compact, so it can look more intimidating
+
+`(hour, $min, $sec) = $time =~ /(\d\d):(\d\d):(\d\d)/;`  
+`while( $n = ~ s/^(-?\d+)(\d{3})/\1,\2/) {}`  
+
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
