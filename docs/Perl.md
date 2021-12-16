@@ -4404,6 +4404,233 @@ Operator Precedence and Associativity in Perl
 `(hour, $min, $sec) = $time =~ /(\d\d):(\d\d):(\d\d)/;`  
 `while( $n = ~ s/^(-?\d+)(\d{3})/\1,\2/) {}`  
 
+## Sandr
+
+**vi short.txt**
+```txt
+This page describes the syntax of regular expressions in Perl.
+
+If you haven't used regular expressions before, a quick-start
+introduction is available in perlrequick, and a longer tutorial
+introduction is available in perlretut.
+
+For reference on how regular expressions are used in matching
+operations, plus various examples of the same, see discussions of "m//",
+"s///", "qr//" and "??" in "Regexp Quote-Like Operators" in perlop.
+
+Matching operations can have various modifiers. Modifiers that relate to
+the interpretation of the regular expression inside are listed below.
+Modifiers that alter the way a regular expression is used by Perl are
+detailed in "Regexp Quote-Like Operators" in perlop and "Gory details of
+parsing quoted constructs" in perlop.
+```
+
+**vi example_sandr.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(<FH>) {
+        print;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+This will read the file.
+
+**vi example_sandr1.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(<FH>) {
+        print if /regular/;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+This will print only matching with regular expression word: regular
+
+**vi example_sandr2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(<FH>) {
+        print if m|/|;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_sandr3.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while($_ = <FH>) {
+        print $_ if $_ =~ m|/|;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_sandr4.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(my $line = <FH>) {
+        print $line if $line =~ m|/|;
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_sandr5.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, 'short.txt');
+    while(my $line = <FH>) {
+        $line =~ s/a/BOB/g;
+        print $line
+    }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
 
 ## References
 
