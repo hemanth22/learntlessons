@@ -4947,6 +4947,49 @@ message two.
 example_subroutine.pl: message three.
 ````
 
+### arguments subroutine
+
+__vi example_arguments.pl__
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+use subs qw( message error );
+
+main(@ARGV);
+
+sub main
+{
+    my $s = "This is the template.pl exercise file from Perl 5 Essential Training.";
+    my $y = 42;
+    my $z = "zee";
+    message($s, $y, $z)
+}
+
+sub message
+{
+    my ($m, $y, $z) = @_;
+    print("$m ($y) ($z)\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```bash
+[root@centos perls]# perl example_arguments.pl
+This is the template.pl exercise file from Perl 5 Essential Training. (42) (zee)
+```
+
+### Scope subroutine
 
 ## References
 
