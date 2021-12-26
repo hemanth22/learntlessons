@@ -4940,7 +4940,7 @@ sub error
 }
 ```
 __output__
-```bash
+```shell
 [root@centos perls]# perl example_subroutine.pl
 This is the template.pl exercise file from Perl 5 Essential Training.
 message two.
@@ -4984,7 +4984,7 @@ sub error
 }
 ```
 __output__
-```bash
+```shell
 [root@centos perls]# perl example_arguments.pl
 This is the template.pl exercise file from Perl 5 Essential Training. (42) (zee)
 ```
@@ -5025,7 +5025,7 @@ sub error
 }
 ```
 __output__
-```bash
+```shell
 [root@centos perls]# perl example_scope.pl
 scope.pl: This is the template.pl exercise file from Perl 5 Essential Training.
 scope.pl: some other string
@@ -5033,6 +5033,49 @@ scope.pl: some other string
 
 ### return subroutine
 
+__vi example_return.pl__
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $n = addnum( 2, 4);
+    message($n);
+    message(addnum(5, 8));
+}
+
+sub addnum
+{
+    my ($v1, $v2) = @_;
+    return $v1 + $v2;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```shell
+[root@centos perls]# perl example_return.pl
+6
+13
+```
 
 ## References
 
