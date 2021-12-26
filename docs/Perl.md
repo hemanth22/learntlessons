@@ -4895,6 +4895,59 @@ sub error
 
 ## Subroutines
 
+### Understanding Subroutines
+
+- Subroutines (sometimes called "functions") are a means of encapsulating code  
+- Subroutines are reusable  
+- Subroutines can hide complexity  
+- Subroutines can call other subroutines  
+- Subroutines can call themselves  
+  - This is call "recursion"  
+
+### defining subroutine
+
+**vi example_subroutine.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+use subs qw( message error );
+
+main(@ARGV);
+
+sub main
+{
+    message "This is the template.pl exercise file from Perl 5 Essential Training.";
+    message "message two.";
+    error "message three.";
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```bash
+[root@centos perls]# perl example_subroutine.pl
+This is the template.pl exercise file from Perl 5 Essential Training.
+message two.
+example_subroutine.pl: message three.
+````
+
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
