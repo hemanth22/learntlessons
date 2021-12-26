@@ -75,3 +75,9 @@ __Alternative commandline__
 ```perl
 perl -i.bak -p -e 's/\bJava\b/Perl/' *.txt
 ```
+
+__perl date in commandline__
+
+```perl
+perl -MPOSIX -e 'print POSIX::strftime("%Y%m%d", localtime());'
+```
