@@ -4991,6 +4991,49 @@ This is the template.pl exercise file from Perl 5 Essential Training. (42) (zee)
 
 ### Scope subroutine
 
+__vi example_scope.pl__
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+my $g = "scope.pl";
+
+main(@ARGV);
+
+sub main
+{
+    my $m = "some other string";
+    message("This is the template.pl exercise file from Perl 5 Essential Training.");
+    message($m);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$g: $m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+__output__
+```bash
+[root@centos perls]# perl example_scope.pl
+scope.pl: This is the template.pl exercise file from Perl 5 Essential Training.
+scope.pl: some other string
+```
+
+### return subroutine
+
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
