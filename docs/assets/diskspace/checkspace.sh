@@ -1,0 +1,13 @@
+printf "Filesystem\tType\tTotal\tAvailUsed\tMount\n"
+#echo -e "Used\tAvail\tUsed\tFilesystem"
+#df -hT | sort -n |grep -vE '^Filesystem' | awk 'BEGIN{OFS="\t"}{ print $6,$5,$4"\t" $1 }'
+df -hT | egrep "(100)%"
+df -hT | egrep "([90][0-9]|100)%"
+df -hT | egrep "([80][0-9])%"
+df -hT | egrep "([70][0-9])%"
+df -hT | egrep "([60][0-9])%"
+df -hT | egrep "([40][0-9])%"
+df -hT | egrep "([30][0-9])%"
+df -hT | egrep "([20][0-9])%"
+df -hT | egrep "([10][0-9])%"
+df -hT | egrep "([0-9])%"
