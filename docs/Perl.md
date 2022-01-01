@@ -4939,7 +4939,7 @@ sub error
     exit 0;
 }
 ```
-__output__
+**output**
 ```shell
 [root@centos perls]# perl example_subroutine.pl
 This is the template.pl exercise file from Perl 5 Essential Training.
@@ -4949,7 +4949,7 @@ example_subroutine.pl: message three.
 
 ### arguments subroutine
 
-__vi example_arguments.pl__
+**vi example_arguments.pl**
 ```perl
 #!/usr/bin/perl
 # statements.pl by Bill Weinman <http://bw.org/contact/>
@@ -4983,7 +4983,7 @@ sub error
     exit 0;
 }
 ```
-__output__
+**output**
 ```shell
 [root@centos perls]# perl example_arguments.pl
 This is the template.pl exercise file from Perl 5 Essential Training. (42) (zee)
@@ -4991,7 +4991,7 @@ This is the template.pl exercise file from Perl 5 Essential Training. (42) (zee)
 
 ### Scope subroutine
 
-__vi example_scope.pl__
+**vi example_scope.pl**
 ```perl
 #!/usr/bin/perl
 # statements.pl by Bill Weinman <http://bw.org/contact/>
@@ -5024,7 +5024,7 @@ sub error
     exit 0;
 }
 ```
-__output__
+**output**
 ```shell
 [root@centos perls]# perl example_scope.pl
 scope.pl: This is the template.pl exercise file from Perl 5 Essential Training.
@@ -5033,7 +5033,7 @@ scope.pl: some other string
 
 ### return subroutine
 
-__vi example_return.pl__
+**vi example_return.pl**
 ```perl
 #!/usr/bin/perl
 # statements.pl by Bill Weinman <http://bw.org/contact/>
@@ -5070,7 +5070,7 @@ sub error
     exit 0;
 }
 ```
-__output__
+**output**
 ```shell
 [root@centos perls]# perl example_return.pl
 6
