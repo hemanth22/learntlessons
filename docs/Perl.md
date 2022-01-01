@@ -5448,6 +5448,78 @@ song:Purple Haze
 
 ### mixed
 
+**vi example_mixed.pl**
+```perl
+ #!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $artists = [
+        {
+            name => "Jimi Hendrix",
+            instrument => "Guitar",
+            album => "Rock"
+        },
+        {
+            name => "Miles Davis",
+            instrument => "Trumpet",
+            album => "Jazz"
+        },
+        {
+            name => "Ella Fitzgerald",
+            instrument => "Vocal",
+            album => "Jazz"
+        },
+    ];
+
+    push @$artists, { name=>"Yoyo Ma", instrument=>"Cello", genre=>"Classical"};
+
+    foreach my $artist ( @$artists ) {
+        message("$artist->{name}: $artist->{instrument}, $artist->{genre}");
+    }
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+## File IO
+
+### FileIO
+
+**Undersstanding blocks and streams**
+
+- There are two ways to look at files
+  - Blocks of data
+  - Streams
+
+- A block of data is simply a chunk of the file that can be written or read in one operation
+
+- A stream is data that may come as a series of bytes
+  - Keystrokes from a user
+  - Data sent over a network connection
+
+
+  
+
+
 
 ## References
 
