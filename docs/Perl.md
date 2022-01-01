@@ -5167,6 +5167,99 @@ This is the Perl 5 references chapter.
 42
 ```
 
+### Array reference
+
+**vi arrayref.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $var = [
+        "This is Perl 5 Essential Training.",
+        42,
+        "Another String",
+        "one more value"
+        ];
+    my $copy = $var;
+    message(join(':',@$copy));
+    $copy->[2] = 187;
+    message(join(':', @$copy));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+[root@centos perls]# perl arrayref.pl 
+This is Perl 5 Essential Training.:42:Another String:one more value
+This is Perl 5 Essential Training.:42:187:one more value
+```
+
+**vi arrayref2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = (
+        "This is Perl 5 Essential Training.",
+        42,
+        "Another String",
+        "one more value"
+        );
+    my $var = \@list;
+    my $copy = $var;
+    message(join(':',@$copy));
+    $copy->[2] = 187;
+    message(join(':', @$copy));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+[root@centos perls]# perl arrayref2.pl
+This is Perl 5 Essential Training.:42:Another String:one more value
+This is Perl 5 Essential Training.:42:187:one more value
+```
+
 
 
 ## References
