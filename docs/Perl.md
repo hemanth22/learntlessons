@@ -5654,8 +5654,53 @@ sub error
     exit 0;
 }
 ```
+**vi binary.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+use IO::File;
+
+main(@ARGV);
+
+sub main
+{
+    my $origfile = "olives.jpg";
+    my $newfile = "copy.jpg";
+    my $bufsize = 1024 * 1024;
+
+    my $origfh = IO::File->new($origfile, 'r') or error("cannot open origfile ($!)");
+    my $newfh = IO::File->new($newfile, 'r') or error("cannot open newfile ($!)");
+
+    $origfh->binmode(":raw");
+    $newfh->binmode(":raw");
+
+    my $buf = '';
+    while ( $origfh->read( $buf, $bufsize) ) {
+        $newfh->print($buf);
+    }
+    message("Done.");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
 
 
+### Building Functions
 
 ## References
 
