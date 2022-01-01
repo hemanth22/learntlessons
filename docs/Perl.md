@@ -5077,6 +5077,98 @@ sub error
 13
 ```
 
+## References and Data Structures
+
+### Understanding references
+
+- A reference is a variable that refers to a value  
+  - As opposed to a variable that contains a value  
+
+**vi example_reference.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $var = "This is the Perl 5 references chapter.";
+    my $ref = \$var; #This give reference value
+    message($ref);
+    message($var);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**output**
+```perl
+# perl example_reference.pl
+SCALAR(0x19c9f88)
+This is the Perl 5 references chapter.
+```
+
+**vi example_reference2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $var = "This is the Perl 5 references chapter.";
+    my $ref = \$var; #This give reference value
+    my $copy = $ref;
+    message($ref); # This will print reference
+    message($$ref);
+    $var = 42;
+    message($$copy);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_reference2.pl
+SCALAR(0x70ff88)
+This is the Perl 5 references chapter.
+42
+```
+
+
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
