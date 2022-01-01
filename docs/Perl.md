@@ -5516,7 +5516,107 @@ sub error
   - Keystrokes from a user
   - Data sent over a network connection
 
+### File IO Handle
 
+**vi example_file_handles.pl**
+```perl
+#!/usr/bin/perl
+# files.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, '<', 'workingfile.txt') or error("cannot open file ($!)");
+    print while <FH>;
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_file_handles2.pl**
+```perl
+#!/usr/bin/perl
+# files.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, '<', 'workingfile.txt') or error("cannot open file ($!)");
+    while (my $line = <FH> ) { print $line }
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
+
+**vi example_file_handles3.pl**
+```perl
+#!/usr/bin/perl
+# files.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    open(FH, '<', 'workingfile.txt') or error("cannot open file for read ($!)");
+    open(NFH, '>', 'newwf.txt') or error("cannot open file for write ($!)");
+    
+    print NFH while <FH>;
+    
+    close NFH;
+    close FH;
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print(STDERR "$0: $e\n");
+    exit 0;
+}
+```
   
 
 
