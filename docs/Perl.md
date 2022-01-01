@@ -5654,6 +5654,9 @@ sub error
     exit 0;
 }
 ```
+
+### Binary
+
 **vi binary.pl**
 ```perl
 #!/usr/bin/perl
@@ -5700,7 +5703,7 @@ sub error
 ```
 
 
-### Building Functions
+## Building Functions
 
 ## References
 
