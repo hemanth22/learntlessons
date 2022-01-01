@@ -5260,6 +5260,193 @@ This is Perl 5 Essential Training.:42:Another String:one more value
 This is Perl 5 Essential Training.:42:187:one more value
 ```
 
+### Hash Reference
+
+**vi example_hashref.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my %hash = (
+        name => "Jimi Hendrix",
+        instrument => "Guitar",
+        album => "Are You Experienced?"
+    );
+    my $ref = \%hash;
+    message($ref);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+
+
+```
+**output**
+```
+[root@centos perls]# perl !$
+perl example_hashref.pl
+HASH(0x1a13f88)
+```
+
+**vi example_hashref2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $hashref = {
+        name => "Jimi Hendrix",
+        instrument => "Guitar",
+        album => "Are You Experienced?"
+    };
+    my $copy = $hashref;
+    message($copy);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+[root@centos perls]# perl example_hashref2.pl
+HASH(0x179da68)
+```
+
+**vi example_hashref2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $hashref = {
+        name => "Jimi Hendrix",
+        instrument => "Guitar",
+        album => "Are You Experienced?"
+    };
+
+    my $copy = $hashref;
+    foreach my $k ( sort keys %$copy ) {
+        my $v = $copy->{$k};
+        message("$k:$v");
+    }
+    
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**ooutput**
+```
+perl example_hashref3.pl
+album:Are You Experienced?
+instrument:Guitar
+name:Jimi Hendrix
+```
+
+**vi example_hashref4.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $hr = {};
+    my $hashref = {
+        name => "Jimi Hendrix",
+        instrument => "Guitar",
+        album => "Are You Experienced?"
+    };
+
+    my $copy = $hashref;
+    $copy->{song} = "Purple Haze";
+    foreach my $k ( sort keys %$copy ) {
+        my $v = $copy->{$k};
+        message("$k:$v");
+    }
+    
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_hashref4.pl
+album:Are You Experienced?
+instrument:Guitar
+name:Jimi Hendrix
+song:Purple Haze
+```
+
+### mixed
 
 
 ## References
