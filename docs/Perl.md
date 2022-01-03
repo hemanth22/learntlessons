@@ -5705,6 +5705,143 @@ sub error
 
 ## Building Functions
 
+### strings
+
+
+**vi example_string.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $string = "This is a string\n";
+    message("[$string]");
+    my $string1 = "This is a string\n";
+    chomp $string1;
+    message("[$string1]");
+    chop $string1;
+    message("[$string1]");
+    message("========== Capital letter ==========");
+    my $string2 = "This is a string";
+    my $s2 = uc $string2;
+    message($s2);
+    message("=========== Small letter ===========");
+    my $s3 = lc $string2;
+    message($s3);
+    message("=========== substring =============");
+    my $s4 = substr($string2, 5, 4);
+    message($s4);
+    message("============= index ================");
+    my $s5 = index($string2,'s');
+    message($s5);
+    message("=============== rindex ==============");
+    $s5 = rindex($string2,'s');
+    message($s5);
+    message("=========== substr rindex ===========");
+    my $s6 = substr($string2, rindex($string2,'s'));
+    message($s6);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+[root@centos perls]# perl example_string.pl
+[This is a string
+]
+[This is a string]
+[This is a strin]
+========== Capital letter ==========
+THIS IS A STRING
+=========== Small letter ===========
+this is a string
+=========== substring =============
+is a
+============= index ================
+3
+=============== rindex ==============
+10
+=========== substr rindex ===========
+string
+```
+
+```
+perldoc perlfunc
+```
+
+### numbers
+
+**vi example_numbers.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $number = 123.456;
+    my $n2 = int($number);
+    message($n2);
+
+    $number = "a5";
+    $n2 = hex($number);
+    message($n2);
+
+    $number = "75";
+    $n2 = oct($number);
+    message($n2);
+
+    $number = rand();
+    message($number);
+
+    $number = rand(100);
+    message($number);
+
+    $number = int(rand(100));
+    message($number);
+
+    srand($$ . time);
+    $number = int(rand(100));
+    message($number);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
