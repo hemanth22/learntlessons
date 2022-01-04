@@ -5842,6 +5842,434 @@ sub error
 }
 ```
 
+### array
+
+**vi example_arrays.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+    push(@list, 'Foo');
+    message(join(':',@list));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_arrays.pl
+Jan:Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov:Dec:Foo
+```
+
+**vi example_arrays2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+    my $string = pop @list;
+    message($string);
+    message(join(':',@list));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_arrays2.pl
+Dec
+Jan:Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov
+```
+
+**vi example_arrays3.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+    my $string = shift @list;
+    message($string);
+    message(join(':',@list));
+    unshift(@list, $string);
+    message(join(':', @list));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_arrays3.pl
+Jan
+Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov:Dec
+Jan:Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov:Dec
+```
+
+**vi example_arrays4.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+    message(join(':', reverse @list));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_arrays4.pl
+Dec:Nov:Oct:Sep:Aug:Jul:Jun:May:Apr:Mar:Feb:Jan
+```
+
+**vi example_arrays5.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+    my @rlist = reverse @list;
+    message(join(':', @list));
+    message(join(':', @rlist));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+[root@centos perls]# perl example_arrays5.pl
+Jan:Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov:Dec
+Dec:Nov:Oct:Sep:Aug:Jul:Jun:May:Apr:Mar:Feb:Jan
+```
+
+**vi example_arrays6.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my @list = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+    my @slist = sort @list;
+    message(join(':', @list));
+    message(join(':', @slist));
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_arrays6.pl
+Jan:Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov:Dec
+Apr:Aug:Dec:Feb:Jan:Jul:Jun:Mar:May:Nov:Oct:Sep
+```
+
+### time
+
+**vi example_time.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $t =  time;
+    message($t);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+[root@centos perls]# perl example_time.pl
+1641314027
+```
+
+**vi example_time2.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $t =  time;
+    my $now = localtime($t);
+    message($now);
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_time2.pl
+Tue Jan  4 16:35:12 2022
+```
+
+**vi example_time3.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $t =  time;
+    my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdist) = localtime($t);
+    message("year: $year, month: $mon, day: $mday");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_time3.pl
+year: 122, month: 0, day: 4
+```
+
+**vi example_time4.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $t =  time;
+    my @months = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+    my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdist) = localtime($t);
+    $year += 1900;
+    message("year: $year, month: $months[$mon], day: $mday");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_time4.pl
+year: 2022, month: Jan, day: 4
+```
+
+**vi example_time5.pl**
+```perl
+#!/usr/bin/perl
+# statements.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+
+main(@ARGV);
+
+sub main
+{
+    my $t =  time;
+    my @months = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+    my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdist) = gmtime($t);
+    $year += 1900;
+    message("$year-$months[$mon]-$mday $hour:$min:$sec");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+**output**
+```
+perl example_time5.pl
+2022-Jan-4 16:38:17
+```
+
+## Modules
+
+
+
 ## References
 
 https://perlmaven.com/perl-on-the-command-line  
