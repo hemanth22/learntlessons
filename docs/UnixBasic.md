@@ -1913,7 +1913,7 @@ raspberry
 strawberry
 ```
 ```
-$ cat fruit.txt | sort | uniq | xargs -I {} mkdir -p ~/Desktop {}
+$ cat fruit.txt | sort | uniq | xargs -I {} mkdir -p ~/Desktop{}
 ```
 ```
 $ ps aux | grep 'bad processes'
