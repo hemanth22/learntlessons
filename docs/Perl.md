@@ -6540,8 +6540,107 @@ cpan BW::Common
 perldoc BW::Common
 ```
 
+## New Features in Perl 5.10
 
+### using perl 5.10 features
 
+- Perl 5.10 includes new language features  
+  - Incompatible with previous versions  
+
+  use feature ':5.10';  
+  use feature qw(switch say state);  
+  use 5.010;  
+
+### Say feature
+
+```perl
+#!/usr/bin/perl
+# template.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+use feature":5.10";
+main(@ARGV);
+
+sub main
+{
+    	say "This is say feature in 5.10";
+	message("This is the template.pl exercise file from Perl 5 Essential Training.");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+### Switch feature
+
+```perl
+#!/usr/bin/perl
+use feature ":5.10";
+use warnings;
+use strict;
+my $s = 'Hemanth Bitra';
+given($s){
+	when(undef){ say '$s is undefined' }
+	when('Hemanth'){ say '$s is undefined' }
+	when(/Hemanth/){ say '$s is undefined' }
+	when([1,3,5,7,9]){ say '$s is undefined' }
+	default{ say '$s is Something else' }
+}
+```
+
+### state feature
+
+```perl
+#!/usr/bin/perl
+# template.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+use feature ":5.10";
+main(@ARGV);
+
+sub main
+{
+   # message("This is the template.pl exercise file from Perl 5 Essential Training.");
+	my $i=5;
+	increment($i);
+	increment($i);
+	increment($i);
+	increment($i);
+	increment($i);
+}
+
+sub increment
+{
+ 	state $n = shift ;
+	say ++$n
+}
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
 
 ## References
 
