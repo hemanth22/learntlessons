@@ -6266,7 +6266,186 @@ perl example_time5.pl
 2022-Jan-4 16:38:17
 ```
 
-## Modules
+### Using modules
+
+- Modules are collections of Perl code for use with different scripts  
+- Modules can be object-oriented or procedural  
+- Modules can contain code and/or data  
+
+### OBJECT-ORIENTED VS PROCEDURAL MODULES
+
+- Most modules are object-oriented
+- Object-oriented code has these properties
+  - __Dynamic:__ The object determines what code to invoke
+  - __Encapsulated:__ The object contains all the code and data it needs
+  - __Abstraction:__ The details may be hidden from the user
+
+- Procedural code has these properties:
+  - __Simiplicity:__ Small subroutines may be coded quickly and easily
+  - __Modularity:__ Functionalities may be used and reused
+  - __Linearity:__ Code is clear and readable
+
+### Creating modules
+
+**vi Example.pm**
+```perl
+# Example.pm
+#   Example perl module
+#
+
+package Example;
+use strict;
+use warnings;
+use IO::File;
+
+our $VERSION = "0.1";
+
+sub new
+{
+    my $class = shift;
+    my $self = {};
+    bless($self, $class); #This will convert class into object
+    return $self;
+}
+
+sub copyfile
+{
+    my ( $self, $origfile, $newfile ) = @_;
+    my $bufsize = 1024 * 1024;
+
+    my $origfh = IO::File->new($origfile, 'r') or die("cannot open $origfile ($!)");
+    my $newfh = IO::File->new($newfile, 'w') or die("cannot open $newfile ($!)");
+
+    $origfh->binmode(":raw");
+    $newfh->binmode(":raw");
+
+    my $buf = '';
+    while( $origfh->read( $buf, $bufsize ) ) {
+        $newfh->print( $buf ); 
+    }
+    return 1;
+}
+
+1;
+
+```
+
+**creating.pl**
+
+```perl
+#!/usr/bin/perl
+# modules.pl by Bill Weinman <http://bw.org/contact/>
+# Copyright (c) 2010 The BearHeart Group, LLC
+#
+use strict;
+use warnings;
+use Example;
+
+main(@ARGV);
+
+sub main
+{
+    my $o = Example->new;
+    $o->copyfile("olives.jpg","newfile.jpg")
+    message("Done.");
+}
+
+sub message
+{
+    my $m = shift or return;
+    print("$m\n");
+}
+
+sub error
+{
+    my $e = shift || 'unkown error';
+    print("$0: $e\n");
+    exit 0;
+}
+```
+
+**vi Template.pm**
+```perl
+# Template.pm
+# 
+# Description goes here
+# by Your Name
+#
+
+package Template;
+use strict;
+use warnings;
+
+our $VERSION = "0.1";
+
+sub new
+{
+    my $class = shift;
+    my $self  = {};
+
+    bless( $self, $class );
+    return $self;
+}
+
+sub method 
+{
+    my ($self, $this, $that ) = @_;
+    return 1;
+}
+
+1;
+
+__END__
+
+=head1 NAME
+
+Template - Description goes here
+
+=head1 SYNOPSIS
+
+    use Template
+    my $o = Template->new;
+
+=head1 METHODS
+
+=over 4
+
+=item B<new>
+
+Constructs a new Template object. 
+
+Returns a blessed Template object reference.
+
+=item B<method>
+
+Describe the method here 
+
+=back
+
+=head1 AUTHOR
+
+Written by Your Name
+
+=head1 HISTORY
+
+    Version history here. 
+
+=cut
+
+
+```
+
+### CPAN UNIX
+
+you can download perl modules from url: https://metacpan.org/ or https://search.cpan.org/  
+
+Command to install cpan modules  
+
+```perl
+cpan BW::Base
+```
+
+
 
 
 
