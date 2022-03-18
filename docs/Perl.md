@@ -6446,6 +6446,99 @@ Command to install cpan modules
 cpan BW::Base
 ```
 
+## Documentation with POD
+
+### Why use pod?
+
+- POD is "plain old documentation"  
+- It's a simple language for uniform documentation  
+- It's very easy to use  
+
+### Documenting
+
+**vi Template.pm**
+
+```perl
+# Template.pm
+# 
+# Description goes here
+# by Your Name
+#
+
+package Template;
+use strict;
+use warnings;
+
+our $VERSION = "0.1";
+
+sub new
+{
+    my $class = shift;
+    my $self  = {};
+
+    bless( $self, $class );
+    return $self;
+}
+
+sub method 
+{
+    my ($self, $this, $that ) = @_;
+    return 1;
+}
+
+1;
+
+__END__
+
+=head1 NAME
+
+Template - Description goes here
+
+=head1 SYNOPSIS
+
+    use Template
+    my $o = Template->new;
+
+=head1 METHODS
+
+=over 4
+
+=item B<new>
+
+Constructs a new Template object. 
+
+Returns a blessed Template object reference.
+
+=item B<method>
+
+Describe the method here 
+
+=back
+
+=head1 AUTHOR
+
+Written by Your Name
+
+=head1 HISTORY
+
+    Version history here. 
+
+=cut
+
+```
+
+Command to check perldoc for template
+```perl
+perldoc Template.pm
+```
+
+```perl
+cpan BW::Common
+```
+
+```perl
+perldoc BW::Common
+```
 
 
 
