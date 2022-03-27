@@ -2110,6 +2110,29 @@ sed -i -e 's/\r$//' filename
 sed -i -e '/up/d' lorem_ipsum.txt
 ```
 
+## telnet command
+
+```shell
+curl -v telnet://127.0.0.1:23
+```
+
+```shell
+curl -v telnet://[ip address]:[port]
+```
+
+```shell
+telnet remotehost 80
+```
+
+## top command in batch mode  
+
+```
+top -bc -o +%MEM | head -n 20
+```
+
+```
+top -bc -o +%CPU | head -n 20
+```
 
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
