@@ -2134,6 +2134,38 @@ top -bc -o +%MEM | head -n 20
 top -bc -o +%CPU | head -n 20
 ```
 
+## remove command to delete file or folder based on inode
+
+```shell
+find -inum 208802 -exec rm -i {} \;
+```
+
+## tar commands
+
+### create a tar file
+
+```shell
+tar -czvf archive.tar.gz stuff
+```
+
+### create a tar excluding extension
+
+```shell
+tar -czvf archive.tar.gz /home/ubuntu --exclude=*.mp4
+```
+
+### extract a tar file to specific directory
+
+```shell
+tar -xzvf archive.tar.gz -C /tmp
+```
+
+### extract a tar file without verbose
+
+```shell
+tar -xzf archive.tar.gz
+```
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
