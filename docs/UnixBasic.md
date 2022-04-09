@@ -2166,6 +2166,12 @@ tar -xzvf archive.tar.gz -C /tmp
 tar -xzf archive.tar.gz
 ```
 
+### IP Address filter using grep
+
+```shell
+grep -Eo '\b((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\.)){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\b' *
+```
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
