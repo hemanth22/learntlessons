@@ -2166,6 +2166,16 @@ tar -xzvf archive.tar.gz -C /tmp
 tar -xzf archive.tar.gz
 ```
 
+### tar command to split the zip file into multiple files
+```shell
+tar cvzf - loremipsum.log.gz | split --bytes=50M - loremipsum.log.tar.gz.
+```
+
+### tar command to unsplit the files
+```shell
+cat loremipsum.log.tar.gz.* | tar xvzf -
+```
+
 ## IP Address filter using grep
 
 ```shell
