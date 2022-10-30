@@ -210,6 +210,12 @@ oc new-app <image tag>
 ```
 oc new-app quay.io/practicalopenshift/hello-world
 ```
+
+### Check running resources
+```
+oc status
+```
+
 ### Deploy from Git using oc new-app
 ```
 oc new-app <git repo URL>
