@@ -271,8 +271,7 @@ oc rollout latest dc/hello-world
 oc rollback dc/hello-world
 ```
 
-## Deploy from Git using oc new-app
-
+### Command to see replication controller
 ```
-oc new-app https://gitlab.com/practical-openshift/hello-world.git
+oc get rc
 ```
