@@ -341,3 +341,41 @@ oc get -o yaml route/hello-world
 ### Routes documentation
 
 [Routes](https://docs.openshift.com/container-platform/3.11/dev_guide/routes.html)
+
+## explain ConfigMaps
+```
+oc explain configmap
+```
+
+### Create a ConfigMap using literal command line arguments
+```
+oc create configmap <configmap-name> --from-literal KEY="VALUE"
+```
+
+### Create from a file
+```
+oc create configmap <configmap-name> --from-file=MESSAGE.txt
+```
+### Create from a file with a key override
+
+```
+oc create configmap <configmap-name> --from-file=MESSAGE=MESSAGE.txt
+```
+### Same --from-file but with a directory
+
+```
+oc create configmap <configmap-name> --from-file pods
+```
+
+### Verify
+```
+oc get -o yaml configmap/<configmap-name>
+```
+
+## Consuming ConfigMaps as Environment Variables
+
+### Set environment variables (same for all types of ConfigMap)
+```
+oc set env dc/hello-world --from cm/<configmap-name>
+```
+
