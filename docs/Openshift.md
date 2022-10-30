@@ -248,6 +248,11 @@ oc describe dc/hello-world
 oc get -o yaml dc/hello-world
 ```
 
+### Comand to get image stream tag
+```
+oc get istag
+```
+
 ## Deleting all oc new-app resources
 
 ### Delete all application resources using labels (get them from oc describe)
