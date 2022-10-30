@@ -168,3 +168,8 @@ spec:
       port: 80
       targetPort: 8080
 ```
+## DeploymentConfig Basics
+
+### Intro
+
+[DeploymentConfig [apps.openshift.io/v1]](https://docs.openshift.com/container-platform/3.11/rest_api/apps_openshift_io/deploymentconfig-apps-openshift-io-v1.html)
