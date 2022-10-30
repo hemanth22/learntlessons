@@ -416,3 +416,14 @@ oc get -o yaml secret/<secret-name>
 ```
 oc set env dc/<dc-name> --from secret/<secret-name>
 ```
+### Sample secrets
+
+```yaml
+apiVersion: v1
+data:
+  MESSAGE: YmFzZTY0
+kind: Secret
+metadata:
+  name: lab-secret
+type: Opaque
+```
