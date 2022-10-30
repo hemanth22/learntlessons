@@ -276,16 +276,3 @@ oc rollback dc/hello-world
 ```
 oc new-app https://gitlab.com/practical-openshift/hello-world.git
 ```
-
-### Follow build progress
-```
-oc logs -f bc/hello-world
-```
-### Check status and pods
-```
-oc status
-```
-
-```
-oc get pods
-```
