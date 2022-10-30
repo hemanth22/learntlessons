@@ -379,3 +379,11 @@ oc get -o yaml configmap/<configmap-name>
 oc set env dc/hello-world --from cm/<configmap-name>
 ```
 
+### Sample configmap yaml file
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lab-map
+```
