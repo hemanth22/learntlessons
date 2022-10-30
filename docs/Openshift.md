@@ -130,3 +130,41 @@ oc delete pod hello-world-pod
 ### Yaml
 
 https://yaml.org/
+
+## Sample
+
+### Sample pod yaml
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-pod
+  labels:
+    app: hello-world-pod
+spec:
+  containers:
+  - env:
+    - name: MESSAGE
+      value: Hi! I'm an environment variable
+    image: quay.io/practicalopenshift/hello-world
+    imagePullPolicy: Always
+    name: hello-world-override
+    resources: {}
+```
+
+### Sample service yaml
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-pod-service
+spec:
+  selector:
+    app: hello-world-pod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+```
