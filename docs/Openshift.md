@@ -110,6 +110,12 @@ exit
 oc get pods --watch
 ```
 
+### Describe pod
+
+```
+oc describe pod/pod-name
+```
+
 ## Delete (stop) Pods
 
 ### Delete any OpenShift resource
