@@ -270,8 +270,74 @@ oc rollout latest dc/hello-world
 ```
 oc rollback dc/hello-world
 ```
-
 ### Command to see replication controller
 ```
 oc get rc
 ```
+## Get service documentation
+
+### Access oc explain documentation
+```
+oc explain service
+```
+### Get more information about Service's spec
+```
+oc explain service.spec
+```
+### Get YAML definition for a service
+```
+oc get -o yaml service/hello-world
+```
+
+### Get YAML definition for a route
+```
+oc get -o yaml route/hello-world
+```
+
+## Creating services
+
+### Create a service for a single pod
+```
+oc expose --port 8080 pod/hello-world-pod
+```
+### Create a service for a DeploymentConfig 
+```
+oc expose --port 8080 dc/hello-world
+```
+### Check that the service and pod are connected properly
+```
+oc status
+```
+## Using Pod environment variables to find service Virtual IPs
+
+### Inside the pod, get all environment variables
+```
+env
+```
+### Use the environment variables with wget
+```
+wget -qO- $HELLO_WORLD_POD_PORT_8080_TCP_ADDR:$HELLO_WORLD_POD_PORT_8080_TCP_PORT
+```
+
+## Creating Routes
+
+### Create a Route based on a Service
+```
+oc expose svc/hello-world
+```
+### Get the Route URL
+```
+oc status
+```
+### Check the route
+```
+curl <route from oc status>
+```
+### Get YAML definition
+```
+oc get -o yaml route/hello-world
+```
+
+### Routes documentation
+
+[Routes](https://docs.openshift.com/container-platform/3.11/dev_guide/routes.html)
