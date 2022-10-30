@@ -387,3 +387,31 @@ kind: ConfigMap
 metadata:
   name: lab-map
 ```
+## Creating Secrets
+
+```
+oc explain secret
+```
+
+### Create a simple generic (Opaque) Secret
+
+```
+oc create secret generic <secret-name> --from-literal KEY="VALUE"
+```
+
+```
+oc create secret generic message-secret --from-literal MESSAGE="Secret Message"
+```
+
+## Check the Secret
+```
+oc get -o yaml secret/<secret-name>
+```
+
+### Consume the Secret as Environment Variables
+
+### Almost the same as ConfigMaps
+
+```
+oc set env dc/<dc-name> --from secret/<secret-name>
+```
