@@ -553,3 +553,157 @@ oc get -o yaml buildconfig/hello-world
 ```
 oc get build
 ```
+
+## Creating new BuildConfigs
+
+### Create a new BuildConfig from a Git repository URL
+
+```
+oc new-build <Git URL>
+```
+
+### Example
+
+```
+oc new-build https://gitlab.com/practical-openshift/hello-world.git
+```
+
+### Start a new build from the update-message branch
+
+```
+oc new-build https://gitlab.com/practical-openshift/hello-world.git#update-message
+```
+
+### Use --context-dir to build from a subdirectory
+
+```
+oc new-build https://gitlab.com/practical-openshift/labs.git --context-dir hello-world
+```
+
+## Working with existing BuildConfigs
+
+### Start a build
+
+```
+oc start-build bc/hello-world
+```
+
+### Get logs for a single build
+
+```
+oc logs -f build/hello-world-1
+```
+
+```
+oc logs -f buildconfig/hello-world-1
+```
+
+```
+oc describe is/hello-world
+```
+
+## Get logs for the latest build for a BuildConfig
+
+### This is the best way (usually)
+
+```
+oc logs -f bc/hello-world
+```
+
+### Cancel a running build
+
+```
+oc cancel-build bc/hello-world
+```
+
+### Get more information about the build
+
+```
+oc get -o yaml buildconfig/hello-world
+```
+
+### See builds that have run
+
+```
+oc get build
+```
+
+```
+oc get buildconfig
+```
+
+### Start a build for an existing BuildConfig
+
+```
+oc start-build bc/hello-world
+```
+
+## Set build hooks
+
+### Set a post-commit hook
+
+```
+oc set build-hook bc/hello-world \
+  --post-commit \
+  --script="echo Hello from build hook"
+```
+
+### Check the logs output for "Hello from build hook"
+
+```
+oc logs -f bc/hello-world
+```
+
+### Set a failing build hook to observe the behavior
+
+```
+oc set build-hook bc/hello-world \
+  --post-commit \
+  --script="exit 1"
+```
+
+### Check the events to see if it ran
+
+```
+oc get events
+```
+
+### Remove the build hook
+
+```
+oc set build-hook bc/hello-world \
+  --post-commit \
+  --remove
+```
+
+### See all of your pods
+
+```
+oc get pods
+```
+
+## Working with WebHooks
+
+### Get the secret token
+
+```
+oc get -o yaml buildconfig/hello-world
+```
+
+### Export the secret as a variable
+
+```
+export GENERIC_SECRET=<generic token from previous command>
+```
+
+### Get the webhook URL
+
+```
+oc describe buildconfig/hello-world
+```
+
+### Copy the webhook URL and replace <secret> with $GENERIC_SECRET
+
+```
+curl -X POST -k <webhook URL with secret replaced with $GENERIC_SECRET>
+```
