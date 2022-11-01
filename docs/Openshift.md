@@ -1009,3 +1009,68 @@ oc rollout latest dc/hello-world
 ```
 oc get events
 ```
+
+## Switching to the Recreate Strategy
+### No oc set deployment-strategy as of writing, so you'll need to manually update the resource definition
+
+### Edit it live
+```
+oc edit dc/hello-world
+```
+
+### To change to Recreate, switch the spec.strategy to be:
+```
+  strategy:
+    type: Recreate
+```
+
+### Check that the changes saved (search for Strategy)
+```
+oc describe dc/hello-world
+```
+
+### Rollout to test
+```
+oc rollout latest dc/hello-world
+```
+  
+## Readiness and Liveness probes
+
+### General syntax
+```
+oc set probe dc/<dc name> (--liveness or --readiness) (--open-tcp, --get-url, or -- for a command)
+```
+
+### Example: Add a liveness probe that opens TCP port 8080 for its test
+```
+oc set probe dc/hello-world --liveness --open-tcp=8080
+```
+
+### Example: Add a readiness probe that requests localhost port 8080 with the path /health/readiness for its test
+```
+oc set probe dc/hello-world --readiness --get-url=http://:8080/health/readiness
+```
+
+### Example: Add a readiness probe that runs "exit 0" inside the container as its test
+```
+oc set probe dc/hello-world --readiness -- exit 0
+```
+
+### Set the probe incorrectly
+```
+oc set probe dc/hello-world \
+  --liveness \
+  --open-tcp=8081
+```
+
+### Watch pods
+```
+oc get pods --watch
+```
+
+### Set the probe to the correct port
+```
+oc set probe dc/hello-world \
+  --liveness \
+  --open-tcp=8080
+```
