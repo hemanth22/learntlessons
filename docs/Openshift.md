@@ -909,3 +909,103 @@ oc explain persistentvolume.spec.vsphereVolume
 ```
 oc explain persistentvolume.spec.cinder
 ```
+
+## Advanced DeploymentConfig
+
+### Create a new project for the Advanced DC section
+```
+oc new-project advanced-dc
+```
+
+### Deploy the Hello World image
+```
+oc new-app quay.io/practicalopenshift/hello-world
+```
+
+### Use oc describe on the DeploymentConfig
+```
+oc describe dc/hello-world
+```
+
+### Start watching pods
+```
+oc get pods --watch
+```
+
+### Set a volume in order to trigger a rollout
+```
+oc set volume dc/hello-world \
+  --add \
+  --type emptyDir \
+  --mount-path /config-change-demo
+```
+
+## triggers
+
+### List triggers
+```
+oc set triggers dc/hello-world
+```
+
+### Remove the ConfigChange trigger
+```
+oc set triggers dc/hello-world \
+  --remove
+  --from-config
+```
+
+### Re-add the ConfigChange trigger
+```
+oc set triggers dc/hello-world --from-config
+```
+
+### Remove the ImageChange trigger
+```
+oc set triggers dc/<dc name> \
+  --remove \
+  --from-image <image name>:<tag>
+```
+
+### Re-add the ImageChange trigger
+
+### You need to pick a container in your pod spec that corresponds to the image in --from-image
+```
+oc set triggers dc/<dc name> \
+  --from-image <image name>:<tag> \
+  -c <container name>
+```
+
+## Deployment Hooks
+
+### General syntax
+```
+oc set deployment-hook dc/<dc name> \
+  (--pre, --post, or --mid) \
+  -c <container name to execute hook in>
+  -- <command to execute for the hook>
+```
+
+### Example: Add a simple deployment hook
+```
+oc set deployment-hook dc/hello-world \
+  --pre \
+  -c hello-world \
+  -- /bin/echo Hello from pre-deploy hook
+```
+
+### Check the hook in the DeploymentConfig definition
+```
+oc describe dc/hello-world
+```
+
+### Roll out again to see the changes
+
+### You should get a hello-world-4-hook-pre pod
+```
+oc rollout latest dc/hello-world
+```
+
+### Check events
+```
+oc get events
+```
