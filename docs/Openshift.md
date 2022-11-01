@@ -780,3 +780,64 @@ oc get route
 ### Assemble and Run are the two main scripts
 ### Overrides go in your source at .s2i/bin/assemble or .s2i/bin/run
 ### They need to call the original scripts, which are usually at /usr/libexec/s2i/assemble or /usr/libexec/s2i/run
+
+## Volumes
+
+### Create a new project for the volumes section
+```
+oc new-project volumes
+```
+### Deploy the basic app
+```
+oc new-app quay.io/practicalopenshift/hello-world
+```
+### Main syntax
+
+```
+oc set volume dc/<dc name> --add --type emptyDir --mount-path <path inside container>
+```
+
+### Add an emptyDir volume
+
+```
+oc set volume dc/hello-world \
+  --add \
+  --type emptyDir \
+  --mount-path /empty-dir-demo
+```
+
+### Check the definition
+```
+oc get -o yaml dc/hello-world
+```
+
+### Get the pod names
+```
+oc get pods
+```
+  
+### Start a shell
+```
+oc rsh <pod name from output>
+```
+
+### Check for /empty-dir-demo
+```
+ls /
+```
+
+### Check contents of /empty-dir-demo
+```
+ls /empty-dir-demo
+```
+
+### Add a file 
+```
+echo "Test file contents" > /empty-dir-demo/test-file.txt
+```
+
+### Check that the file was created successfully
+
+```
+ls /empty-dir-demo
+```
