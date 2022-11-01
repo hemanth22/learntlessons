@@ -536,3 +536,20 @@ oc describe serviceaccount/default
 ```
 oc new-app quay.io/$REGISTRY_USERNAME/private-repo
 ```
+
+## Intro to builds
+
+### Create a new BuildConfig from a Git repository URL
+```
+oc new-build https://gitlab.com/practical-openshift/hello-world.git
+```
+
+### Get more information about the bui
+```
+oc get -o yaml buildconfig/hello-world
+```
+
+### See builds that have run
+```
+oc get build
+```
