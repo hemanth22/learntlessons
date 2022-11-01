@@ -1074,3 +1074,70 @@ oc set probe dc/hello-world \
   --liveness \
   --open-tcp=8080
 ```
+
+## Horizontal pods Autoscaling
+
+### Manual Scaling
+  
+#### Make a new project for the scaling section
+```
+oc new-project scaling
+```
+
+#### Deploy Hello World
+```
+oc new-app quay.io/practicalopenshift/hello-world
+```
+
+#### Get the definition
+```
+oc describe dc/hello-world
+```
+
+#### General Syntax
+```
+oc scale dc/<dc name> --replicas=<desired replicas>
+```
+
+#### Example: Manual scale to 3 pods
+```
+oc scale dc/hello-world --replicas=3
+```
+
+#### Example: Scale back down to one
+```
+oc scale dc/hello-world --replicas=1
+```
+
+### Autoscaling
+
+#### General Syntax to create a HorizontalPodAutoscaler (HPA)
+```
+oc autoscale dc/<dc name> \
+  --min <desired minimum pods> \
+  --max <desired maximum pods> \
+  --cpu-percent=<desiredTargetCPU>
+```
+
+#### Example of scaling Hello World between 1 and 10 pods with an 80% CPU target
+```
+oc autoscale dc/hello-world \
+  --min 1 \
+  --max 10 \
+  --cpu-percent=80
+```
+
+#### Check the HPA
+```
+oc get hpa
+```
+
+#### More information on the HPA
+```
+oc describe hpa/hello-world
+```
+
+#### Get the YAML for the HPA
+```
+oc get -o yaml hpa/hello-world
+```
