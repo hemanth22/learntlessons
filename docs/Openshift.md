@@ -1141,3 +1141,5 @@ oc describe hpa/hello-world
 ```
 oc get -o yaml hpa/hello-world
 ```
+
+[deployment strategies](https://docs.openshift.com/container-platform/3.11/dev_guide/deployments/deployment_strategies.html#custom-strategy)
