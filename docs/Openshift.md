@@ -841,3 +841,71 @@ echo "Test file contents" > /empty-dir-demo/test-file.txt
 ```
 ls /empty-dir-demo
 ```
+
+### Create the configmap to use as a Volume
+
+### Main command
+```
+oc set volume <DC name> --add --configmap-name <configmap name> --mount-path <path inside container>
+```
+
+```
+oc create configmap cm-volume \
+  --from-literal file.txt="ConfigMap file contents"
+```
+
+### Mount the ConfigMap
+
+```
+oc set volume dc/hello-world \
+  --add \
+  --configmap-name cm-volume \
+  --mount-path /cm-directory
+```
+
+### Check updates to the DeploymentConfig
+```
+oc get -o yaml dc/hello-world
+```
+
+### Get the pod name
+```
+oc get pod
+```
+
+### Start the shell
+```
+oc rsh <pod name>
+```
+
+### Check for /cm-directory
+```
+ls /
+```
+
+### Check inside /cm-directory
+```
+ls /cm-directory
+```
+
+### Check the file contents
+```
+cat /cm-directory/file.txt
+```
+
+### The official Kubernetes Documentation for Volumes
+https://kubernetes.io/docs/concepts/storage/volumes/
+
+### Check out the built-in documentation
+
+```
+oc explain persistentvolume.spec
+```
+
+```
+oc explain persistentvolume.spec.vsphereVolume
+```
+
+```
+oc explain persistentvolume.spec.cinder
+```
