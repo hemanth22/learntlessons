@@ -1204,3 +1204,112 @@ __More Info__
 For more information about Deployments and DeploymentConfigs, you can consult the official documentation from RedHat here:  
 https://docs.openshift.com/container-platform/4.9/applications/deployments/what-deployments-are.html  
 Kubernetes Deployment information: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/  
+
+### Conclusion
+  
+__Kubernetes News__
+Kubernetes itself is always innovating, and there's a lot of advanced functionality that we haven't covered in this course.  
+OpenShift is based on Kubernetes, so studying Kubernetes resources is always a good use of time.  
+Official Blog: https://kubernetes.io/blog/  
+
+__Kubecon__
+The official Kubernetes conference is a great place for you to learn more about what's happening in the Kubernetes and cloud native ecosystem.  
+The Cloud Native Computing Foundation or CNCF is responsible for tracking Cloud-native project maturity as well as  
+conducting security audits and generally improving Kubernetes-based tools.  
+
+The easiest way to benefit from Kubecon is from the CNCF's Youtube channel.  
+They have playlists for each of the conferences so that you can learn all about cutting edge Cloud Native tools.  
+
+CNCF Youtube: https://www.youtube.com/c/cloudnativefdn  
+
+CNCF Charter: https://github.com/cncf/foundation/blob/master/charter.md  
+
+__Helm__  
+Helm is a very popular and useful tool in Kubernetes and OpenShift based environments.  
+Helm provides a way of packaging together software for Kubernetes, much like Chocolatey for Windows,  
+Homebrew for Macs, and various OS package managers in Linux.  
+If you are planning to develop software for Kubernetes or OpenShift long-term,  
+it's a good idea to learn how Helm works and get comfortable using it.  
+
+There are many good resources available to learn about Helm.  
+One of the best ways to get started is to run through the Helm Quickstart on your OpenShift environment.  
+
+Quickstart https://helm.sh/docs/intro/quickstart/  
+
+Helm Main Site: https://helm.sh/  
+
+__Telemetry__
+Once your application is deployed, how will you know if it is running successfully?  
+How do you measure your success rate? These are important questions for every developer to answer for their applications.  
+
+There are a few tools in the cloud native landscape to help you with this.  
+The most important and the best place to start is  Prometheus, which handles metrics for your application.  
+These metrics can be used to alert you when things are going wrong through the use of AlertManager.  
+A common complementary tool to these is Grafana to allow visualization of your application's performance data.  
+
+Along with metrics, you'll also want to learn about text logging systems such as Kibana or Loki.  
+
+No discussion of observability would be complete without also mentioning tracing systems such as Jaeger.  
+
+One of the best resources to learn distributed application maintenance best practices is the Google Site Reliability Engineer (SRE) book, also linked below.  
+
+There are lots of good resources to learn about these systems including some Udemy courses. Here are some links to the official documentation so you can learn more about these important topics.  
+
+Prometheus: https://prometheus.io/docs/introduction/overview/  
+
+AlertManager: https://www.prometheus.io/docs/alerting/latest/alertmanager/  
+
+Grafana: https://grafana.com/  
+
+Kibana: https://www.elastic.co/kibana/  
+
+Loki: https://grafana.com/oss/loki/  
+
+Jaeger: https://www.jaegertracing.io/  
+
+OpenTelemetry: https://opentelemetry.io/
+
+Google SRE Book: https://sre.google/books/  
+
+
+
+__Service Mesh__  
+Service Meshes can provide advanced networking capabilities such as:  
+
+- Blue Green Deployment  
+
+- Observability  
+
+- Metrics for requests between Pods  
+
+- Error Tracing  
+
+- Request Tapping (view live traffic from a dashboard)  
+
+- Automatic and transparent Retries  
+
+- Timeout handling  
+
+- Many more  
+
+
+
+If you're interested in these capabilities then Service Meshes can be a good topic for you to learn. Here are some of the most common and mature service meshes for Kubernetes and OpenShift:  
+
+- Linkerd (CNCF Graduated) https://linkerd.io/  
+
+- Istio https://istio.io/latest/  
+
+
+
+__Operators__  
+Kubernetes operators provide advanced automated "Day 2" functionality customized for each application. Operators are a way of encoding the operational knowledge needed to run the application after it's installed. There are a few ways of creating and using operators. While you don't need operators in order to be effective with OpenShift, they are common enough that you should know what they are.  
+
+
+
+More information on operators: https://kubernetes.io/docs/concepts/extend-kubernetes/operator/  
+
+
+
+__Conclusion__  
+This list provides you with several very important topics for OpenShift developers. However, there are also a lot of other excellent Cloud-native projects not mentioned here. For a full list you can see the CNCF project list here: https://www.cncf.io/projects/. The best way to learn about new developments is to check the Kubecon / CloudNativeCon Youtube playlists.
