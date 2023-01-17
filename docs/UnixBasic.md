@@ -2182,6 +2182,36 @@ This is a smtp test mail
 .
 ```
 
+__output__
+
+```shell
+[root@centos8 ~]# podman run --rm -i -t bitroid/centos-systemd:7.5 sh
+sh-4.2# curl --version
+curl 7.29.0 (x86_64-redhat-linux-gnu) libcurl/7.29.0 NSS/3.34 zlib/1.2.7 libidn/1.28 libssh2/1.4.3
+Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtsp scp sftp smtp smtps telnet tftp 
+Features: AsynchDNS GSS-Negotiate IDN IPv6 Largefile NTLM NTLM_WB SSL libz unix-sockets 
+sh-4.2# curl -k -v smtp://193.16.16.9:1025 --mail-from 'john@example.com' --mail-rcpt 'smith@example.com'
+* About to connect() to 193.16.16.9 port 1025 (#0)
+*   Trying 193.16.16.9...
+* Connected to 193.16.16.9 (193.16.16.9) port 1025 (#0)
+< 220 mailhog.example ESMTP MailHog
+> EHLO c194609564cb
+< 250-Hello c194609564cb
+< 250-PIPELINING
+< 250 AUTH PLAIN
+> MAIL FROM:<john@example.com>
+< 250 Sender john@example.com ok
+> RCPT TO:<smith@example.com>
+< 250 Recipient smith@example.com ok
+> DATA
+< 354 End data with <CR><LF>.<CR><LF>
+Subject: smtp  test mail
+This is a smtp test mail
+.
+< 250 Ok: queued as Tgm0AkHNg7XZ1LozaRPhjYbNDLDuNyHJdPlLg-Yg5uo=@mailhog.example
+* Connection #0 to host 193.16.16.9 left intact
+```
+
 ### Another SMTP method
 
 ```shell
