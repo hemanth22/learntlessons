@@ -2124,6 +2124,91 @@ curl -v telnet://[ip address]:[port]
 telnet remotehost 80
 ```
 
+### curl smtp command
+
+create a sample email.txt file
+
+__vi email.txt__
+```
+From: John Smith <john@example.com>
+To: Joe Smith <smith@example.com>
+Subject: an example.com example email
+Date: Mon, 7 Nov 2016 08:45:16
+
+Dear Joe,
+Welcome to this example email. What a lovely day.
+```
+
+__and trigger below command__
+
+```shell
+curl -k -v smtp://193.16.16.9:1025 --mail-from john@example.com --mail-rcpt smith@example.com --upload-file email.txt
+```
+__output__
+```shell
+*   Trying 193.16.16.9...
+* TCP_NODELAY set
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 193.16.16.9 (193.16.16.9) port 1025 (#0)
+< 220 mailhog.example ESMTP MailHog
+> EHLO email.txt
+< 250-Hello email.txt
+< 250-PIPELINING
+< 250 AUTH PLAIN
+> MAIL FROM:<john@example.com>
+< 250 Sender john@example.com ok
+> RCPT TO:<smith@example.com>
+< 250 Recipient smith@example.com ok
+> DATA
+< 354 End data with <CR><LF>.<CR><LF>
+} [199 bytes data]
+* We are completely uploaded and fine
+< 250 Ok: queued as 2U5TiFCZQD0VXGl2Jhjfaox8NEqoalMFrIKtPd-RMbU=@mailhog.example
+100   199    0     0  100   199      0  99500 --:--:-- --:--:-- --:--:--  194k
+* Connection #0 to host 193.16.16.9 left intact
+```
+
+### Another SMTP method
+
+```shell
+curl -k -v smtp://193.16.16.9:1025 --mail-from 'john@example.com' --mail-rcpt 'smith@example.com'
+```
+
+Type below message and put dot(.) at the end of the message like below and press `ctrl+d`
+```shell
+Subject: smtp test mail
+This is a smtp test mail
+.
+```
+
+### Another SMTP method
+
+```shell
+curl -k -v --url 'smtp://193.16.16.9:1025' --mail-from 'john@example.com' --mail-rcpt 'smith@example.com' -H "From: john@example.com" -H "To: smith@example.com" -H "Subject: smtp test mail" -F "This is a test mail, please ignore.;type=text/plan"
+```
+__output__
+```shell
+* Rebuilt URL to: smtp://193.16.16.9:1025/
+*   Trying 193.16.16.9...
+* TCP_NODELAY set
+* Connected to 193.16.16.9 (193.16.16.9) port 1025 (#0)
+< 220 mailhog.example ESMTP MailHog
+> EHLO centos8
+< 250-Hello centos8
+< 250-PIPELINING
+< 250 AUTH PLAIN
+> MAIL FROM:<john@example.com>
+< 250 Sender john@example.com ok
+> RCPT TO:<smith@example.com>
+< 250 Recipient smith@example.com ok
+> DATA
+< 354 End data with <CR><LF>.<CR><LF>
+* We are completely uploaded and fine
+< 250 Ok: queued as CEmdgwuVegePVHwS5X4lUvVD9lE1otk0fWtp4I7JHFg=@mailhog.example
+* Connection #0 to host 193.16.16.9 left intact
+```
+
 ## top command in batch mode  
 
 ```
