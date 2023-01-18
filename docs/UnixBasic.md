@@ -2546,6 +2546,163 @@ overclock
 06:02:46.663747 * Connection #0 to host example.com left intact
 ```
 
+### curl command for scp connectivity test
+
+```shell
+curl -k -v -u root: scp://193.16.34.20:22
+```
+__Output__
+
+```shell
+[root@mastersftp ~]# curl -k -v -u root: scp://193.16.34.20:22/
+*   Trying 193.16.34.20...
+* TCP_NODELAY set
+* Connected to 193.16.34.20 (193.16.34.20) port 22 (#0)
+* User: root
+* Authentication using SSH public key file
+* Completed public key authentication
+* Authentication complete
+* SSH CONNECT phase done
+* SCP: Warning: scp: /: not a regular file
+* Closing connection 0
+curl: (78) SCP: Warning: scp: /: not a regular file
+```
+
+### curl command for scp to download the file
+
+```
+curl -k -v -u root: scp://193.16.34.20:22/tmp/sit1.txt -o sit1.txt
+```
+__Output__
+```
+curl -k -v -u root: scp://193.16.34.20:22/tmp/sit1.txt -o sit1.txt
+*   Trying 193.16.34.20...
+* TCP_NODELAY set
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 193.16.34.20 (193.16.34.20) port 22 (#0)
+* User: root
+* Authentication using SSH public key file
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Completed public key authentication
+* Authentication complete
+* SSH CONNECT phase done
+{ [69 bytes data]
+100    69  100    69    0     0    202      0 --:--:-- --:--:-- --:--:--   201
+100    69  100    69    0     0    202      0 --:--:-- --:--:-- --:--:--   202
+* Closing connection 0
+[root@mastersftp tmp]# ls -ltr
+total 16
+drwx------. 3 root    root     17 Jan 18 08:32 systemd-private-a7338e206a4a4b258d0cd3f137201845-chronyd.service-y8979f
+-rwxrwxr-x. 1 vagrant vagrant 373 Jan 18 08:32 vagrant-shell
+drwxr-xr-x. 2 root    root      6 Jan 18 09:41 vscode-typescript0
+-rw-r--r--. 1 root    root      8 Jan 18 10:35 test.txt
+-rw-r--r--. 1 root    root     69 Jan 18 11:31 sit1.txt
+```
+
+### curl command for sftp connectivity test
+
+```shell
+curl -k -v -u root: sftp://193.16.34.20:22
+```
+
+__Output__
+
+```shell
+[root@mastersftp ~]# curl -k -v -u root: sftp://193.16.34.20:22/
+*   Trying 193.16.34.20...
+* TCP_NODELAY set
+* Connected to 193.16.34.20 (193.16.34.20) port 22 (#0)
+* User: root
+* Authentication using SSH public key file
+* Completed public key authentication
+* Authentication complete
+dr-xr-xr-x   18 root     root          255 Jan 18 08:30 .
+dr-xr-xr-x   18 root     root          255 Jan 18 08:30 ..
+drwxr-xr-x   17 root     root         2780 Jan 18 08:30 dev
+dr-xr-xr-x  100 root     root            0 Jan 18 08:30 proc
+drwxr-xr-x   23 root     root          740 Jan 18 08:30 run
+dr-xr-xr-x   13 root     root            0 Jan 18 08:30 sys
+drwxr-xr-x   84 root     root         8192 Jan 18 08:30 etc
+dr-xr-x---    3 root     root          170 Jan 18 09:58 root
+drwxr-xr-x   20 root     root          278 Jan 18 08:30 var
+drwxr-xr-x   12 root     root          144 Feb 10  2021 usr
+lrwxrwxrwx    1 root     root            7 May 18  2020 bin -> usr/bin
+lrwxrwxrwx    1 root     root            8 May 18  2020 sbin -> usr/sbin
+lrwxrwxrwx    1 root     root            7 May 18  2020 lib -> usr/lib
+lrwxrwxrwx    1 root     root            9 May 18  2020 lib64 -> usr/lib64
+dr-xr-xr-x    5 root     root          243 Feb 10  2021 boot
+drwxr-xr-x    3 root     root           21 Feb 10  2021 home
+drwxr-xr-x    2 root     root            6 May 18  2020 media
+drwxr-xr-x    2 root     root            6 May 18  2020 mnt
+drwxr-xr-x    2 root     root            6 May 18  2020 opt
+drwxr-xr-x    2 root     root            6 May 18  2020 srv
+drwxrwxrwt    8 root     root          240 Jan 18 11:24 tmp
+-rw-------    1 root     root     2147483648 Feb 10  2021 swapfile
+drwxr-xr-x    2 vagrant  vagrant       111 Jan 15 17:23 vagrant
+* Connection #0 to host 193.16.34.20 left intact
+[root@mastersftp ~]# 
+```
+
+### Command to upload a file through scp
+
+```shell
+curl -k -v --upload-file /tmp/master.txt -u root: scp://193.16.34.20:22/tmp/master_sit1_test1.txt
+```
+__Output__
+
+```shell
+[root@mastersftp tmp]# curl -k -v --upload-file /tmp/master.txt -u root: scp://193.16.34.20:22/tmp/master_sit1_test1.txt
+*   Trying 193.16.34.20...
+* TCP_NODELAY set
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 193.16.34.20 (193.16.34.20) port 22 (#0)
+* User: root
+* Authentication using SSH public key file
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Completed public key authentication
+* Authentication complete
+* SSH CONNECT phase done
+} [69 bytes data]
+* We are completely uploaded and fine
+100    69    0     0    0    69      0    218 --:--:-- --:--:-- --:--:--   217
+100    69    0     0    0    69      0    218 --:--:-- --:--:-- --:--:--   218
+* Closing connection 0
+```
+
+### Another method for scp
+
+```shell
+curl -k -v -T /tmp/master.txt -u root: scp://193.16.34.20:22/tmp/master_sit1.txt
+```
+__Output__
+```shell
+[root@mastersftp tmp]# curl -k -v -T /tmp/master.txt -u root: scp://193.16.34.20:22/tmp/master_sit1.txt
+*   Trying 193.16.34.20...
+* TCP_NODELAY set
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 193.16.34.20 (193.16.34.20) port 22 (#0)
+* User: root
+* Authentication using SSH public key file
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Completed public key authentication
+* Authentication complete
+* SSH CONNECT phase done
+} [69 bytes data]
+* We are completely uploaded and fine
+100    69    0     0    0    69      0    202 --:--:-- --:--:-- --:--:--   202
+100    69    0     0    0    69      0    202 --:--:-- --:--:-- --:--:--   202
+* Closing connection 0
+```
+
+#### Authentication steps followed on sftp and scp on above commands
+
+Authentication with curl against an SSH server (when you specify an SCP or SFTP URL) is done like this:  
+curl connects to the server and learns which authentication methods that this server offers  
+curl then tries the offered methods one by one until one works or they all failed  
+curl will attempt to use your public key as found in the .ssh subdirectory in your home directory if the server offers public key authentication.  
+When doing do, you still need to tell curl which user name to use on the server.
+For example, the user 'john' lists the entries in his home directory on the remote SFTP server  
+
 ## top command in batch mode  
 
 ```
