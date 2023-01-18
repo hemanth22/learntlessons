@@ -2124,6 +2124,34 @@ curl -v telnet://[ip address]:[port]
 telnet remotehost 80
 ```
 
+### telnet example commands
+
+__Command for ssh__
+```
+[root@centos8 ~]# telnet 193.16.16.9 22
+Trying 193.16.16.9...
+Connected to 193.16.16.9.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_8.0
+quit
+Invalid SSH identification string.
+Connection closed by foreign host.
+[root@centos8 ~]# telnet 193.16.16.9 1025
+```
+__Command for smtp__
+```
+[root@centos8 ~]# telnet 193.16.16.9 1025
+Trying 193.16.16.9...
+Connected to 193.16.16.9.
+Escape character is '^]'.
+220 mailhog.example ESMTP MailHog
+HELO
+250 Hello 
+quit
+221 Bye
+Connection closed by foreign host
+```
+
 ### curl smtp command
 
 create a sample email.txt file
