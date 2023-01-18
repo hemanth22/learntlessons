@@ -2165,6 +2165,13 @@ quit
 Connection closed by foreign host.
 ```
 
+## curl commands
+
+command references:  
+
+https://curl.se/docs/manual.html  
+https://everything.curl.dev/usingcurl  
+
 ### curl smtp command
 
 create a sample email.txt file
