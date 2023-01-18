@@ -2281,6 +2281,8 @@ __output__
 ### sftp command example
 
 ```
+[root@centos8 ~]# podman run --rm -it -p 64022:21 -p 4559-4564:4559-4564 -e FTP_USER=root -e FTP_PASSWORD=hemanth docker.io/panubo/vsftpd:latest
+
 [root@centos8 ~]# curl -k -v sftp://193.16.16.9:64022
 * Rebuilt URL to: sftp://193.16.16.9:64022/
 *   Trying 193.16.16.9...
@@ -2300,6 +2302,242 @@ __output__
 ^C
 ```
 
+### http command example
+
+```
+[root@centos8 ~]# curl --verbose https://räksmörgås.se
+* Rebuilt URL to: https://räksmörgås.se/
+*   Trying 188.126.83.221...
+* TCP_NODELAY set
+*   Trying 2a00:1a28:1410:5::1229...
+* TCP_NODELAY set
+* Immediate connect fail for 2a00:1a28:1410:5::1229: Network is unreachable
+* Connected to räksmörgås.se (188.126.83.221) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.3 (OUT), TLS handshake, [no content] (0):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=xn--rksmrgs-5wao1o.se
+*  start date: Dec 21 13:02:32 2022 GMT
+*  expire date: Mar 21 13:02:31 2023 GMT
+*  subjectAltName: host "räksmörgås.se" matched cert's "xn--rksmrgs-5wao1o.se"
+*  issuer: C=US; O=Let's Encrypt; CN=R3
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+* Using Stream ID: 1 (easy handle 0x55e24218e6b0)
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+> GET / HTTP/2
+> Host: xn--rksmrgs-5wao1o.se
+> User-Agent: curl/7.61.1
+> Accept: */*
+> 
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* TLSv1.3 (IN), TLS handshake, [no content] (0):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* TLSv1.3 (IN), TLS app data, [no content] (0):
+* Connection state changed (MAX_CONCURRENT_STREAMS == 128)!
+* TLSv1.3 (OUT), TLS app data, [no content] (0):
+< HTTP/2 200 
+< server: nginx/1.23.2
+< date: Wed, 18 Jan 2023 05:47:08 GMT
+< content-type: text/html
+< content-length: 1960
+< last-modified: Wed, 16 Mar 2022 15:07:13 GMT
+< vary: Accept-Encoding
+< etag: "6231fd21-7a8"
+< expires: Fri, 17 Feb 2023 05:47:08 GMT
+< cache-control: max-age=2592000
+< pragma: public
+< cache-control: public
+< accept-ranges: bytes
+< 
+* TLSv1.3 (IN), TLS app data, [no content] (0):
+<!doctype html>
+<html>
+<head>
+  <title>internetstiftelsen testar IDN: räksmörgås.se</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="https://static.internetstiftelsen.se/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://static.internetstiftelsen.se/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://static.internetstiftelsen.se/favicons/favicon-16x16.png">
+  <link rel="manifest" href="https://static.internetstiftelsen.se/favicons/site.webmanifest">
+  <link rel="mask-icon" href="https://static.internetstiftelsen.se/favicons/safari-pinned-tab.svg" color="#ff4069">
+  <link rel="shortcut icon" href="https://static.internetstiftelsen.se/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="https://static.internetstiftelsen.se/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://styleguide.internetstiftelsen.se/assets/css/app.min.css"/>
+</head>
+
+<body>
+<div class="wrapper">
+<div class="row justify-content-center">
+<div class="grid-18 grid-md-14 grid-lg-10">
+<h1>räksmörgås.se</h1>
+<img src="macka.jpg" />
+<p>
+  Detta är en test av IDN, <i>Internationalized Domain Names</i>.
+  Det finns mer att läsa om IDN på Internetstiftelsens
+  <a href="https://internetstiftelsen.se/domaner/registrera-ett-domannamn/villkor-och-regler-for-se-och-nu-domaner/">hemsida om IDN</a>.
+  Denna domän heter även xn--rksmrgs-5wao1o.se.
+</p>
+  Testlänkar:
+  <ul>
+    <li><a href="http://www.räksmörgås.se/">www.räksmörgås.se</a></li>
+    <li><a href="http://www.xn--rksmrgs-5wao1o.se/">www.xn--rksmrgs-5wao1o.se</a></li>
+  </ul>
+</div>
+</div>
+</div>
+</body>
+</html>
+* Connection #0 to host räksmörgås.se left intact
+```
+
+### http frangment
+
+```
+curl https://example.com/#[1-10]
+```
+
+### curl dict
+
+```
+[root@centos8 ~]# curl dict://dict.org/d:overclock
+220 dict.dict.org dictd 1.12.1/rf on Linux 4.19.0-10-amd64 <auth.mime> <163832465.12025.1674021593@dict.dict.org>
+250 ok
+150 1 definitions retrieved
+151 "overclock" jargon "The Jargon File (version 4.4.7, 29 Dec 2003)"
+overclock
+ /oh'vr?klok?/, vt.
+
+    To operate a CPU or other digital logic device at a rate higher than it was
+    designed for, under the assumption that the manufacturer put some {slop}
+    into the specification to account for manufacturing tolerances.
+    Overclocking something can result in intermittent {crash}es, and can even
+    burn things out, since power dissipation is directly proportional to {clock
+    } frequency. People who make a hobby of this are sometimes called ?
+    overclockers?; they are thrilled that they can run their CPU a few percent
+    faster, even though they can only tell the difference by running a {
+    benchmark} program. See also {case mod}.
+
+.
+250 ok [d/m/c = 1/0/59; 0.000r 0.000u 0.000s]
+221 bye [d/m/c = 0/0/0; 0.000r 0.000u 0.000s]
+```
+
+
+### curl trace
+
+```
+[root@centos8 ~]# curl --trace dump http://bitroid.in
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+[root@centos8 ~]# curl -v --trace-time http://example.com
+06:02:46.192015 * Rebuilt URL to: http://example.com/
+06:02:46.233806 *   Trying 93.184.216.34...
+06:02:46.233907 * TCP_NODELAY set
+06:02:46.434535 *   Trying 2606:2800:220:1:248:1893:25c8:1946...
+06:02:46.434633 * TCP_NODELAY set
+06:02:46.434744 * Immediate connect fail for 2606:2800:220:1:248:1893:25c8:1946: Network is unreachable
+06:02:46.449759 * Connected to example.com (93.184.216.34) port 80 (#0)
+06:02:46.449876 > GET / HTTP/1.1
+06:02:46.449876 > Host: example.com
+06:02:46.449876 > User-Agent: curl/7.61.1
+06:02:46.449876 > Accept: */*
+06:02:46.449876 > 
+06:02:46.663147 < HTTP/1.1 200 OK
+06:02:46.663244 < Age: 504155
+06:02:46.663280 < Cache-Control: max-age=604800
+06:02:46.663315 < Content-Type: text/html; charset=UTF-8
+06:02:46.663348 < Date: Wed, 18 Jan 2023 06:02:47 GMT
+06:02:46.663382 < Etag: "3147526947+ident"
+06:02:46.663415 < Expires: Wed, 25 Jan 2023 06:02:47 GMT
+06:02:46.663478 < Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
+06:02:46.663513 < Server: ECS (nyb/1D13)
+06:02:46.663546 < Vary: Accept-Encoding
+06:02:46.663578 < X-Cache: HIT
+06:02:46.663612 < Content-Length: 1256
+06:02:46.663646 < 
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
+</head>
+
+<body>
+<div>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+</div>
+</body>
+</html>
+06:02:46.663747 * Connection #0 to host example.com left intact
+```
 
 ## top command in batch mode  
 
