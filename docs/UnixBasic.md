@@ -2152,6 +2152,19 @@ quit
 Connection closed by foreign host
 ```
 
+__Command for sftp__
+
+```
+[root@centos8 ~]# telnet 193.16.16.9 64022
+Trying 193.16.16.9...
+Connected to 193.16.16.9.
+Escape character is '^]'.
+220 (vsFTPd 3.0.3)
+quit
+221 Goodbye.
+Connection closed by foreign host.
+```
+
 ### curl smtp command
 
 create a sample email.txt file
@@ -2209,7 +2222,6 @@ Subject: smtp test mail
 This is a smtp test mail
 .
 ```
-
 __output__
 
 ```shell
@@ -2240,7 +2252,7 @@ This is a smtp test mail
 * Connection #0 to host 193.16.16.9 left intact
 ```
 
-### Another SMTP method
+### Another SMTP method 2
 
 ```shell
 curl -k -v --url 'smtp://193.16.16.9:1025' --mail-from 'john@example.com' --mail-rcpt 'smith@example.com' -H "From: john@example.com" -H "To: smith@example.com" -H "Subject: smtp test mail" -F "This is a test mail, please ignore.;type=text/plan"
@@ -2266,6 +2278,28 @@ __output__
 < 250 Ok: queued as CEmdgwuVegePVHwS5X4lUvVD9lE1otk0fWtp4I7JHFg=@mailhog.example
 * Connection #0 to host 193.16.16.9 left intact
 ```
+### sftp command example
+
+```
+[root@centos8 ~]# curl -k -v sftp://193.16.16.9:64022
+* Rebuilt URL to: sftp://193.16.16.9:64022/
+*   Trying 193.16.16.9...
+* TCP_NODELAY set
+* Connected to 193.16.16.9 (193.16.16.9) port 64022 (#0)
+* User: 
+^C
+```
+
+```
+[root@centos8 ~]# curl -k -v sftp://root@193.16.16.9:64022
+* Rebuilt URL to: sftp://root@193.16.16.9:64022/
+*   Trying 193.16.16.9...
+* TCP_NODELAY set
+* Connected to 193.16.16.9 (193.16.16.9) port 64022 (#0)
+* User: root
+^C
+```
+
 
 ## top command in batch mode  
 
