@@ -426,6 +426,90 @@ __Disk information command__
 `$du -hd 1 directory`  
 `$du -hd 0 directory`  
 
+### ss command
+
+The ss command is the replacement of the netstat command.
+
+```
+[root@mastersftp ssh]# ss -ltnup 'sport = :22'
+Netid    State     Recv-Q    Send-Q       Local Address:Port         Peer Address:Port    Process
+tcp      LISTEN    0         128                0.0.0.0:22                0.0.0.0:*        users:(("sshd",pid=36496,fd=5))
+tcp      LISTEN    0         128                   [::]:22                   [::]:*        users:(("sshd",pid=36496,fd=7))
+```
+
+### fuser command
+
+```shell
+[root@mastersftp ssh]# fuser 22/tcp
+22/tcp:               4003  4007  4020  4025 36496
+[root@mastersftp ssh]# fuser -v 22/tcp
+                     USER        PID ACCESS COMMAND
+22/tcp:              root       4003 F.... sshd
+                     root       4007 F.... sshd
+                     root       4020 F.... sshd
+                     root       4025 F.... sshd
+                     root      36496 F.... sshd
+[root@mastersftp ssh]# fuser -v 22/tcp 68/udp
+                     USER        PID ACCESS COMMAND
+22/tcp:              root       4003 F.... sshd
+                     root       4007 F.... sshd
+                     root       4020 F.... sshd
+                     root       4025 F.... sshd
+                     root      36496 F.... sshd
+68/udp:              root       2834 F.... NetworkManager
+
+```
+
+### lsof command
+
+```shell
+[root@mastersftp ssh]# lsof -i :22
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+sshd     4003 root    5u  IPv4  32481      0t0  TCP mastersftp:ssh->193.16.33.1:52173 (ESTABLISHED)
+sshd     4007 root    5u  IPv4  32597      0t0  TCP mastersftp:ssh->193.16.33.1:52174 (ESTABLISHED)
+sshd     4020 root    5u  IPv4  32481      0t0  TCP mastersftp:ssh->193.16.33.1:52173 (ESTABLISHED)
+sshd     4025 root    5u  IPv4  32597      0t0  TCP mastersftp:ssh->193.16.33.1:52174 (ESTABLISHED)
+sshd    36496 root    5u  IPv4  67425      0t0  TCP *:ssh (LISTEN)
+sshd    36496 root    7u  IPv6  67427      0t0  TCP *:ssh (LISTEN)
+[root@mastersftp ssh]# lsof -i :22 -i :68
+COMMAND     PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+NetworkMa  2834 root   24u  IPv4  29328      0t0  UDP mastersftp:bootpc->_gateway:bootps
+sshd       4003 root    5u  IPv4  32481      0t0  TCP mastersftp:ssh->193.16.33.1:52173 (ESTABLISHED)
+sshd       4007 root    5u  IPv4  32597      0t0  TCP mastersftp:ssh->193.16.33.1:52174 (ESTABLISHED)
+sshd       4020 root    5u  IPv4  32481      0t0  TCP mastersftp:ssh->193.16.33.1:52173 (ESTABLISHED)
+sshd       4025 root    5u  IPv4  32597      0t0  TCP mastersftp:ssh->193.16.33.1:52174 (ESTABLISHED)
+sshd      36496 root    5u  IPv4  67425      0t0  TCP *:ssh (LISTEN)
+sshd      36496 root    7u  IPv6  67427      0t0  TCP *:ssh (LISTEN)
+```
+
+### netstat commmand
+
+
+```shell
+root# netstat -ltnup         
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.1:17600         0.0.0.0:*               LISTEN      1293/dropbox        
+tcp        0      0 127.0.0.1:17603         0.0.0.0:*               LISTEN      1293/dropbox   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      575/sshd  
+tcp        0      0 127.0.0.1:9393          0.0.0.0:*               LISTEN      900/perl  
+tcp        0      0 :::80                   :::*                    LISTEN      9583/docker-proxy 
+tcp        0      0 :::443                  :::*                    LISTEN      9571/docker-proxy
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           8822/dhcpcd
+```
+
+```
+l – show only listening sockets
+t – show TCP connections
+n – show addresses in a numerical form
+u – show UDP connections
+p – show process id/program name
+```
+
+```
+netstat -ltnup | grep ':22'
+```
+
 __Viewing processes__  
 
 `$ps`  
