@@ -2663,6 +2663,13 @@ Meaghan Garufi	69734 E Carrillo St, Mc Minnville, TN 37110	227
 Donette Foller	34 Center St, Hamilton, OH 45011	282
 ```
 
+awk command to find specific word in third field
+```gawk
+awk -F , '$3~"LV"{print $0}' *.txt
+grep "LV" * | awk -F , '$3~"LV"{print $0}' > /var/tmp/LV.list
+cat /var/tmp/LV.list | awk -F ; '{print $1}'
+```
+
 __Reference__  
 
 [GNU AWK Page](http://www.gnu.org/software/gawk/manual/gawk.html)  
