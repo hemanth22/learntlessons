@@ -2845,6 +2845,19 @@ cat loremipsum.log.tar.gz.* | tar xvzf -
 grep -Eo '\b((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\.)){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\b' *
 ```
 
+## Command to find the empty record in specific field
+
+```shell
+awk -F '|' '{if($2=="") print}' filename
+```
+
+## Command to find duplicate record in specific field
+
+```shell
+cat filename | sort | uniq -c | awk -F '|' '{if($2>1) print}' 
+```
+
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
