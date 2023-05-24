@@ -1332,6 +1332,12 @@ For more information about Deployments and DeploymentConfigs, you can consult th
 https://docs.openshift.com/container-platform/4.9/applications/deployments/what-deployments-are.html  
 Kubernetes Deployment information: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/  
 
+### Tips
+
+```shell
+./oc get pods --field-selector=status.phase=Running -o=custom-columns=POD:.metadata.name, STATUS:.status.phase, PodIps:.status.PodIPs.*.ip,nodeName:.spec.nodeName,Image:.spec.containers.*.image,LABELS:.metadata.labels.deploymentconfig
+```
+
 ### Conclusion
   
 __Kubernetes News__
