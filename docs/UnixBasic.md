@@ -2857,6 +2857,21 @@ awk -F '|' '{if($2=="") print}' filename
 cat filename | sort | uniq -c | awk -F '|' '{if($2>1) print}' 
 ```
 
+## Command to find double decimal or multiple point in double quote amount.
+
+```shell
+awk -F '\"' '{ print $2 }' filename.txt | awk -F '.' '{ if($3>1) print}'
+awk -F '\"' '{ print $0 }' filename.txt | awk -F '.' '{ if($3>1) print}'
+```
+
+__filename.txt__
+```shell
+ABC,CD,DE,12346,ABC729,dafsdf,loremipsum,"47207.8.79"
+```
+__output__
+```
+47207.8.79
+```
 
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
