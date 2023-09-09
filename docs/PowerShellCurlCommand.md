@@ -1,12 +1,12 @@
 # Curl Commands
 
-#### Get Command using curl
+## Get Command using curl
 
 ```powershell
 Invoke-WebRequest -Uri "http://httpbin.org/json"
 ```
 
-#### Post Command using windows curl command with json output
+## Post Command using windows curl command with json output
 
 ```powershell
 $url1="https://httpbin.org/post"
@@ -17,7 +17,7 @@ $respone1=invoke-RestMethod -Uri $url1 -Method Post -Header $header1
 $respone1
 ```
 
-#### Post Command using windows curl command with body
+## Post Command using windows curl command with body
 
 ```powershell
 $url2 = "https://httpbin.org/post"
@@ -32,7 +32,7 @@ $response2 = Invoke-RestMethod -Uri $url2 -Method Post -Body $data2 -ContentType
 $response2
 ```
 
-#### Post Command using windows curl command with body
+## Post Command using windows curl command with body
 
 ```powershell
 $url2 = "https://httpbin.org/post"

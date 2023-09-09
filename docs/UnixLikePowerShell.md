@@ -1,6 +1,6 @@
-## Unix Like PowerShell Commands
+# Unix Like PowerShell Commands
 
-#### Listing Files and Directories
+### Listing Files and Directories
 
 Unix:
 ```shell
@@ -11,7 +11,7 @@ Powershell:
 Get-ChildItem
 ```
 
-#### Changing Directory
+### Changing Directory
 
 Unix:
 ```shell
@@ -22,7 +22,7 @@ Powershell:
 Set-Location
 ```
 
-#### Copying Files/Directories
+### Copying Files/Directories
 
 Unix:
 ```shell
@@ -35,7 +35,7 @@ Copy-Item
 Copy-Item -Path '.\Tools\' -Destination $env:USERPROFILE -Recurse
 ```
 
-#### Moving/Renaming Files/Directories
+### Moving/Renaming Files/Directories
 
 Unix:
 ```shell
@@ -46,7 +46,7 @@ Powershell:
 Move-Item or Rename-Item
 ```
 
-#### Creating a New Directory
+### Creating a New Directory
 
 Unix:
 ```shell
@@ -57,7 +57,7 @@ Powershell:
 New-Item -ItemType Directory -Name 'MyNewFolder'
 ```
 
-#### Creating a New file
+### Creating a New file
 
 Unix:
 ```shell
@@ -70,7 +70,7 @@ New-Item -ItemType File -Name "MyFile"
 1..4 | ForEach-Object { New-Item -ItemType File -Name "MyFile$_" }
 ```
 
-#### Removing Files/Directories:
+### Removing Files/Directories:
 
 Unix:
 ```shell
@@ -81,7 +81,7 @@ Powershell:
 Remove-Item
 ```
 
-#### Displaying File Contents
+### Displaying File Contents
 
 Unix:
 ```shell
@@ -92,7 +92,7 @@ Powershell:
 Get-Content
 ```
 
-#### Environment Variables
+### Environment Variables
 
 Unix:
 ```shell
@@ -105,7 +105,7 @@ $Env:VARNAME
 echo $Env:VARNAME
 ```
 
-#### Getting Help
+### Getting Help
 
 Unix:
 ```shell
@@ -116,7 +116,7 @@ Powershell:
 Get-Help
 ```
 
-#### Checking Process Status
+### Checking Process Status
 
 Unix:
 ```shell
@@ -127,7 +127,7 @@ Powershell:
 Get-Process
 ```
 
-#### Killing a Process
+### Killing a Process
 
 Unix:
 ```shell
@@ -138,7 +138,7 @@ Powershell:
 Stop-Process
 ```
 
-#### System Information
+### System Information
 
 Unix:
 ```shell
@@ -149,7 +149,7 @@ Powershell:
 Get-WmiObject, Get-ComputerInfo
 ```
 
-#### Network Information:
+### Network Information:
 
 Unix:
 ```shell
@@ -160,7 +160,7 @@ Powershell:
 Get-NetAdapter, Test-Connection, Get-NetTCPConnection
 ```
 
-#### Tail logs
+### Tail logs
 
 Unix:
 ```shell
@@ -171,7 +171,7 @@ Powershell:
 Get-Content -Tail 7 .\MyFile1
 ```
 
-#### Grep Commands
+### Grep Commands
 
 Unix:
 ```shell
@@ -182,7 +182,7 @@ Powershell:
 Select-String -Path 'C:\Windows\iis.log' -Pattern 'Failed'
 ```
 
-#### uname commands
+### uname commands
 
 Unix:
 ```shell
@@ -194,7 +194,7 @@ $Properties = 'Caption', 'CSName', 'Version', 'BuildType', 'OSArchitecture'
 Get-CimInstance Win32_OperatingSystem | Select-Object $Properties | Format-Table -AutoSize
 ```
 
-#### Ping Commands
+### Ping Commands
 
 Unix:
 ```shell
@@ -205,7 +205,7 @@ Powershell:
 Test-Connection google.com | Format-Table -AutoSize
 ```
 
-#### Find Commands
+### Find Commands
 
 Unix:
 ```shell
@@ -216,7 +216,7 @@ Powershell:
 Get-ChildItem -Filter "*azure*" -Recurse -File
 ```
 
-#### Grep Command with star search
+### Grep Command with star search
 
 Unix:
 ```shell
@@ -227,7 +227,7 @@ Powershell:
 Select-String -Path * -Pattern "5963"
 ```
 
-#### Grep to search recursively and list it 
+### Grep to search recursively and list it 
 
 Unix:
 ```shell
