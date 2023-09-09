@@ -17,11 +17,12 @@
 |13 | [Putting Powershell to work](./PowerShell5.md) |
 |14 | [Powershell Netwoking](./PowerShell6.md) |
 |15 | [Powershell Automation](./PowerShell7.md) |
-|16 | [Perl Scripting](./Perl.md) |
-|17 | [mysql cheatsheet](./mysql-cheatsheet.md) |
-|18 | [mysql guide](./mysql_guide.md) |
-|19 | [mariadb](./mariadb.md) |
-|20 | [Openshift](./Openshift.md) |
+|16 | [Powershell Curl](./PowerShellCurlCommand.md) |
+|17 | [Perl Scripting](./Perl.md) |
+|18 | [mysql cheatsheet](./mysql-cheatsheet.md) |
+|19 | [mysql guide](./mysql_guide.md) |
+|20 | [mariadb](./mariadb.md) |
+|21 | [Openshift](./Openshift.md) |
 
 ## About my blogs
 
