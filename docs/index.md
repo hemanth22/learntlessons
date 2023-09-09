@@ -23,6 +23,7 @@
 |19 | [mysql guide](./mysql_guide.md) |
 |20 | [mariadb](./mariadb.md) |
 |21 | [Openshift](./Openshift.md) |
+|22 | [Unix Like PowerShell](./UnixLikePowerShell.md) |
 
 ## About my blogs
 
