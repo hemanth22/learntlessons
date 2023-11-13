@@ -1338,6 +1338,86 @@ Kubernetes Deployment information: https://kubernetes.io/docs/concepts/workloads
 ./oc get pods --field-selector=status.phase=Running -o=custom-columns=POD:.metadata.name, STATUS:.status.phase, PodIps:.status.PodIPs.*.ip,nodeName:.spec.nodeName,Image:.spec.containers.*.image,LABELS:.metadata.labels.deploymentconfig
 ```
 
+```shell
+./oc get pod -l deploymentconfig=nginx-service -o custom-columns=:metadata.name > nginx-service.txt
+for listpod in `cat nginx-service.txt`
+do
+       echo "== pod log of : $listpod =="
+       ./oc logs $listpod | tail -n 100
+done
+```
+
+```shell
+./oc get pod -l deploymentconfig=nginx-service -o custom-columns=:metadata.name > nginx-service.txt
+```
+
+```shell
+#!/bin/bash
+dir=/path/openshift-v4
+$dir/oc login https://api.ocp.local.com:6443/ -u username -p 'PassWord'
+$dir/oc projects
+$dir/oc get pod -l deploymentconfig=nginx-service -o custom-columns=:metadata.name > nginx-service.txt
+for listpod in `cat nginx-service.txt`
+do
+       echo "== pod log of : $listpod =="
+       $dir/oc logs $listpod | tail -n 100
+done
+$dir/oc logout
+```
+__cat lv_script.sh__
+```shell
+./LV.sh > LV_OS.txt
+sed -i -e 's/Logged\ \"username"\ out\ on\ \"https:/\/\api.ocp.local.com:6443\"//g' LV_OS.txt
+sed -i -e '1,8d' LV_OS.txt
+cat LV_OS.txt | awk -f lv.awk > LV_OS.html
+./mailer.sh
+```
+
+__cat LV.sh__
+```shell
+#!/bin/bash
+dir=/path/openshift-v4
+$dir/oc login https://api.ocp.local.com:6443/ -u username -p 'PassWord'
+$dir/oc projects
+$dir/oc get dc --output=customs="NAME:.metadata.name,IMAGE_VERSION:.spec.template.spec.containers[*].image,LATEST_DC_DATE:.metadata.creationTimestamp,DESIRED:.spec.replicas,CURRENT:.status.availableReplicas,IMAGE_STERAM:.spec.containers[*].name"
+$dir/oc logout
+```
+
+__cat lv.awk__
+```
+BEGIN {
+    print "<html><body><table border=\"8\" cellpadding=\"3\" style=\"border-collapse: collapse\">"
+    print "<tr>"
+    print "<th bgcolor=turquoise colspan="6">Openshift logs</th>"
+    print "</tr>"
+    print "<tr>"
+    print "<th bgcolor=DodgerBlue>Deployment Config Name</th>"
+    print "<th bgcolor=DodgerBlue>Image Version</th>"
+    print "<th bgcolor=DodgerBlue>Latest Deployment Config Date</th>"
+    print "<th bgcolor=DodgerBlue>Desired Replicas</th>"
+    print "<th bgcolor=DodgerBlue>Current Replicas</th>"
+    print "<th bgcolor=DodgerBlue>ImageStream Name</th>"
+    print "</tr>"
+}
+NR > 0 {
+    print "<tr><td>"$1"</td><td>"$2"</td><td>"$3"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td></tr>"
+}
+END {
+    print "</table>"
+    print "</html>"
+}
+```
+
+__cat mailer_ret.sh__
+```
+#!/bin/sh -xv
+cat <<'EOF' - LV_OS.html | /usr/sbin/sendmail -t
+From: hemanthbitra@local.com
+To: hemanthbitra@local.com
+Subject: Healthcheck for openshift
+Content-Type: text/html; charset=utf-8
+EOF
+```
 ### Conclusion
   
 __Kubernetes News__
