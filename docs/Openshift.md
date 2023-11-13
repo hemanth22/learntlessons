@@ -1409,7 +1409,7 @@ END {
 }
 ```
 
-__cat mailer_ret.sh__
+__cat mailer.sh__
 ```shell
 #!/bin/sh -xv
 cat <<'EOF' - LV_OS.html | /usr/sbin/sendmail -t
