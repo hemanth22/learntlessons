@@ -1419,6 +1419,47 @@ Subject: Healthcheck for openshift
 Content-Type: text/html; charset=utf-8
 EOF
 ```
+
+#### Cluster 1 to Cluster 2 Movement
+
+```shell
+#!/bin/bash
+dir=/path/oc_cluster1
+$dir/oc version
+$dir/oc login https://api.ocp1.local.com:6443/ -u username -p 'PassWord'
+$dir/oc projects
+$dir/oc get dc --output=custom-columns="NAME:.metadata.name,DESIRED:.spec.replicas,CURRENT:.status.availableReplicas" > app_dc.txt
+$dir/oc logout
+cat app_dc.txt | awk -f replica.awk > rollback_app_dc_replica_backup.txt
+echo "[TASK] Move cluster1 to cluster2"
+dir=/path/oc_cluster1
+$dir/oc version
+$dir/oc login https://api.ocp1.local.com:6443/ -u username -p 'PassWord'
+$dir/oc projects
+$dir/oc get dc --output=custom-columns="NAME:.metadata.name" > list_dc.txt
+for dconfig in `cat list_dc.txt`
+do
+    $dir/oc scale dc $dconfig --replicas=0 -n localnamespace
+done
+$dir/oc logout
+
+dir=/path/oc_cluster2
+$dir/oc version
+$dir/oc login https://api.ocp2.local.com:6443/ -u username -p 'PassWord'
+$dir/oc projects
+for dconfig in `cat list_dc.txt`
+do
+   $dir/oc rollout latest dc/$dconfig -n localnamespace
+done
+$dir/oc logout
+```
+
+__cat replica.awk__
+```awk
+NR > 1 {
+    print "$dir/oc scale dc "$1" --replicas="$3"
+}
+```
 ### Conclusion
   
 __Kubernetes News__
