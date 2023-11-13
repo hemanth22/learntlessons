@@ -1364,6 +1364,7 @@ do
 done
 $dir/oc logout
 ```
+
 __cat lv_script.sh__
 ```shell
 ./LV.sh > LV_OS.txt
@@ -1384,7 +1385,7 @@ $dir/oc logout
 ```
 
 __cat lv.awk__
-```
+```shell
 BEGIN {
     print "<html><body><table border=\"8\" cellpadding=\"3\" style=\"border-collapse: collapse\">"
     print "<tr>"
@@ -1409,7 +1410,7 @@ END {
 ```
 
 __cat mailer_ret.sh__
-```
+```shell
 #!/bin/sh -xv
 cat <<'EOF' - LV_OS.html | /usr/sbin/sendmail -t
 From: hemanthbitra@local.com
