@@ -1144,6 +1144,13 @@ oc get -o yaml hpa/hello-world
 
 [deployment strategies](https://docs.openshift.com/container-platform/3.11/dev_guide/deployments/deployment_strategies.html#custom-strategy)
 
+## Operators
+
+### Operator list
+
+![Openshift Operators](https://raw.githubusercontent.com/hemanth22/Images/master/Openshift%20Operation1.png)
+
+![Openshift Operators](https://raw.githubusercontent.com/hemanth22/Images/master/Openshift%20Operators%202.png)
   
 ## Templates
   
