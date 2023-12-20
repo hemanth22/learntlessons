@@ -1075,6 +1075,30 @@ oc set probe dc/hello-world \
   --open-tcp=8080
 ```
 
+## Copying files
+
+#### Copying from a local machine to a container:
+
+```shell
+oc cp /local/path/to/file.txt pod-name:/container/path/
+oc rsync /local/path/to/source/ pod-name:/container/path/ -n project-name
+```
+
+#### Copying from a container to a local machine:
+
+```shell
+oc cp pod-name:/container/path/to/file.txt /local/path/
+oc rsync pod-name:/container/path/to/source/ /local/path/to/destination/ -n project-name
+```
+
+#### Copying using a specific container in a pod:
+
+```shell
+oc cp -c my-container /local/path/to/file.txt pod-name:/container/path/
+oc rsync /local/path/to/source/ pod-name:/container/path/ -c my-container -n project-name
+oc rsync <source> <pod-name>:/<destination> -c <container-name> -n <project-name>
+```
+
 ## Horizontal pods Autoscaling
 
 ### Manual Scaling
