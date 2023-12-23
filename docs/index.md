@@ -24,6 +24,7 @@
 |20 | [mariadb](./mariadb.md) |
 |21 | [Openshift](./Openshift.md) |
 |22 | [Unix Like PowerShell](./UnixLikePowerShell.md) |
+|23 | [pscp](./pscp.md) |
 
 ## About my blogs
 
