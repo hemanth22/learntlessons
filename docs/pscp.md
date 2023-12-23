@@ -73,7 +73,7 @@ C:\HOMEWARE\curlpscp\curl-8.5.0_3-win64-mingw\curl-8.5.0_3-win64-mingw\bin>ls C:
 #### Command to upload file from windows to linux server
 
 ```
-pscp -v -l root C:\Users\heman\Documents\test_bb_regional.json root@193.16.16.9:/root/test_bb_regional.json
+pscp -l root C:\Users\heman\Documents\test_bb_regional.json root@193.16.16.9:/root/test_bb_regional.json
 ```
 
 #### Command to upload file from windows to linux server with verbose
