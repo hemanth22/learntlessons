@@ -2670,9 +2670,33 @@ grep "LV" * | awk -F , '$3~"LV"{print $0}' > /var/tmp/LV.list
 cat /var/tmp/LV.list | awk -F ; '{print $1}'
 ```
 
+#### Command to replace data based on pattern
+
+file.txt
+```shell
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+:
+HelloWorld
+```
+
+```awk
+awk '/pattern2/{print "priority 0"} 1' inputfile
+
+awk '/:/{print "PRIORITY 0"} 1' file.txt
+```
+**Output**
+```shell
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+PRIORITY 0
+:
+HelloWorld
+```
+
 __Reference__  
 
 [GNU AWK Page](http://www.gnu.org/software/gawk/manual/gawk.html)  
+
+[GNU AWK Patterns](https://www.gnu.org/software/gawk/manual/html_node/Expression-Patterns.html)  
 
 [Pement website](http://www.pement.org/awk/awk1line.txt)  
 
