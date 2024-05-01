@@ -2793,6 +2793,18 @@ curl will attempt to use your public key as found in the .ssh subdirectory in yo
 When doing do, you still need to tell curl which user name to use on the server.
 For example, the user 'john' lists the entries in his home directory on the remote SFTP server  
 
+### Command fetch output of specific tag output
+
+```shell
+cat helper_input.xml 
+<name>Hemanth</name>
+<age>25</age>
+<ref>d98usa-a9s8h</ref>
+<name2>Bitra</name2>
+
+xmllint --format helper_input.xml | awk -F'[<>]' '/<ref>/{print $3}'
+```
+
 ## top command in batch mode  
 
 ```
