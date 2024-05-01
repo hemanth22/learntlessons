@@ -2803,6 +2803,9 @@ cat helper_input.xml
 <name2>Bitra</name2>
 
 xmllint --format helper_input.xml | awk -F'[<>]' '/<ref>/{print $3}'
+
+cat helper_input.xml | awk -F'[<>]' '/<ref>/{print $3}'
+d98usa-a9s8h
 ```
 
 ## top command in batch mode  
