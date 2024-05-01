@@ -2803,6 +2803,13 @@ top -bc -o +%CPU | head -n 20
 find -inum 208802 -exec rm -i {} \;
 ```
 
+
+### Command to kill all the process running with user centos
+
+```shell
+pkill -u centos
+```
+
 ## tar commands
 
 ### create a tar file
@@ -2850,6 +2857,8 @@ grep -Eo '\b((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\.)){3}([0-9]|[1-
 ```shell
 awk -F '|' '{if($2=="") print}' filename
 ```
+
+
 
 ## Command to find duplicate record in specific field
 
