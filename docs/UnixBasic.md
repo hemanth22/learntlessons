@@ -603,6 +603,12 @@ __Stopping processes__
 
 `$kill -9 PID`  
 
+### Command to kill all the process with user centos
+
+```shell
+pkill -u centos
+```
+
 __Text file helper__  
 
 - wc 
