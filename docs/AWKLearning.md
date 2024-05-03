@@ -139,7 +139,7 @@ Goodman,Serena
 Velez,Shoshana
 Hughes,Eve
 ```
-comma in double quote acts as a field seperator in command line output so it displays, in between two fields.  
+### comma in double quote acts as a field seperator in command line output so it displays, in between two fields.  
 
 ```awk
 $ awk '{print}' dukeofyork.txt 
@@ -163,7 +163,7 @@ $ awk '{print NF,$0}' dukeofyork.txt
 7 And when they were only half-way up
 6 They were neither up nor down
 ```
-NF prints no. of fields in everyline from whole dukeofyork.txt file.  
+###  NF prints no. of fields in everyline from whole dukeofyork.txt file.  
 
 NF= Number of fields  
 $0=display whole file  
@@ -175,7 +175,7 @@ $ awk '/up/{print NF,$0}' dukeofyork.txt
 7 And when they were only half-way up
 6 They were neither up nor down
 ```
-This prints the up name pattern contained line with no. of field of particular pattened line from dukeofyork txt file.  
+### This prints the up name pattern contained line with no. of field of particular pattened line from dukeofyork txt file.  
 
 ```awk
 $ awk 'NF==6{print NF,$0}' dukeofyork.txt 
@@ -184,7 +184,7 @@ $ awk 'NF==6{print NF,$0}' dukeofyork.txt
 6 They were neither up nor down
 ```
 
-It prints lines which has 6 field in the text file.  
+### It prints lines which has 6 field in the text file.  
 
 ```awk
 $ awk 'NF==6' dukeofyork.txt 
@@ -193,7 +193,7 @@ And he marched them down again
 They were neither up nor down
 ```
 
-It only prints line with 6 fields without field number.  
+### It only prints line with 6 fields without field number.  
 
 ```awk
 $ awk '/up/{print"UP:", NF, $0} /down/{print "DOWN:", NF, $0 }' dukeofyork.txt 
@@ -206,13 +206,13 @@ UP: 6 They were neither up nor down
 DOWN: 6 They were neither up nor down
 ```
 
-It only prints patterns contains up and down with field number.  
+### It only prints patterns contains up and down with field number.  
 
 ```shell
 $ cat swap.awk
 {print $2, $1}
 ```
-Here awk script can be executed by using f like [ -f progfile].  
+### Here awk script can be executed by using f like [ -f progfile].  
 
 ```shell
 $ awk -f swap.awk names.txt 
@@ -263,7 +263,7 @@ nice to see you
 nice hello
 ^C
 ```
-variable in awk.  
+### variable in awk.  
 This program prints hello at every second field of lines.  
 
 ```awk
@@ -307,7 +307,7 @@ $ awk '{ print NF,$0 }' < dukeofyork.txt
 7 And when they were only half-way up
 6 They were neither up nor down
 ```
-Awk takes input through "<" arrow.  
+### Awk takes input through "<" arrow.  
 
 ```shell
 $ uptime | awk '{ print NF,$0 }'
@@ -330,7 +330,7 @@ $ cat awk.out
 7 And when they were only half-way up
 6 They were neither up nor down
 ```
-__Field Seperator:__
+### Field Seperator:
 
 ```awk
 $ awk -F , '{ print $2}'
@@ -488,7 +488,7 @@ Gladys Rim,gladys.rim@rim.org,243.459635712
 Yuki Whobrey,yuki_whobrey@aol.com,128.321717297
 Fletcher Flosi,fletcher.flosi@yahoo.com,221.394141603
 ```
-__Record Number (NR)__  
+###  Record Number (NR)  
 
 ```awk
 $ awk '{ print NR, $0 }' dukeofyork.txt 
@@ -502,13 +502,13 @@ $ awk '{ print NR, $0 }' dukeofyork.txt
 8 They were neither up nor down
 ```
 
-__Print only 6th line__  
+### Print only 6th line  
 ```awk
 $ awk 'NR==6{ print NR, $0 }' dukeofyork.txt 
 6 And when they were down they were down
 ```
 
-__Filename based Record Number and output__
+### Filename based Record Number and output  
 ```awk
 $ awk '{ print NR,FILENAME,FNR,$0 }' dukeofyork.txt names.txt 
 1 dukeofyork.txt 1 The grand old Duke of York
@@ -539,7 +539,7 @@ $ awk '{ print NR,FILENAME,FNR,$0 }' dukeofyork.txt names.txt
 26 names.txt 18 Shoshana Velez
 27 names.txt 19 Eve Hughes
 ```
-__Last field output__
+### Last field output  
 ```awk
 $ awk '{ print $NF }' dukeofyork.txt 
 York
@@ -562,7 +562,7 @@ $ awk '{ print $NF-1 }' dukeofyork.txt
 -1
 -1
 ```
-__Last field but one field correct awk code__
+### Last field but one field correct awk code
 ```awk
 $ awk '{ print $(NF-1) }' dukeofyork.txt 
 of
@@ -772,7 +772,7 @@ $ awk 'BEGIN{a=1}{ print a,$0 }' dukeofyork.txt
 ```
 Here first it prints a value, later it print whole file.  
 
-__Operators and arrays__  
+### Operators and arrays  
 
 - Math operator: `+,-.*,/,%,^`  
 - Increment and decrement operator: `++--`  
@@ -795,7 +795,7 @@ $ awk '{a[1]=$1;a[2]=$2;a[3]=$3; print a[1],a[3],a[2]}'
 ```
 
 
-__Regular Expression__
+### Regular Expression  
 
 - /abc/ matches "abc"
 - /abc/ matches "xxabcxx"
@@ -816,14 +816,14 @@ They were neither up nor down
 ```
 This print only line with 4th field as up.  
 
-__Meta character__  
+### Meta character  
 
 - matches any single character.
 - /a.c/ matches "abc"  
 - /a.c/ matches "axc"  
 - /a.c/ doesnot match "ac"  
 
-__Removes special meanings__  
+### Removes special meanings  
 
 - `/a\.c` matches `"a.c"`  
 - `/a\\c/` matches `"a\c"`
@@ -901,22 +901,22 @@ __`()` repeats multiple items__
 - `/ab+c/` matches "abbbbbb"  
 - `/(ab)+c/` matches "ababababababc"  
 
-Quantifies are greedy. 
+### Quantifies are greedy. 
 
 - `/<.+>/` matches all of `"<i>italic text</i>"`  
 In html it matches whole code from starting to ending.  
 - `/<[^>]+>/` matches only `"<i>italic text</i>"`  
 It matches starting close bracket.  
 
-__Control structure__  
-__if statement.__  
+### Control structure  
+### if statement.  
 
 ```awk
 if(condition) {
   if-statement(s); --semicolon is optional.
   }  
 ```
-__If-else statement__  
+### If-else statement  
 
 ```awk
 if(condition){
@@ -961,7 +961,7 @@ Long line: And when they were down they were down
 Short line: And when they were only half-way up
 Short line: They were neither up nor down
 ```
-__AWK program execution using shell scripting__  
+### AWK program execution using shell scripting  
 
 ```bash
 $ cat shortlong.sh 
@@ -986,7 +986,7 @@ Short line: And when they were only half-way up
 Short line: They were neither up nor down
 ```
 
-__For statement__  
+### For statement  
 
 ```awk
 for(initialization;condition;increment){
@@ -1030,7 +1030,7 @@ Line 8, field 1: They
 Line 8, field 2: were
 Line 8, field 3: neither
 ```
-__HTML Parser using awk__
+### HTML Parser using awk  
 
 ```
 $ cat scores.txt 
@@ -1307,7 +1307,7 @@ awk -f scores_final.awk scores.txt
 $ awk -f scores_final.awk scores.txt > scores.html
 ```
 
-__Challenge_Solution__  
+### Challenge_Solution  
 
 ```
 BEGIN{
@@ -1328,7 +1328,7 @@ BEGIN{
   - Doesn't check that tags match up.  
   - In general, using awk to parse HTML is a bad idea.  
 	
-__Advanced printing with printf()__
+### Advanced printing with printf()  
 
 
 *Printf Syntax*  
@@ -1404,7 +1404,7 @@ Yuki Whobrey         yuki_whobrey@aol.com                128.32
 Fletcher Flosi       fletcher.flosi@yahoo.com            221.39
 ```
 
-__String manupulation function__  
+### String manupulation function  
 
 - length([string])  
 - index(string,target)  
@@ -1546,7 +1546,7 @@ Whobrey,Yuki	yuki_whobrey@aol.com	128.321717297
 Flosi,Fletcher	fletcher.flosi@yahoo.com	221.394141603
 ```
 
-__Associative arrays__  
+### Associative arrays  
 
 ```awk
 $ awk '[a["first"]=$1;a["second"]=$2;a["third"]=$3; print a["third"],a["second"],a["first"]}'
@@ -1677,7 +1677,7 @@ York                the       again     they      they      half-way  down
                     hill                 
 ```
 
-Using Math Functions  
+### Using Math Functions  
 Math functions  
 
 - int(x)  
@@ -1960,7 +1960,7 @@ Raymon Calvaresi <raymon.calvaresi@gmail.com>
 Alecia Bubash <alecia@aol.com>
 ```
 
-__Manupulating MSOffice__  
+### Manupulating MSOffice  
 
 (Specially on microsoft office)  
 
@@ -2083,7 +2083,7 @@ Member a  Large	Carmela	Cookey	Royal Pon iac Olds Inc	9 Murfreesboro Rd	Chicago	
 </ul>
 ```
 
-__Join__  
+### Join  
 
 ```bash
 $ cat join.awk
@@ -2692,7 +2692,7 @@ PRIORITY 0
 HelloWorld
 ```
 
-__Reference__  
+### Reference  
 
 [GNU AWK Page](http://www.gnu.org/software/gawk/manual/gawk.html)  
 
