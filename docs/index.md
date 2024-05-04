@@ -22,9 +22,10 @@
 |18 | [mysql cheatsheet](./mysql-cheatsheet.md) |
 |19 | [mysql guide](./mysql_guide.md) |
 |20 | [mariadb](./mariadb.md) |
-|21 | [Openshift](./Openshift.md) |
-|22 | [Unix Like PowerShell](./UnixLikePowerShell.md) |
-|23 | [pscp](./pscp.md) |
+|21 | [Postgres](./PostGres.md) |
+|22 | [Openshift](./Openshift.md) |
+|23 | [Unix Like PowerShell](./UnixLikePowerShell.md) |
+|24 | [pscp](./pscp.md) |
 
 ## About my blogs
 
