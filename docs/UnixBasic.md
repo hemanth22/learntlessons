@@ -2894,6 +2894,112 @@ __output__
 47207.8.79
 ```
 
+### Journal Command
+
+__Command to View All Cron Job Logs__  
+```
+journalctl -u cron
+```
+
+__Filter Logs by a Specific Timeframe__  
+```
+journalctl -u cron --since "2024-08-01" --until "2024-08-02"
+```
+
+__View Logs for a Specific User's Cron Jobs__  
+```
+journalctl _SYSTEMD_UNIT=cron.service _UID=$(id -u your_username)
+```
+
+__View Real-Time Logs__  
+```
+journalctl -u cron -f
+```
+
+__Search for Specific Keywords in Cron Logs__  
+```
+journalctl -u cron | grep "keyword"
+```
+
+__Logs from the current boot__  
+```
+journalctl -b
+```
+
+__Logs from a specific boot__  
+```
+journalctl -b -1  # previous boot
+```
+
+__Logs from a specific time period__  
+```
+journalctl --since "2024-08-01 00:00:00" --until "2024-08-01 12:00:00"
+```
+
+__Logs from the last 30 minutes__  
+```
+journalctl --since "30 min ago"
+```
+
+__Logs for a specific service__  
+```
+journalctl -u <service_name>
+```
+__OR__
+```
+journalctl -u apache2
+```
+
+__Show only error messages__  
+```
+journalctl -p err
+```
+
+__Show messages with priority level (0 to 7, emerg to debug)__  
+```
+journalctl -p 0..3  # emerg to err
+```
+
+__Show only kernel messages__  
+```
+journalctl -k
+```
+
+__Output in reverse chronological order__  
+```
+journalctl -r
+```
+
+__Show only the last 10 log entries__  
+```
+journalctl -n 10
+```
+
+__Show logs with full output (no truncation)__  
+```
+journalctl -o verbose
+```
+
+__Save logs to a file__  
+```
+journalctl -u <service_name> > /path/to/logfile
+```
+
+__View Apache logs from the last boot__  
+```
+journalctl -u apache2 -b
+```
+
+__View errors from the last hour__  
+```
+journalctl -p err --since "1 hour ago"
+```
+
+__View Logs for Service Failures Across the System__  
+```
+journalctl -p err -b
+```
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
