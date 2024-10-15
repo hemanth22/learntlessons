@@ -1,6 +1,6 @@
 ## What is TWS in schedular ?
 
-## Why TWS even thought crontab available in linux / windows ?
+## Why TWS even thought crontab available in linux ?
 
 | Feature                        | crontab                                              | IBM Tivoli Workload Scheduler (TWS)                            |
 |---------------------------------|------------------------------------------------------|---------------------------------------------------------------|
