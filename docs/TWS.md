@@ -8,6 +8,7 @@ __Centralized Control:__ Provides a single point of control to manage and monito
 __Dependencies:__ Supports managing job dependencies, allowing jobs to run based on the completion of other tasks or specific conditions.  
 __Integration:__ Integrates with various applications, including ERP systems, databases, and cloud services.  
 __Error Handling:__ Offers robust error detection and correction mechanisms, automating failure recovery.  
+
 TWS is widely used in industries such as finance, healthcare, and manufacturing to ensure smooth, automated execution of critical business processes.  
 
 
