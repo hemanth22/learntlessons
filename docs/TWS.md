@@ -1,14 +1,14 @@
 ## What is TWS in schedular ?
 
-IBM Tivoli Workload Scheduler (IBM TWS), now called IBM Workload Scheduler (IWS), is an enterprise job scheduling and workload automation tool. It helps organizations plan, execute, and monitor workflows and batch jobs across various platforms and applications. Key features include:
+IBM Tivoli Workload Scheduler (IBM TWS), now called IBM Workload Scheduler (IWS), is an enterprise job scheduling and workload automation tool. It helps organizations plan, execute, and monitor workflows and batch jobs across various platforms and applications. Key features include:  
 
-Job Scheduling: Automates and schedules jobs, scripts, and workflows, ensuring that tasks are executed in the correct order and at the appropriate times.
-Cross-platform Support: Works across different environments, including Windows, Linux, Unix, and z/OS.
-Centralized Control: Provides a single point of control to manage and monitor job statuses across the entire IT infrastructure.
-Dependencies: Supports managing job dependencies, allowing jobs to run based on the completion of other tasks or specific conditions.
-Integration: Integrates with various applications, including ERP systems, databases, and cloud services.
-Error Handling: Offers robust error detection and correction mechanisms, automating failure recovery.
-TWS is widely used in industries such as finance, healthcare, and manufacturing to ensure smooth, automated execution of critical business processes.
+__Job Scheduling:__ Automates and schedules jobs, scripts, and workflows, ensuring that tasks are executed in the correct order and at the appropriate times.  
+__Cross-platform Support:__ Works across different environments, including Windows, Linux, Unix, and z/OS.  
+__Centralized Control:__ Provides a single point of control to manage and monitor job statuses across the entire IT infrastructure.  
+__Dependencies:__ Supports managing job dependencies, allowing jobs to run based on the completion of other tasks or specific conditions.  
+__Integration:__ Integrates with various applications, including ERP systems, databases, and cloud services.  
+__Error Handling:__ Offers robust error detection and correction mechanisms, automating failure recovery.  
+TWS is widely used in industries such as finance, healthcare, and manufacturing to ensure smooth, automated execution of critical business processes.  
 
 
 ## Why TWS even thought crontab available in linux ?
