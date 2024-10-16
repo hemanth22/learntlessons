@@ -30,3 +30,18 @@ TWS is widely used in industries such as finance, healthcare, and manufacturing 
 | **Security & Access Control**   | Basic OS-level permissions.                          | Role-based access control and detailed job-level security.     |
 | **Cost**                        | Free and built-in to Unix/Linux systems.             | Licensed product with enterprise-level support and features.   |
 
+### Architecture of file dump in text. 
+
+~~~
+mapping.json
+WORKSTATION1
+- schedule
+- job
+WORKSTATION2
+- schedule
+- job
+~~~
+
+### schedule definition
+
+### job definition
