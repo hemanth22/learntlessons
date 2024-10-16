@@ -44,4 +44,8 @@ WORKSTATION2
 
 ### schedule definition
 
+~~~
+WORKSTATION#SCHEDULENAME
+
+~~~
 ### job definition
