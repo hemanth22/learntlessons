@@ -67,6 +67,14 @@ FOLLOWS WORKSTATION2#SCHEDULE_NAME1.@ -- external schedule dependency
 WORKSTATION1#JOB_NAME5
 FOLLOWS WORKSTATION2#SCHEDULE_NAME1.JOB_NAME1 -- external job dependency
 
+WORKSTATION1#JOB_NAME6
+FOLLOWS JOB_NAME1
+FOLLOWS JOB_NAME2
+FOLLOWS JOB_NAME3
+
+WORKSTATION1#JOB_NAME7
+OPENS WORKSTATION1#"/app/incoming/hemanthbitra*.csv"(`ls %p | wc -w` -ge 1) -- wait for file
+
 END
 ```
 ### job definition
