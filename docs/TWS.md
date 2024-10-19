@@ -49,7 +49,7 @@ SCHEDULE WORKSTATION1#SCHEDULE_NAME
 DESCRIPTION "Mention the description"\
 ON RUNCYCLE RULE1 VALIDFROM 22061993 "FREQ=DAILY" -- for daily or ON RUNCYCLE RC1 "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR" -- for specific days in weekly  
 AT 1000 UNTIL 1200 +7 DAYS DEADLINE 1130 -- deadline condition will throw alerts if job not completed by 11:30
-PRIORITY 0 -- to hold the job or PRIORITY 100 -- For top priority job
+PRIORITY 0 -- to hold the job or PRIORITY 100 -- For top priority job OR DRAFT -- This is for Draft mode not actual
 :
 WORKSTATION1#JOB_NAME
 AT 1000 UNTIL 2359 +1 DAYS
