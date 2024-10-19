@@ -32,7 +32,7 @@ TWS is widely used in industries such as finance, healthcare, and manufacturing 
 
 ### Architecture of file dump in text. 
 
-~~~
+```
 mapping.json
 WORKSTATION1
 - schedule
@@ -40,12 +40,39 @@ WORKSTATION1
 WORKSTATION2
 - schedule
 - job
-~~~
+```
 
 ### schedule definition
 
-~~~
-WORKSTATION#SCHEDULENAME
+```
+SCHEDULE WORKSTATION1#SCHEDULE_NAME
+DESCRIPTION "Mention the description"\
+ON RUNCYCLE RULE1 VALIDFROM 22061993 "FREQ=DAILY" -- for daily
+ON RUNCYCLE RC1 "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR" -- for specific days in weekly
+AT 1000 UNTIL 1200 +7 DAYS
+PRIORITY 0 -- to hold the job
+PRIORITY 100 -- For top priority job
+:
+WORKSTATION1#JOB_NAME
+AT 1000 UNTIL 2359 +1 DAYS
+EVERY 0010
 
-~~~
+WORKSTATION1#JOB_NAME2
+AT 1000
+
+WORKSTATION1#JOB_NAME3
+FOLLOWS JOB_NAME2 -- dependency condition
+
+END
+```
 ### job definition
+
+```
+WORKSTATION1#JOB_NAME
+ SCRIPTNAME "(. /app/.bash_profile; hello.sh)"
+ STREAMLOGON username
+ DESCRIPTION "Description of job"
+ TASKTYPE UNIX
+ RECOVERY STOP -- stop when failed
+ RECOVERY CONTINUE -- Running a dependency jobs even current job is failed
+```
