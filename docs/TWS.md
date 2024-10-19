@@ -90,11 +90,17 @@ WORKSTATION1#JOB_NAME
  RECOVERY STOP
 ```
 
-#### Type of Recovery
+### Type of Recovery
 
 __STOP__: Stop the jobs if filled  
 __CONTINUE__: run a dependency job even if current job is failed  
 __RERUN__: Rerun the job if failed  
 
 __Example syntax :__ `RECOVERY RERUN REPEATEVERY 0010 FOR 2 ATTEMPS` , this will run after 10 minutes , for 2 time if job is failed.  
+
+### References
+
+__Job definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=objects-job-definition  
+__Schedule definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=so-job-stream  
+__Example definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=so-job  
 
