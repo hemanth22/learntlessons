@@ -47,11 +47,9 @@ WORKSTATION2
 ```
 SCHEDULE WORKSTATION1#SCHEDULE_NAME
 DESCRIPTION "Mention the description"\
-ON RUNCYCLE RULE1 VALIDFROM 22061993 "FREQ=DAILY" -- for daily
-ON RUNCYCLE RC1 "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR" -- for specific days in weekly
-AT 1000 UNTIL 1200 +7 DAYS
-PRIORITY 0 -- to hold the job
-PRIORITY 100 -- For top priority job
+ON RUNCYCLE RULE1 VALIDFROM 22061993 "FREQ=DAILY" -- for daily or ON RUNCYCLE RC1 "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR" -- for specific days in weekly  
+AT 1000 UNTIL 1200 +7 DAYS DEADLINE 1130 -- deadline condition will throw alerts if job not completed by 11:30
+PRIORITY 0 -- to hold the job or PRIORITY 100 -- For top priority job
 :
 WORKSTATION1#JOB_NAME
 AT 1000 UNTIL 2359 +1 DAYS
@@ -63,16 +61,28 @@ AT 1000
 WORKSTATION1#JOB_NAME3
 FOLLOWS JOB_NAME2 -- dependency condition
 
+WORKSTATION2#
+
 END
 ```
 ### job definition
 
 ```
 WORKSTATION1#JOB_NAME
- SCRIPTNAME "(. /app/.bash_profile; hello.sh)"
+ SCRIPTNAME "(. /app/.bash_profile; hello.sh)" or DOCOMMAND "df -h /opt/;/opt/env.sh;df -h /opt"
  STREAMLOGON username
  DESCRIPTION "Description of job"
- TASKTYPE UNIX
- RECOVERY STOP -- stop when failed
- RECOVERY CONTINUE -- Running a dependency jobs even current job is failed
+ TASKTYPE UNIX or TASKTYPE WINDOW
+ OUTPUTCOND STATUS_ERR1 "RC>=1"
+ SUCCOUTPUTCOND STATUS_SUCC "RC=0"
+ RECOVERY STOP
 ```
+
+#### Type of Recovery
+
+__STOP__: Stop the jobs if filled  
+__CONTINUE__: run a dependency job even if current job is failed  
+__RERUN__: Rerun the job if failed  
+
+__Example syntax :__ `RECOVERY RERUN REPEATEVERY 0010 FOR 2 ATTEMPS` , this will run after 10 minutes , for 2 time if job is failed.  
+
