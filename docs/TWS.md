@@ -104,3 +104,8 @@ __Job definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic
 __Schedule definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=so-job-stream  
 __Example definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=so-job  
 
+__filemonitor commands:__  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=descriptions-filemonitor  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=definitions-filemonitor-events  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-monitor-file-changes-using-filemonitor-utility  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-determine-when-filecreated-event-is-sent  
