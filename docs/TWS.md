@@ -108,4 +108,12 @@ __filemonitor commands:__
 https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=descriptions-filemonitor  
 https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=definitions-filemonitor-events  
 https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-monitor-file-changes-using-filemonitor-utility  
-https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-determine-when-filecreated-event-is-sent  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-determine-when-filecreated-event-is-sent.  
+__filewatcher command__
+
+https://www.ibm.com/docs/en/workload-automation/10.1.0?topic=jobs-defining-file-dependencies-check-file-changes. 
+
+sample command: 
+```
+/opt/wa/TWS/bin/filewatch -condition wcr -filename /tmp/hello.txt -deadline 3600 -interval 60
+```
