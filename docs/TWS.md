@@ -42,11 +42,23 @@ WORKSTATION2
 - job
 ```
 
+### What is mapping.json
+
+This mapping.json helps TWS to take production configure.  
+Using sed like command it replace nonproduction configure details to deploy in non-production based on the config.  
+
+mapping.json
+```json
+{
+    "PRODUCTIONSERVER": { uat: "NONPRODUCTIONSERVER"}
+}
+```
+
 ### schedule definition
 
 ```
 SCHEDULE WORKSTATION1#SCHEDULE_NAME
-DESCRIPTION "Mention the description"\
+DESCRIPTION "Mention the description"
 ON RUNCYCLE RULE1 VALIDFROM 22061993 "FREQ=DAILY" -- for daily or ON RUNCYCLE RC1 "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR" -- for specific days in weekly  
 AT 1000 UNTIL 1200 +7 DAYS DEADLINE 1130 -- deadline condition will throw alerts if job not completed by 11:30
 PRIORITY 0 -- to hold the job or PRIORITY 100 -- For top priority job OR DRAFT -- This is for Draft mode not actual
@@ -116,4 +128,30 @@ https://www.ibm.com/docs/en/workload-automation/10.1.0?topic=jobs-defining-file-
 sample command: 
 ```
 /opt/wa/TWS/bin/filewatch -condition wcr -filename /tmp/hello.txt -deadline 3600 -interval 60
+```
+
+### FileWatcher in Tivoli Workload Schedular
+
+schedule definition
+
+```
+SCHEDULE WORKSTATION1#SCHEDULE_NAME
+DESCRIPTION "FileWatcher jobs"
+ON RUNCYCLE RULE1 VALIDFROM 22061993 "FREQ=DAILY"
+AT 1000 UNTIL 1200 +7 DAYS DEADLINE 1130
+:
+WORKSTATION1#JOB_NAME
+
+END
+```
+
+job definition
+
+```
+WORKSTATION1#JOB_NAME
+ SCRIPTNAME "(/opt/wa/TWS/bin/filewatch -condition wcr -filename /tmp/hello.txt -deadline 3600 -interval 60)"
+ STREAMLOGON tws_username
+ DESCRIPTION "FileWatcher jobs to monitor file for 1 hours for every 1 minute interval"
+ TASKTYPE UNIX
+ RECOVERY STOP
 ```
