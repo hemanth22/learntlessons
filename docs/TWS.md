@@ -110,26 +110,6 @@ __RERUN__: Rerun the job if failed
 
 __Example syntax :__ `RECOVERY RERUN REPEATEVERY 0010 FOR 2 ATTEMPS` , this will run after 10 minutes , for 2 time if job is failed.  
 
-### References
-
-__Job definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=objects-job-definition  
-__Schedule definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=so-job-stream  
-__Example definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=so-job  
-
-__filemonitor commands:__  
-https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=descriptions-filemonitor  
-https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=definitions-filemonitor-events  
-https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-monitor-file-changes-using-filemonitor-utility  
-https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-determine-when-filecreated-event-is-sent.  
-__filewatcher command__
-
-https://www.ibm.com/docs/en/workload-automation/10.1.0?topic=jobs-defining-file-dependencies-check-file-changes. 
-
-sample command: 
-```
-/opt/wa/TWS/bin/filewatch -condition wcr -filename /tmp/hello.txt -deadline 3600 -interval 60
-```
-
 ### FileWatcher in Tivoli Workload Schedular
 
 schedule definition
@@ -155,3 +135,24 @@ WORKSTATION1#JOB_NAME
  TASKTYPE UNIX
  RECOVERY STOP
 ```
+
+### References
+
+__Job definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=objects-job-definition  
+__Schedule definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=so-job-stream  
+__Example definition:__ https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=so-job  
+
+__filemonitor commands:__  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=descriptions-filemonitor  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=definitions-filemonitor-events  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-monitor-file-changes-using-filemonitor-utility  
+https://www.ibm.com/docs/en/workload-automation/10.2.2?topic=enhancements-determine-when-filecreated-event-is-sent.  
+__filewatcher command__
+
+https://www.ibm.com/docs/en/workload-automation/10.1.0?topic=jobs-defining-file-dependencies-check-file-changes. 
+
+sample command: 
+```
+/opt/wa/TWS/bin/filewatch -condition wcr -filename /tmp/hello.txt -deadline 3600 -interval 60
+```
+
