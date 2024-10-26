@@ -2214,6 +2214,12 @@ curl -v telnet://[ip address]:[port]
 telnet remotehost 80
 ```
 
+### Telnet command with auto-close
+s
+```bash
+echo -e '\x1dclose\x0ds' | curl -v telnet://[ip address]:[port]
+```
+
 ### telnet example commands
 
 __Command for ssh__
