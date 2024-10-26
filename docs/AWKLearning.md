@@ -2692,6 +2692,12 @@ PRIORITY 0
 HelloWorld
 ```
 
+### Command to execute FIX Message Parser if SOH is message seperator
+
+```
+awk -F"\001" -f FIXtest.awk fix.log
+```
+
 ### Reference  
 
 [GNU AWK Page](http://www.gnu.org/software/gawk/manual/gawk.html)  
