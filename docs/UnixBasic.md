@@ -2900,6 +2900,35 @@ __output__
 47207.8.79
 ```
 
+### SSH Commands
+
+```
+ssh -o "StrictHostKeyChecking=no" -p port_number username@hostname
+
+or
+
+ssh -o "StrictHostKeyChecking=no" -p 2222 user@example.com
+```
+
+__Commmand to verify SSH Authentication__
+
+```
+ssh -v -o PreferredAuthentications=publickey user@hostname
+```
+
+__Command to convert public key from OpenSSH to TectiaSSH format__
+
+```
+ssh-keygen-g3 --import-public-key <openssh_public_key> <tectiassh_public_key>
+```
+
+__Command to convert public key from TectiaSSH to OpenSSH format__
+
+```
+ssh-keygen -i -f <tectiassh_public_key> <openssh_public_key>
+```
+
+
 ### Journal Command
 
 __Command to View All Cron Job Logs__  
