@@ -2919,13 +2919,13 @@ ssh -v -o PreferredAuthentications=publickey user@hostname
 __Command to convert public key from OpenSSH to TectiaSSH format__
 
 ```
-ssh-keygen-g3 --import-public-key <openssh_public_key> <tectiassh_public_key>
+ssh-keygen-g3 --import-public-key openssh_public_key tectiassh_public_key.pub
 ```
 
 __Command to convert public key from TectiaSSH to OpenSSH format__
 
 ```
-ssh-keygen -i -f <tectiassh_public_key> <openssh_public_key>
+ssh-keygen -i -f tectiassh_public_key.pub > openssh_public_key.pub
 ```
 
 
