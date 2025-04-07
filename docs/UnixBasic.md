@@ -3035,6 +3035,43 @@ __View Logs for Service Failures Across the System__
 journalctl -p err -b
 ```
 
+#### inode full investigation command
+
+
+__Command for disk file system to check inode count__
+```
+df -ihT
+```
+
+__list command to find the inode of the files__
+
+```
+ls -iltr
+```
+
+__Disk utitly command for inode finding__
+
+```
+du --inodes -h /path/to/directory
+du --inodes --max-depth=1 -h /path/to/directory
+du --inodes -a -h /path/to/directory
+du --inodes --threshold=1M -h /path/to/directory
+du --inodes -h /path/to/directory | sort -h
+du --inodes -h /path/to/search/* | sort -rn | head -n 10
+```
+or
+```
+find /path/to/search -type d -exec du --inodes {} \; | sort -rn | head -n 10
+find /path/to/search -type d -printf "%i %p\n" | sort -rn | head -n 10
+find /path/to/search -type d -print0 | xargs -0 -I {} sh -c 'echo -n "{}: "; find "{}" -type f | wc -l' | sort -n -k2 -r | head -n 10
+```
+or
+```
+du -x --inodes / | sort -nr | head -n 10
+sudo du -x --inodes / | sort -nr | head -n 10
+```
+
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
