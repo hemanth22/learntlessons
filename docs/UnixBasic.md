@@ -2160,6 +2160,9 @@ find . -type f -print | xargs du -sk | sort -rn
 find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50
 ```
 
+```shell
+du -h --max-depth=1 * | sort -rh | head -n 20
+```
 ## How to logrotate in linux
 
 **vi /etc/logrotate.d/catalina**
