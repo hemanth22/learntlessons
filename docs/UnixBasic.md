@@ -3082,6 +3082,8 @@ __Monitor Live log updates with specific keyword__
 
 ```
 tail -f /var/log/syslog | grep - line-buffered  "error"
+tail -f logfile | grep --line-buffered pattern
+stdbuf -o0 tail -f logfile | grep pattern
 ```
 
 __Kill command with most resource-intensive process__
