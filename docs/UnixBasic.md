@@ -3073,7 +3073,22 @@ or
 du -x --inodes / | sort -nr | head -n 10
 sudo du -x --inodes / | sort -nr | head -n 10
 ```
+or
+```
+find / -type f -exec du -h {} * | sort -rh | head -10
+```
 
+__Monitor Live log updates with specific keyword__
+
+```
+tail -f /var/log/syslog | grep - line-buffered  "error"
+```
+
+__Kill command with most resource-intensive process__
+
+```
+kill -9 $(ps -eo pid,%cpu - sort=-%cpu) | awk 'NR==2 {print $1}'
+```
 
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
