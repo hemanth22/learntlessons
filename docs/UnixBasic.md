@@ -2931,6 +2931,17 @@ __Command to convert public key from TectiaSSH to OpenSSH format__
 ssh-keygen -i -f tectiassh_public_key.pub > openssh_public_key.pub
 ```
 
+__Command to generate rsa key__
+
+```
+ssh-keygen -t rsa -b 2048
+```
+
+__Command to convert existing rsa to pem file__
+
+```
+openssl rsa -in /root/.ssh/id_rsa -outform PEM -out /root/.ssh/centos8.pem
+```
 
 ### Journal Command
 
