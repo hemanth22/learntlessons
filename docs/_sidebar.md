@@ -25,3 +25,4 @@
 * [pscp](./pscp.md)
 * [MIM](./MIM.md)
 * [Tivoli Workload Scheduler](./TWS.md)
+* [Java Troubleshooting commands](./Java.md)
