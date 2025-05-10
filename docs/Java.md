@@ -39,3 +39,20 @@ java -Xms512m -Xmx2g -jar myapp.jar
 
 __-Xms<size>__: Initial memory the JVM starts with  
 __-Xmx<size>__: Maximum memory the JVM is allowed to use.  
+
+#### Windows bat script for java applet installation
+
+```cmd
+@echo off
+set APPURL=http://example.com/app/prod-app.jnlp
+
+echo DULS: Removing App
+javaws -wait -uninstall %APPURL%
+
+@echo DULS: Reinstalling APP
+javaws -wait -import -shortcut -silent %APPURL%
+
+@echo DULS: Starting APP
+javaws %APPURL%
+```
+
