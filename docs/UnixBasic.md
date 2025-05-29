@@ -3103,6 +3103,22 @@ __Kill command with most resource-intensive process__
 kill -9 $(ps -eo pid,%cpu - sort=-%cpu) | awk 'NR==2 {print $1}'
 ```
 
+__Command with for loop in terminals__
+
+```shell
+for h in `cat /var/tmp/list`; do ssh -q $h 'hostname; whoami'; done
+```
+
+__Command to kill and start a process in forloop in terminals__
+
+```shell
+for host in `cat /var/tmp/list`; do echo '-------- $host -------'; ssh -q -o StrictHostKeyChecking=no $host "$pkill -f -9 process"; done
+```
+
+```shell
+for host in `cat /var/tmp/list`; do echo '-------- $host -------'; ssh -q -o StrictHostKeyChecking=no $host "/opt/app/bin/appctl start process"; done
+```
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
