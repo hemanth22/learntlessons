@@ -3089,7 +3089,7 @@ or
 find / -type f -exec du -h {} * | sort -rh | head -10
 ```
 
-__Monitor Live log updates with specific keyword__
+### Monitor Live log updates with specific keyword
 
 ```
 tail -f /var/log/syslog | grep - line-buffered  "error"
@@ -3097,19 +3097,27 @@ tail -f logfile | grep --line-buffered pattern
 stdbuf -o0 tail -f logfile | grep pattern
 ```
 
-__Kill command with most resource-intensive process__
+### Kill command with most resource-intensive process
 
 ```
 kill -9 $(ps -eo pid,%cpu - sort=-%cpu) | awk 'NR==2 {print $1}'
 ```
 
-__Command with for loop in terminals__
+### Command with for loop in terminals  
 
 ```shell
 for h in `cat /var/tmp/list`; do ssh -q $h 'hostname; whoami'; done
 ```
 
-__Command to kill and start a process in forloop in terminals__
+### Command to get for loop with hostname and uptime/last reboot
+
+```shell
+for h in `cat /var/tmp/list`; do ssh -q $h 'echo $(whoami)@$(hostname) - $(uptime)'; done
+for h in `cat /var/tmp/list`; do ssh -q $h 'echo $(whoami)@$(hostname) - $(uptime -s)'; done
+for h in `cat /var/tmp/list`; do ssh -q $h 'echo $(whoami)@$(hostname) - $(last reboot)'; done
+```
+
+### Command to kill and start a process in forloop in terminals
 
 ```shell
 for host in `cat /var/tmp/list`; do echo '-------- $host -------'; ssh -q -o StrictHostKeyChecking=no $host "$pkill -f -9 process"; done
