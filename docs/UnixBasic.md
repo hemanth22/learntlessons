@@ -3113,18 +3113,24 @@ for h in `cat /var/tmp/list`; do ssh -q $h 'hostname; whoami'; done
 
 ```shell
 for h in `cat /var/tmp/list`; do ssh -q $h 'echo $(whoami)@$(hostname) - $(uptime)'; done
-for h in `cat /var/tmp/list`; do ssh -q $h 'echo $(whoami)@$(hostname) - $(uptime -s)'; done
+```
+
+```shell
+for h in `cat /var/tmp/list`; do ssh -q $h 'echo $(whoami)@$(hostname) - $(uptime -s) - $(cat /etc/redhat-release)'; done
+```
+
+```shell
 for h in `cat /var/tmp/list`; do ssh -q $h 'echo $(whoami)@$(hostname) - $(last reboot)'; done
 ```
 
 ### Command to kill and start a process in forloop in terminals
 
 ```shell
-for host in `cat /var/tmp/list`; do echo '-------- $host -------'; ssh -q -o StrictHostKeyChecking=no $host "$pkill -f -9 process"; done
+for host in `cat /var/tmp/list`; do echo '-------- '$host' -------'; ssh -q -o StrictHostKeyChecking=no $host "pkill -f -9 process"; done
 ```
 
 ```shell
-for host in `cat /var/tmp/list`; do echo '-------- $host -------'; ssh -q -o StrictHostKeyChecking=no $host "/opt/app/bin/appctl start process"; done
+for host in `cat /var/tmp/list`; do echo '-------- '$host' -------'; ssh -q -o StrictHostKeyChecking=no $host "/opt/app/bin/appctl start process"; done
 ```
 
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
