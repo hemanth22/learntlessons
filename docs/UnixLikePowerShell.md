@@ -306,3 +306,24 @@ Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty UserNa
 ```powershell
 whoami | ForEach-Object { ($_ -split '\\')[-1] }
 ```
+
+### Uptime command
+
+```powershell
+(get-date) - (gcim Win32_OperatingSystem).LastBootUpTime
+```
+
+```powershell
+$uptime = (get-date) - (gcim Win32_OperatingSystem).LastBootUpTime
+"Uptime: {0} Days, {1} Hours, {2} Minutes" -f $uptime.Days, $uptime.Hours, $uptime.Minutes
+```
+
+```powershell
+(gcim Win32_OperatingSystem).LastBootUpTime
+```
+
+### system info
+
+```powershell
+Get-ComputerInfo | Select-Object -Property OsName, OsArchitecture, OsBuildNumber
+```
