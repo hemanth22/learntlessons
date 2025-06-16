@@ -242,3 +242,54 @@ Get-ChildItem -Path * -File | ForEach-Object {
     }
 }
 ```
+
+### cat and grep together
+
+Unix:
+```shell
+cat filename.log | grep -i error
+```
+
+Powershell:
+```powershell
+Get-Content filename.log | Select-String -Pattern "error" -CaseSensitive:$false
+```
+
+### Zgrep combination
+
+```powershell
+function zgrep {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, Position=0)] [string]$Pattern,
+        [Parameter(Mandatory, Position=1)] [string]$Path,
+        [switch]$CaseSensitive
+    )
+
+    $reader = [IO.StreamReader]::new(
+        [IO.Compression.GzipStream]::new(
+            [IO.File]::OpenRead($Path),
+            [IO.Compression.CompressionMode]::Decompress
+        )
+    )
+    $reader.ReadToEnd() |
+        Select-String -Pattern $Pattern -CaseSensitive:$CaseSensitive.IsPresent
+}
+
+# usage
+zgrep error .\filename.log.gz              # like zgrep -i
+zgrep error .\filename.log.gz -CaseSensitive  # like grep (case-sensitive)
+```
+
+__1 liner__
+
+```powershell
+# in any PowerShell
+[IO.StreamReader]::new(
+    [IO.Compression.GzipStream]::new(
+        [IO.File]::OpenRead('filename.log.gz'),
+        [IO.Compression.CompressionMode]::Decompress
+    )
+).ReadToEnd() |
+    Select-String -Pattern 'error' -CaseSensitive:$false
+```
