@@ -293,3 +293,16 @@ __1 liner__
 ).ReadToEnd() |
     Select-String -Pattern 'error' -CaseSensitive:$false
 ```
+
+### Whoami command
+
+```powershell
+whoami
+$env:USERNAME
+[System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty UserName
+```
+
+```powershell
+whoami | ForEach-Object { ($_ -split '\\')[-1] }
+```
