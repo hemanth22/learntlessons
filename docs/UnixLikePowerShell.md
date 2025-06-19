@@ -327,3 +327,11 @@ $uptime = (get-date) - (gcim Win32_OperatingSystem).LastBootUpTime
 ```powershell
 Get-ComputerInfo | Select-Object -Property OsName, OsArchitecture, OsBuildNumber
 ```
+
+### Ownership commands
+
+```powershell
+takeown /f "C:\App\bin" /r /d y
+icacls "C:\App\bin" /grant %username%:F /t /c
+icacls "C:\App\bin" /grant "%${$env:USERNAME}:F" /t /c
+```
