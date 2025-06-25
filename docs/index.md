@@ -29,6 +29,7 @@
 |25 | [MIM](./MIM.md) |
 |26 | [Tivoli Workload Scheduler](./TWS.md) |
 |27 | [Java Troubleshooting commands](./Java.md) |
+|28 | [Oracle SQL](./oraclesqldatabase.md.md) |
 
 ## About my blogs
 
