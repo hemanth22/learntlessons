@@ -31,6 +31,16 @@ select username, expiry_date from user_users where username='my_username';
 select UTL_RAW.CAST_TO_VARCHAR2(dbms_lob.substr(MY_FIELD_BLOB_TYPE,2000,1)) from MY_BLOB_TABLE where MY_BLOB_TABLE_ID = 12345
 ```
 
+### SQL Query to extract database based year, month or day using EXTRACT Function
+
+```sql
+SELECT 
+  EXTRACT(YEAR FROM column_date) AS year,
+  EXTRACT(MONTH FROM column_date) AS month,
+  EXTRACT(DAY FROM column_date) AS day
+FROM your_table;
+```
+
 ### Reference on Oracle SQL Developer tool
 
 [Cancel queries in Oracle SQL Developer tool](https://www.thatjeffsmith.com/archive/2013/04/die-or-how-to-cancel-queries-in-oracle-sql-developer/)  
