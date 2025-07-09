@@ -3133,6 +3133,16 @@ for host in `cat /var/tmp/list`; do echo '-------- '$host' -------'; ssh -q -o S
 for host in `cat /var/tmp/list`; do echo '-------- '$host' -------'; ssh -q -o StrictHostKeyChecking=no $host "/opt/app/bin/appctl start process"; done
 ```
 
+### Single if condition command example
+
+```shell
+for host in `cat /var/tmp/list`; do echo '-------- '$host' -------'; ssh -q -o StrictHostKeyChecking=no $host "if [ -f /apps/test.txt ]; then printf File\ exists\\\n; else printf File\ does\ not\ exits\\\n; fi"; done
+```
+
+```shell
+if [ -f /apps/test.txt ]; then printf File\ exists\\\n; else printf File\ does\ not\ exits\\\n; fi
+```
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
