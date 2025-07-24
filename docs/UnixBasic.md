@@ -2132,6 +2132,10 @@ du -hs * | sort -rh | head -n 20
 ```
 
 ```shell
+du -sh * 2>/dev/null | sort -rh | head -n 20
+```
+
+```shell
 du -a /root/ | sort -n -r | head -n 20
 ```
 
