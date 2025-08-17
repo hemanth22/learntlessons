@@ -335,3 +335,18 @@ takeown /f "C:\App\bin" /r /d y
 icacls "C:\App\bin" /grant %username%:F /t /c
 icacls "C:\App\bin" /grant "%${$env:USERNAME}:F" /t /c
 ```
+
+
+### base64 decode command
+Unix:
+```shell
+echo 'dXNlcm5hbWU6cGFzc3dvcmQ=' | base64 -d
+```
+
+Powershell:
+```powershell
+$encodedString = "dXNlcm5hbWU6cGFzc3dvcmQ=" #Example encoded string for 'username:password'
+$decodedBytes = [System.Convert]::FromBase64String($encodedString)
+$decodedString = [System.Text.Encoding]::UTF8.GetString($decodedBytes)
+$decodedString
+```
