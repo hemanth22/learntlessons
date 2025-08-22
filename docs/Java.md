@@ -56,3 +56,27 @@ javaws -wait -import -shortcut -silent %APPURL%
 javaws %APPURL%
 ```
 
+#### Configuring java deployment.properties files
+
+AppPATH:
+
+```
+%APPDATA%\Sun\Java\Deployment\deployment.properties
+```
+
+cat deployment.properties
+```
+deployment.console.startup.mode=SHOW
+deployment.javaws.shortcut=ALWAYS
+deployment.javaws.associations=ASSOCIATION_INSTALL
+deployment.security.SSLv2Hello=false
+deployment.security.SSLv3=true
+deployment.security.TLSv1=true
+deployment.security.TLSv1.1=true
+deployment.security.TLSv1.2=true
+deployment.security.pretrust.list=true
+deployment.security.blacklist.check=true
+deployment.security.password.cache=true
+deployment.security.validation.ocsp=true
+deployment.security.validation.crl=true
+```
