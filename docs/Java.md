@@ -40,6 +40,14 @@ java -Xms512m -Xmx2g -jar myapp.jar
 __-Xms<size>__: Initial memory the JVM starts with  
 __-Xmx<size>__: Maximum memory the JVM is allowed to use.  
 
+
+#### Java webstart command to start with specific Memory
+
+```cmd
+javaws -J-Xms512m -J-Xmx2g path\to\myapp.jnlp
+javaws -J-Xms512m -J-Xmx2g myapp.jnlp
+```
+
 #### Windows bat script for java applet installation
 
 ```cmd
