@@ -350,3 +350,42 @@ $decodedBytes = [System.Convert]::FromBase64String($encodedString)
 $decodedString = [System.Text.Encoding]::UTF8.GetString($decodedBytes)
 $decodedString
 ```
+
+### Unix script for automation to take backup
+
+Unix:
+
+```shell
+echo "[TASK 1] Get username"
+userName = $(whoami)
+echo "[TASK 2] configure source"
+$sourcePath = "/home/${userName}/indiaapps/appgui"
+echo "[TASK 3] Getting timestamp format"
+$timestamp = date +%d%m%y%H%M%s
+echo "[TASK 4] configure destination paths"
+$destinationPath = "/home/${userName}/indiaapps/appgui.${timestamp}"
+echo "[TASK 5] change direction to source"
+cd "/home/${userName}/indiaapps/"
+echo "[TASK 6] change direction to source"
+mv -v $sourcePath $destinationPath
+echo "[TASK 7] Print Output"
+ls -ltr
+```
+PowerShell:
+
+```powershell
+Write-Output "[TASK 1] Fetching username"
+$username = $env.USERNAME
+Write-Output "[TASK 2] configure source paths"
+$sourcePath = "C:\users\$username\indiaapps\appui"
+Write-Output "[TASK 3] Getting timestamp format"
+$timestamp = Get-Date -Format "ddMMyyyyHHmmss"
+Write-Output "[TASK 4] configure destination paths"
+$destinationPath = "C:\users\$username\indiaapps\appui.$timestamp"
+Write-Output "[TASK 5] change direction to source"
+Set-Location "C:\users\$username\indiaapps\" -Verbose
+Write-Output "[TASK 6] change direction to source"
+Move-Item -Path $sourcePath -Destination $destinationPath -Verbose
+Write-Output "[TASK 7] Print Output"
+Get-ChildItem
+```
