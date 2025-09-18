@@ -2072,7 +2072,7 @@ find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec ls -l
 find / -regextype posix-extended -regex '.*\.log([.-][0-9]+)+' -exec gzip * {} \;
 find / -regextype posix-extended -regex '.*\.log$' -exec gunzip * {} \;
 find / -regextype posix-extended -regex '.*\.log([.-][0-9a-z]+)+' -exec gzip * {} \;
-find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec gzip * {} \;
+find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -exec gzip * {} \
 ```
 
 ## Command find and gunzip the logs
@@ -2085,6 +2085,13 @@ find / -regextype posix-extended -regex '.*([.-][0-9a-zA-Z]+)+[.-]log' -type f -
 find /root/logs -regextype posix-extended -regex '.*([0-9]{4})([0-9]{2})([0-9]{2})[.-]log' -type f -exec ls -ltrh {} \;
 ```
 
+## Find command to search and archive based on inodes
+
+```
+find /apps/logs/appslogs/ -regextype posix-extended -regex '.*\.fixlog([.-][0-9]+)+' -mtime +5 -print0 | xargs -0 ls -i | awk '{ print $1 }' > /tmp/inodes_based_filename.txt
+for inode in `cat /tmpinodes_based_filename.txt; do find /apps/logs/appslogs/ -iname $inode -exec ls -iltrh {} \; ; done`
+for inode in `cat /tmpinodes_based_filename.txt; do find /apps/logs/appslogs/ -iname $inode -exec gzip -v {} \; ; done`
+```
 ## disk file system commands
 
 ```bash
