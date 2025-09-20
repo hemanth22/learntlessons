@@ -31,6 +31,12 @@ vagrant up --no-provision
 vagrant halt
 ```
 
+## Vagrant command to restart instance
+
+```bash
+vagrant reload
+```
+
 ## Vagrant command to delete instance
 
 ```bash
