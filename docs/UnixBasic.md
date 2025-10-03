@@ -2828,6 +2828,14 @@ cat helper_input.xml | awk -F'[<>]' '/<ref>/{print $3}'
 d98usa-a9s8h
 ```
 
+## Grep commands to filter xml tags from application logs
+
+```
+zgrep 'traceid' application.gz | grep "<filter><tag>" | grep -o '<[^>]*>[^<]*</[^>]*>' | grep -A8 NAME_ID | awk -F '[><]' '/searchpattern/ { print $3 }'
+grep -o '<[^>]*>' application.log | awk '{ print $0 }'
+grep -o '<[^>]*>' application.log | awk -F '[<> ]' '{ print $2 }'
+grep -o '<[^>]*>[^<]*</[^>]*>' application.log | awk -F '[<>]' '{ print $2 ": " $3 }'
+```
 ## top command in batch mode  
 
 ```
@@ -3153,6 +3161,8 @@ for host in `cat /var/tmp/list`; do echo '-------- '$host' -------'; ssh -q -o S
 ```shell
 if [ -f /apps/test.txt ]; then printf File\ exists\\\n; else printf File\ does\ not\ exits\\\n; fi
 ```
+
+
 
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
