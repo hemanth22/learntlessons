@@ -2085,6 +2085,13 @@ find / -regextype posix-extended -regex '.*([.-][0-9a-zA-Z]+)+[.-]log' -type f -
 find /root/logs -regextype posix-extended -regex '.*([0-9]{4})([0-9]{2})([0-9]{2})[.-]log' -type f -exec ls -ltrh {} \;
 ```
 
+## Command to find and delete files based on date
+
+```shell
+ll | grep "Dec 11" | awk -F "" {'print $9'} | wc -l
+ll | grep "Dec 11" | awk -F "" {'print $9'} | wc -l
+```
+
 ## Find command to search and archive based on inodes
 
 ```
@@ -2092,6 +2099,13 @@ find /apps/logs/appslogs/ -regextype posix-extended -regex '.*\.fixlog([.-][0-9]
 for inode in `cat /tmpinodes_based_filename.txt; do find /apps/logs/appslogs/ -iname $inode -exec ls -iltrh {} \; ; done`
 for inode in `cat /tmpinodes_based_filename.txt; do find /apps/logs/appslogs/ -iname $inode -exec gzip -v {} \; ; done`
 ```
+
+## find command to zip files which is not zipped which are not modified 2 hours back
+
+```shell
+find /path -name 'filename.pcap[0-9]*' ! -name '*.gz' -type f -mmin +120 -exec gzip {} \; > /tmp/housekeeping.log 2>&1 &
+```
+
 ## disk file system commands
 
 ```bash
