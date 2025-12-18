@@ -379,6 +379,7 @@ sudo -> subsutitute user and do.
 sudo -u  
 sudo -k (This will expire sudo)  
 cat /etc/sudoers  
+sudo -i -u podman -H  
 
 __Commands and programs__  
 
