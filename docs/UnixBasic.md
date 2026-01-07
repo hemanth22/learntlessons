@@ -2243,6 +2243,18 @@ curl -v telnet://[ip address]:[port]
 telnet remotehost 80
 ```
 
+```bash
+echo -e '\x1dclose\x0ds' | telnet ipaddress 80
+```
+
+```bash
+echo -e '\x1dexit\x0ds' | telnet ipaddress 80
+```
+
+```bash
+echo -e '\x1dquit\x0ds' | telnet ipaddress 80
+```
+
 ### Telnet command with auto-close
 s
 ```bash
