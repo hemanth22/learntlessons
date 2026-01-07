@@ -31,6 +31,8 @@
 |27 | [Java Troubleshooting commands](./Java.md) |
 |28 | [Oracle SQL](./oraclesqldatabase.md.md) |
 |29 | [Vagrant](./vagrant.md) |
+|30 | [KDB](./KDB.md) |
+
 
 ## About my blogs
 
