@@ -922,3 +922,15 @@ find / -regextype posix-extended -regex '.*\.log([.-][0-9a-zA-Z]+)+' -type f -mt
 find / -regextype posix-extended -regex '.*([.-][0-9a-zA-Z]+)+[.-]log.gz' -type f -mtime +7 -exec rm -vf {} \;
 find / -regextype posix-extended -regex '.*[-_]([0-9])+.log.gz' -type f -mtime +7 -exec rm -vf {} \;
 ```
+
+### Housekeeping script based on df -hT
+
+```bash
+#!/bin/bash
+disk_usage=$(df -hT /apps/logs | awk 'NR==2 {print $6}' | sed 's/%//')
+if [ "$disk_usage" -gt 75 ]; then
+   echo "Housekeeping task started"
+   /path/to/housekeeping.sh
+   echo "Housekeeping task completed"
+fi
+```
