@@ -389,3 +389,14 @@ Move-Item -Path $sourcePath -Destination $destinationPath -Verbose
 Write-Output "[TASK 7] Print Output"
 Get-ChildItem
 ```
+
+### Powershell command to display networks
+
+```powershell
+Get-NetAdapter | Where-Object {$_.Status -eq "Up"}
+```
+
+```bash
+ip route show
+nmcli connection show
+```
