@@ -32,6 +32,8 @@
 |28 | [Oracle SQL](./oraclesqldatabase.md.md) |
 |29 | [Vagrant](./vagrant.md) |
 |30 | [KDB](./KDB.md) |
+|31 | [Podman Port](./podmanport.md) |
+|32 | [CRI-O](./crio.md) |
 
 
 ## About my blogs
