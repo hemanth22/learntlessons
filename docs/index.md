@@ -34,6 +34,7 @@
 |30 | [KDB](./KDB.md) |
 |31 | [Podman Port](./podmanport.md) |
 |32 | [CRI-O](./crio.md) |
+|33 | [Argo-CD](./argocd.md) |
 
 
 ## About my blogs
