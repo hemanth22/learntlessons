@@ -235,6 +235,13 @@ echo "SGVsbG8gV29ybGQ=" | openssl base64 -d
 
 ## Example argocd project
 
-```
 https://github.com/hemanth22/argocd-demo
-```
+
+## Example helm repo
+
+https://charts.helm.sh/stable
+
+## Example Kustomization
+
+https://github.com/hemanth22/argocd-demo
+
