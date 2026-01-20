@@ -237,9 +237,382 @@ echo "SGVsbG8gV29ybGQ=" | openssl base64 -d
 
 https://github.com/hemanth22/argocd-demo
 
+## helm installation document
+
+https://helm.sh/docs/intro/install
+
+## helm installation in rockylinux
+
+```bash
+dnf install helm
+```
+
 ## Example helm repo
 
 https://charts.helm.sh/stable
+
+## Helm commands usage
+
+```bash
+helm search hub wordpress
+```
+
+## Helm command to add charts
+
+```bash
+[root@kubecentos ~]# helm repo add brigade https://brigadecore.github.io/charts
+"brigade" has been added to your repositories
+```
+
+## Helm command to search in repo
+
+```bash
+[root@kubecentos ~]# helm search repo kash
+NAME            CHART VERSION   APP VERSION     DESCRIPTION
+brigade/kashti  0.7.0           v0.4.0          A Helm chart for Kubernetes
+
+[root@kubecentos ~]# helm repo list
+NAME    URL
+brigade https://brigadecore.github.io/charts
+```
+
+## Helm chart installation flow
+
+```bash
+Helm installs resources in the following order:
+
+Namespace
+NetworkPolicy
+ResourceQuota
+LimitRange
+PodSecurityPolicy
+PodDisruptionBudget
+ServiceAccount
+Secret
+SecretList
+ConfigMap
+StorageClass
+PersistentVolume
+PersistentVolumeClaim
+CustomResourceDefinition
+ClusterRole
+ClusterRoleList
+ClusterRoleBinding
+ClusterRoleBindingList
+Role
+RoleList
+RoleBinding
+RoleBindingList
+Service
+DaemonSet
+Pod
+ReplicationController
+ReplicaSet
+Deployment
+HorizontalPodAutoscaler
+StatefulSet
+Job
+CronJob
+Ingress
+APIService
+MutatingWebhookConfiguration
+ValidatingWebhookConfiguration
+```
+## Installing helm chart stable repository this is not required for argocd
+```bash
+[root@kubecentos ~]# helm repo add stable https://charts.helm.sh/stable
+"stable" has been added to your repositories
+[root@kubecentos ~]# helm repo list
+NAME    URL
+brigade https://brigadecore.github.io/charts
+stable  https://charts.helm.sh/stable
+```
+
+## Repo url
+
+https://artifacthub.io/
+https://artifacthub.io/packages/helm/bitnami/nginx?modal=install
+
+
+## Command to see custom resource definition installed in kubernetes
+
+```bash
+[root@kubecentos ~]# kubectl get crds
+NAME                                         CREATED AT
+applications.argoproj.io                     2026-01-19T02:44:21Z
+applicationsets.argoproj.io                  2026-01-19T02:44:21Z
+appprojects.argoproj.io                      2026-01-19T02:44:21Z
+bfdprofiles.metallb.io                       2026-01-19T03:01:48Z
+bgpadvertisements.metallb.io                 2026-01-19T03:01:48Z
+bgppeers.metallb.io                          2026-01-19T03:01:48Z
+ciliumcidrgroups.cilium.io                   2026-01-18T09:45:39Z
+ciliumclusterwidenetworkpolicies.cilium.io   2026-01-18T09:45:38Z
+ciliumendpoints.cilium.io                    2026-01-18T09:45:36Z
+ciliumidentities.cilium.io                   2026-01-18T09:45:34Z
+ciliuml2announcementpolicies.cilium.io       2026-01-18T09:45:41Z
+ciliumloadbalancerippools.cilium.io          2026-01-18T09:45:40Z
+ciliumnetworkpolicies.cilium.io              2026-01-18T09:45:37Z
+ciliumnodeconfigs.cilium.io                  2026-01-18T09:45:42Z
+ciliumnodes.cilium.io                        2026-01-18T09:45:33Z
+ciliumpodippools.cilium.io                   2026-01-18T09:45:35Z
+communities.metallb.io                       2026-01-19T03:01:48Z
+configurationstates.metallb.io               2026-01-19T03:01:48Z
+ipaddresspools.metallb.io                    2026-01-19T03:01:48Z
+l2advertisements.metallb.io                  2026-01-19T03:01:48Z
+servicebgpstatuses.metallb.io                2026-01-19T03:01:48Z
+servicel2statuses.metallb.io                 2026-01-19T03:01:48Z
+[root@kubecentos ~]#
+```
+
+## Comand to app repo for argocd
+
+```bash
+[root@kubecentos ~]# kubectl get crds | grep argo
+applications.argoproj.io                     2026-01-19T02:44:21Z
+applicationsets.argoproj.io                  2026-01-19T02:44:21Z
+appprojects.argoproj.io                      2026-01-19T02:44:21Z
+[root@kubecentos ~]# kubectl get appprojects
+No resources found in default namespace.
+[root@kubecentos ~]# kubectl get appprojects -n argocd
+NAME      AGE
+default   25h
+```
+
+## Command to get application list in argocd namespace
+
+```bash
+[root@kubecentos ~]# kubectl get all
+NAME                         READY   STATUS    RESTARTS   AGE
+pod/nginx-5869d7778c-qwj92   1/1     Running   0          40s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP        42h
+service/nginx        NodePort    10.108.251.124   <none>        80:30080/TCP   40s
+
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx   1/1     1            1           40s
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-5869d7778c   1         1         1       40s
+[root@kubecentos ~]# kubectl get applications -n argocd
+NAME         SYNC STATUS   HEALTH STATUS
+argocddemo   Synced        Healthy
+[root@kubecentos ~]#
+```
+
+## Command to get argocd application description
+
+```bash
+[root@kubecentos ~]# kubectl describe applications/argocddemo -n argocd
+Name:         argocddemo
+Namespace:    argocd
+Labels:       <none>
+Annotations:  <none>
+API Version:  argoproj.io/v1alpha1
+Kind:         Application
+Metadata:
+  Creation Timestamp:  2026-01-20T04:08:36Z
+  Generation:          10
+  Resource Version:    35022
+  UID:                 7d740d4c-8acb-4429-989d-a1945663c841
+Spec:
+  Destination:
+    Namespace:  default
+    Server:     https://kubernetes.default.svc
+  Project:      default
+  Source:
+    Path:             yamls
+    Repo URL:         https://github.com/hemanth22/argocd-demo.git
+    Target Revision:  HEAD
+Status:
+  Controller Namespace:  argocd
+  Health:
+    Last Transition Time:  2026-01-20T04:08:49Z
+    Status:                Healthy
+  History:
+    Deploy Started At:  2026-01-20T04:08:45Z
+    Deployed At:        2026-01-20T04:08:46Z
+    Id:                 0
+    Initiated By:
+      Username:  admin
+    Revision:    2eec1b70dbb086567d3c90a6c027a225fd37a3d9
+    Source:
+      Path:             yamls
+      Repo URL:         https://github.com/hemanth22/argocd-demo.git
+      Target Revision:  HEAD
+  Operation State:
+    Finished At:  2026-01-20T04:08:46Z
+    Message:      successfully synced (all tasks run)
+    Operation:
+      Initiated By:
+        Username:  admin
+      Retry:
+      Sync:
+        Revision:  2eec1b70dbb086567d3c90a6c027a225fd37a3d9
+        Source:
+          Path:             yamls
+          Repo URL:         https://github.com/hemanth22/argocd-demo.git
+          Target Revision:  HEAD
+        Sync Strategy:
+          Hook:
+    Phase:       Succeeded
+    Started At:  2026-01-20T04:08:45Z
+    Sync Result:
+      Resources:
+        Group:
+        Hook Phase:  Running
+        Kind:        Service
+        Message:     service/nginx created
+        Name:        nginx
+        Namespace:   default
+        Status:      Synced
+        Sync Phase:  Sync
+        Version:     v1
+        Group:       apps
+        Hook Phase:  Running
+        Images:
+          nginx
+        Kind:        Deployment
+        Message:     deployment.apps/nginx created
+        Name:        nginx
+        Namespace:   default
+        Status:      Synced
+        Sync Phase:  Sync
+        Version:     v1
+      Revision:      2eec1b70dbb086567d3c90a6c027a225fd37a3d9
+      Source:
+        Path:              yamls
+        Repo URL:          https://github.com/hemanth22/argocd-demo.git
+        Target Revision:   HEAD
+  Reconciled At:           2026-01-20T04:08:46Z
+  Resource Health Source:  appTree
+  Resources:
+    Kind:       Service
+    Name:       nginx
+    Namespace:  default
+    Status:     Synced
+    Version:    v1
+    Group:      apps
+    Kind:       Deployment
+    Name:       nginx
+    Namespace:  default
+    Status:     Synced
+    Version:    v1
+  Source Hydrator:
+  Source Type:  Directory
+  Summary:
+    Images:
+      nginx
+  Sync:
+    Compared To:
+      Destination:
+        Namespace:  default
+        Server:     https://kubernetes.default.svc
+      Source:
+        Path:             yamls
+        Repo URL:         https://github.com/hemanth22/argocd-demo.git
+        Target Revision:  HEAD
+    Revision:             2eec1b70dbb086567d3c90a6c027a225fd37a3d9
+    Status:               Synced
+Events:
+  Type    Reason              Age    From                           Message
+  ----    ------              ----   ----                           -------
+  Normal  ResourceCreated     2m14s  argocd-server                  admin created application
+  Normal  ResourceUpdated     2m14s  argocd-application-controller  Updated sync status:  -> OutOfSync
+  Normal  ResourceUpdated     2m14s  argocd-application-controller  Updated health status:  -> Missing
+  Normal  OperationStarted    2m5s   argocd-server                  admin initiated sync to HEAD (2eec1b70dbb086567d3c90a6c027a225fd37a3d9)
+  Normal  OperationCompleted  2m4s   argocd-application-controller  Sync operation to 2eec1b70dbb086567d3c90a6c027a225fd37a3d9 succeeded
+  Normal  ResourceUpdated     2m4s   argocd-application-controller  Updated sync status: OutOfSync -> Synced
+  Normal  ResourceUpdated     2m4s   argocd-application-controller  Updated health status: Missing -> Progressing
+  Normal  ResourceUpdated     2m1s   argocd-application-controller  Updated health status: Progressing -> Healthy
+```
+
+## Creating CRD follow argocd declarative setup document
+
+https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/
+
+
+## Following application CRD deployment document
+
+https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#applications
+
+## Example syntax for application CRD for argocd
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: guestbook
+```
+
+## Here is sample template created for argocd
+
+```bash
+[root@kubecentos ~]# cat /tmp/argocd-template.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-demo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/hemanth22/argocd-demo.git
+    targetRevision: HEAD
+    path: yamls
+  destination:
+    server: https://kubernetes.default.svc
+```
+
+
+## Command to apply CRD argocd
+
+```bash
+[root@kubecentos ~]# kubectl create -f /tmp/argocd-template.yaml
+application.argoproj.io/argocd-demo created
+
+
+[root@kubecentos ~]# kubectl get applications -n argocd
+NAME          SYNC STATUS   HEALTH STATUS
+argocd-demo   OutOfSync     Missing
+```
+
+## Manually sync for argocd from ui and get status 
+
+```bash
+[root@kubecentos ~]# kubectl get deploy,svc
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   42h
+
+[root@kubecentos ~]# kubectl get applications -n argocd
+NAME          SYNC STATUS   HEALTH STATUS
+argocd-demo   Synced        Healthy
+[root@kubecentos ~]# kubectl get deploy,svc
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx   1/1     1            1           8s
+
+NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP        42h
+service/nginx        NodePort    10.99.32.213   <none>        80:30080/TCP   8s
+```
+
+## Command delete argo crd based deployment
+
+```bash
+[root@kubecentos ~]# kubectl delete -f /tmp/argocd-template.yaml
+application.argoproj.io "argocd-demo" deleted
+```
+
 
 ## Example Kustomization
 
