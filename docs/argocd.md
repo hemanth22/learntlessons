@@ -193,6 +193,12 @@ l2advertisement.metallb.io/metallb-l2adv created
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
+### Alternative to expose through nodeport command (Not Recommend for prod)
+
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
 ### After a short wait, your cloud provider will assign an external IP address to the service. You can retrieve this IP with
 
 ```bash
@@ -214,7 +220,7 @@ kubectl get secret/argocd-initial-admin-secret -n argocd -o yaml
 ```
 
 ```bash
-kubectl get secret/argocd-initial-admin-secret -n argocd -o jsonpath='{.data.password}' | base64 -d
+kubectl get secret/argocd-initial-admin-secret -n argocd -o jsonpath='{.data.password}' | base64 -d; echo
 ```
 
 ```bash
