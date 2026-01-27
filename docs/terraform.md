@@ -89,7 +89,7 @@ Hashicorp language (HCL) -> Terraform -> Blocks, Arguments, Identifiers, Comment
 ## Terraform Language Structure
 
 ```mermaid
-flowchart TD
+graph LR
     A[Hashicorp language] --> B(Terraform)
     B --> C{Terraform}
     C --> D[Blocks]
