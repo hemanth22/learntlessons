@@ -96,7 +96,7 @@ flowchart TD
     C --> E[Arguments]
     C --> F[Identifiers]
     C --> G[Comments]
-```
+
 
 ## Explain about terraform syntax
 
