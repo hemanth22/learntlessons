@@ -1115,3 +1115,266 @@ apps   Deployment  default    nginx  No
 ```bash
 argocd app delete arogcd-demo
 ```
+
+## ArgoCD CRD with SyncPolicy
+
+```yaml
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata: 
+  name: guestbook
+  namespace: argocd
+spec: 
+  destination: 
+    namespace: guestbook
+    server: "https://kubernetes.default.svc"
+  project: default
+  source: 
+    path: yamls
+    repoURL: "https://github.com/hemanth22/argocd-demo.git"
+    targetRevision: master
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+```
+
+```bash
+kubectl apply -f application-sync.yaml
+```
+
+```bash
+kubectl get application -n argocd
+```
+
+```bash
+argocd app list
+```
+
+## ArgoCD CLI with SyncOption
+
+```bash
+argocd app create app-2 --repo https://github.com/hemanth22/argocd-demo.git --path yamls --dest-namespace default --dest-server https://kubernetes.default.svc --sync-option CreateNamespace=true
+```
+
+## ArgoCD CLI command to list apps
+
+```bash
+argocd app list
+```
+
+## ArgoCD CLI command to sync the app
+```bash
+argocd app sync app-2
+```
+
+## ArogCD CLI Command to delete the app
+
+```bash
+argocd app delete app-2
+```
+
+## ArgoCD Tools Supported
+
+- Helmcharts
+- Kustomize application
+- Directory of Yaml files
+- Jsonnet
+
+## ArogCD Options supported for HelmCharts
+
+- ArgoCD provides the below for options
+  - Release name
+  - Values files
+  - Parameters
+  - File parameters
+  - Value as block file
+
+## ArgoCD YAML file for helm
+
+[Argo CD - Declarative GitOps CD for Kubernetes](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/ "declarative-setup")  
+
+```yaml
+---
+apiVersion: argoproj.io/v1alpha1
+Kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/mabusaa/argocd-example-apps.git'
+    targetRevision: HEAD
+    path: helm-guestbook
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: guestbook
+```
+
+## ArgoCD YAML file with Helm valuesfiles
+
+```yaml
+---
+apiVersion: argoproj.io/v1alpha1
+Kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  destination:
+    namespace: guestbook
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: helm-guestbook
+    repoURL: 'https://github.com/mabusaa/argocd-example-apps.git'
+    targetRevision: HEAD
+    helm:
+      valuesFiles:
+        - values-prod.yaml
+```
+
+## ArgoCD YAML file with Helm parameters
+
+
+```yaml
+---
+apiVersion: argoproj.io/v1alpha1
+Kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  destination:
+    namespace: guestbook
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: helm-guestbook
+    repoURL: 'https://github.com/mabusaa/argocd-example-apps.git'
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: "service.type"
+          value: "LoadBalancer"
+        - name: "image.tag"
+          value: "v2"
+```
+
+## ArgoCD YAML file for Helm File Parameters
+
+```yaml
+---
+apiVersion: argoproj.io/v1alpha1
+Kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  destination:
+    namespace: guestbook
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: helm-guestbook
+    repoURL: 'https://github.com/mabusaa/argocd-example-apps.git'
+    targetRevision: HEAD
+    helm:
+      fileParameters:
+        - name: config
+          value: files/config.json
+```
+
+## ArgoCD YAML file for Helm Values as block
+
+
+```yaml
+---
+apiVersion: argoproj.io/v1alpha1
+Kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  destination:
+    namespace: guestbook
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: helm-guestbook
+    repoURL: 'https://github.com/mabusaa/argocd-example-apps.git'
+    targetRevision: HEAD
+    helm:
+      values: |
+        ingress
+        enabled: true
+        path: /
+        hosts:
+          - mydomain.exmaple.com
+```
+
+## Demo: Helm Options
+
+__vi application_helm_options.yaml__
+```yaml
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: helm-app
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: helm-guestbook
+    repoURL: 'https://github.com/mabusaa/argocd-example-apps.git'
+    targetRevision: master
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+```
+
+## Update with releasename for helm
+
+```yaml
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: helm-app
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: helm-guestbook
+    repoURL: 'https://github.com/mabusaa/argocd-example-apps.git'
+    targetRevision: master
+    helm:
+      releaseName: my-release
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+```
+
+```bash
+kubectl apply -f application_helm_options.yaml
+```
+
+```bash
+kubectl delete -f application_helm_options.yaml
+```
+
+## ArgoCD Directory of files Options
+
+- ArgoCD provides the below as options
+  - Recursive: include all files in sub-directories
+  - Jsonnet
+    - External Vars: list of external variables for jsonnet
+    - Top level arguments
