@@ -161,6 +161,12 @@ cilium hubble enable --ui
 cilium hubble ui --open-browser=false
 ```
 
+or 
+
+```bash
+cilium hubble ui --open-browser=false&
+```
+
 ## Command to delete demo test and cilium network policy
 
 ```bash
