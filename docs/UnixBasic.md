@@ -2915,6 +2915,18 @@ tar cvzf - loremipsum.log.gz | split --bytes=50M - loremipsum.log.tar.gz.
 cat loremipsum.log.tar.gz.* | tar xvzf -
 ```
 
+## nohup command
+
+```bash
+nohup /path/to/your/script.sh >> housekeeping_$(date +%Y-%m-%d).log 2>&1 &
+```
+
+or
+
+```bash
+nohup bash -c "source ~/.bash_profile; /path/to/your/script.sh" >> housekeeping_$(date +%Y-%m-%d).log 2>&1 &
+```
+
 ## IP Address filter using grep
 
 ```shell
