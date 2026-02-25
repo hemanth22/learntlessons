@@ -13,3 +13,18 @@ select count i from table_name where date=2026.01.22, sym like "*search_keyword*
 ```qSQL
 select sym, date, time, msg from table_name where date=2026.01.22, sym like "*search_keyword*", time.time within(04:00:00,06:00:00), msg like "*search_keyword*"
 ```
+
+### KDB query to get description of the table
+```qSQL
+meta tablename
+```
+
+### KDB query to latest 10 records
+```qSQL
+-10#tablename
+```
+
+### KDB query to older 10 records
+```qSQL
+-10#tablename
+```
