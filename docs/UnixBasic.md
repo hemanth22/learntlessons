@@ -3201,7 +3201,11 @@ for host in `cat /var/tmp/list`; do echo '-------- '$host' -------'; ssh -q -o S
 if [ -f /apps/test.txt ]; then printf File\ exists\\\n; else printf File\ does\ not\ exits\\\n; fi
 ```
 
+### For loop with sequence
 
+```bash
+for i in $(seq 2588 5000); do if [ -f "pcap${i}.gz" ]; then gunzip "pcap${i}.gz" fi; done
+```
 
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
