@@ -2256,9 +2256,21 @@ echo -e '\x1dquit\x0ds' | telnet ipaddress 80
 ```
 
 ### Telnet command with auto-close
-s
+
 ```bash
 echo -e '\x1dclose\x0ds' | curl -v telnet://[ip address]:[port]
+```
+
+```bash
+echo -e '\x1dclose\x0ds' | curl -v --connect-timeout 10 telnet://[ip address]:[port]
+```
+
+```bash
+echo -e '\x1dclose\x0ds' | curl -v --max-time 10 telnet://[ip address]:[port]
+```
+
+```bash
+echo -e '\x1dclose\x0ds' | curl -v --connect-timeout 10 --max-time 10 telnet://[ip address]:[port]
 ```
 
 ### telnet example commands
