@@ -3238,6 +3238,13 @@ ip route get 1.1.1.1
 ```
 ifconfig
 ```
+
+#### Command to check if network is down or up
+
+```
+ip a s eno1
+```
+
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
