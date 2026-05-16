@@ -3219,6 +3219,25 @@ if [ -f /apps/test.txt ]; then printf File\ exists\\\n; else printf File\ does\ 
 for i in $(seq 2588 5000); do if [ -f "pcap${i}.gz" ]; then gunzip "pcap${i}.gz" fi; done
 ```
 
+### Network commands
+
+#### Command show who is logged
+
+```bash
+w
+```
+
+#### Command to get routing
+
+```
+ip route get 1.1.1.1
+```
+
+#### Command to check interface configuration
+
+```
+ifconfig
+```
 __Reference on du:__ https://unix.stackexchange.com/questions/140367/finding-all-large-files-in-the-root-filesystem  
 
 __Good webpage:__ [linuxjourney](https://linuxjourney.com/)
