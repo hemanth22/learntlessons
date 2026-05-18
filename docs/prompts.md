@@ -7,7 +7,7 @@ What are my top priorities today?
 ```
 
 ```
-Identify AIl tasks or action items assigned to me in this week’s emails, Teams chats and
+Identify all tasks or action items assigned to me in this week’s emails, Teams chats and
 meeting notes, and compile them into a checklist with due dates.
 ```
 
@@ -17,7 +17,7 @@ Can you help me create a prompt that generate the most accurate response
 
 ### Prompts for  minutes of meeting
 ```
-Write a meetings of meeting email to finAI communication in below format
+Write a meetings of meeting email to final communication in below format
    Attendence list
    Sumamcy of the discussion
    Tasks
@@ -62,7 +62,7 @@ This technique helps AI assistants handle complex tasks by breaking them into sm
 
 Chain of thought Prompting  
 
-Chain-of-thought prompting encourages AI assistants to show their reasoning process step-by-step before giving their finAI answer.  
+Chain-of-thought prompting encourages AI assistants to show their reasoning process step-by-step before giving their final answer.  
 This technique helps you see how the AI assistant thinks through a problem, making the response more transparent and often more reliable.  
 
 Tree of thought Prompting  
@@ -72,8 +72,8 @@ This technique helps AI assistants consider various possibilities rather than fo
 
 ReAct Prompting  
 
-ReAct prompting follows a cycle where the AI assistant AIternates between reasoning and taking actions.  
-The AI assistant writes out its reasoning as a Thought, performs an Action, records the Observation from that action, then continues this cycle until reaching a finAI answer.  
+ReAct prompting follows a cycle where the AI assistant alternative between reasoning and taking actions.  
+The AI assistant writes out its reasoning as a Thought, performs an Action, records the Observation from that action, then continues this cycle until reaching a final answer.  
 
 Knowledge Augmentation  
 
