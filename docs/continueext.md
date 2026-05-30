@@ -34,7 +34,15 @@ or
 name: Local Config
 version: 1.0.0
 schema: v1
-models: 
+models:
+  - name: "deepseek-r1-full-gpu-offload"
+    provider: "lmstudio"
+    model: "deepseek/deepseek-r1-0528-qwen3-8b"
+    apiBase: "http://127.0.0.1:5066/v1"
+    roles:
+      - chat
+      - edit
+      - apply
   - name: "Gemma 4"
     provider: "lmstudio"
     model: "gemma-4-e4b-it"
@@ -43,4 +51,10 @@ models:
       - chat
       - edit
       - apply
+  - name: "deepseek base"
+    provider: "lmstudio"
+    model: "deepseek-coder-1.3b-base"
+    apiBase: "http://127.0.0.1:5067/v1"
+    roles:
+      - autocomplete
 ```
