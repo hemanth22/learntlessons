@@ -40,6 +40,8 @@
 |36 | [CILIUM](./Cilium.md) |
 |37 | [NPM NodeJS](./NPM_Nodejs.md) |
 |38 | [Prompts](./prompts.md) |
+|39 | [Visual Studio Commands](./VisualStudioCodeCommands.md) |
+|40 | [Continue Extension](./continueext.md) |
 
 
 ## About my blogs
