@@ -951,3 +951,75 @@ Think like a senior incident responder in a critical environment.
 Can you help me create a prompt that generate the most accurate response for /create-skill for github copilot to act as L3 SRE Support 
 to debug or investigated or get a flow for production issue by reading code from current workspace and add guadrail to prevent writing in code repository
 ```
+
+### 5. Performance prompt
+
+```text
+Create my performance report for this week
+```
+
+```text
+Look at the last five working days, identify all the meetings where i was working on,
+add up all the time i spent, breaking it down by how much time i spent with manager
+and how much time i spent with my colleagues. Give me a recommendations on
+how i should better focus my time
+```
+
+```text
+Act as a senior manager reviewing a Support Specialist's performance.
+Create a structured and concise 1:1 performance update for my manager.
+Context:
+Role: IT Support Specialist (Production Support / FIX / Infrastructure / Application support)
+Work includes: incident management, troubleshooting, system monitoring, patching, migration support,
+and stakeholder communication
+
+Use the following format:
+
+1. Executive Summary (3-4 lines)
+- Overall performance tone (stable / improving / challenges) .
+Key contributions
+Business impact
+
+2. Key Achievements
+- Highlight measurable or high-impact work
+- Include:
+. Critical incident resolution
+. Large tasks (migration, patching, deployments)
+. Automation or efficiency improvements
+. Client or stakeholder appreciation (if any)
+
+3. Operational Metrics (if available)
+
+Tickets handled / incidents resolved
+SLA adherence
+System stability improvements
+Any performance or uptime improvements
+
+Root cause (if known)
+Mitigation steps taken
+
+4. Challenges / Risks
+Issues faced (system instability, dependencies, delays)
+
+5. Learning and Improvements
+- Skills developed (technical / tools / processes)
+Knowledge gained (e.g., FIX protocol, Linux tuning, etc.)
+
+6. Next Period Priorities
+- Clear, actionable goals:
+· Upcoming tasks
+. Improvements planned
+· Risk reduction actions
+
+7. Support Required from Manager
+- Dependencies
+- Escalations
+Resource or access needs
+
+Style:
+- Professional, concise, and factual
+- Bullet points with clarity
+
+Focus on impact, not just activity
+Avoid generic statements - make it outcome-driven
+```
