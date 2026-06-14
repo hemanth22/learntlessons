@@ -42,6 +42,8 @@
 |38 | [Prompts](./prompts.md) |
 |39 | [Visual Studio Commands](./VisualStudioCodeCommands.md) |
 |40 | [Continue Extension](./continueext.md) |
+|41 | [Ollama](./Ollama.md) |
+
 
 
 ## About my blogs

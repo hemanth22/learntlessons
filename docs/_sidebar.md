@@ -39,3 +39,4 @@
 * [Prompts](./prompts.md)
 * [Visual Studio Commands](./VisualStudioCodeCommands.md)
 * [Continue Extensions](./continueext.md)
+* [Ollama](./Ollama.md)  
