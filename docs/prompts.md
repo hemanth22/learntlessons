@@ -15,6 +15,136 @@ meeting notes, and compile them into a checklist with due dates.
 Can you help me create a prompt that generate the most accurate response
 ```
 
+__Align your team every week__  
+```
+Every Monday morning, I send a short email to my team focused on what's top-of-mind along with key meetings. Those key meetings tend to be with executives and my top-of-mind are related to the key priorities and projects the team and I are working on. 
+
+Draft this week’s update, including:
+
+What’s top of mind for me
+
+Key priorities and projects
+
+Important meetings coming up
+
+Keep it clear, honest, and easy to skim. No filler.
+```
+
+__Meeting recap as attendee__   
+```
+You are an attendee of this event. What are the key takeaways from this presentation and what will you learn?
+```
+
+__New hire onboarding__  
+
+```
+Help me onboard my new hire. Please review their first two weeks and build me a complete onboarding package. 
+
+First, review what’s in flight and show me a summary: 
+
+Their start date, role, manager, and team alignment from HR data 
+
+Any equipment, access, or system provisioning still pending 
+
+Key meetings, trainings, and intros already on their calendar in the first two weeks 
+
+Let’s build the onboarding package piece by piece. Ask me before making any changes. 
+
+If a welcome email is missing, let’s draft a personalized one from me and save it as a draft. 
+
+If team intro 1:1s aren’t on the calendar, let’s schedule 30-min slots with each of my direct reports. 
+
+If a 30/60/90-day plan doesn’t exist, let’s draft one in Word based on the role and team priorities. 
+
+If reading material is needed, let’s compile a curated list of internal docs, Loops, and decks in a OneDrive folder named [Hire name] – Onboarding. 
+
+For week-one team intros, let’s draft a Teams post for our team channel introducing them. 
+
+Start with the items blocking day one (access, accounts, welcome email) first. Once I approve each item, take the action directly in Outlook, Teams, Word, or OneDrive one at a time. 
+
+After we complete the first two weeks, let’s offer to schedule the 30-day check-in and draft a check-in agenda.
+```
+
+__Organize action items__  
+
+```
+Summarize this week's [customer name] action items from the team reporting to [person name] from Teams chats, meetings and emails and compile it into a checklist
+```
+
+
+__Organize my inbox__  
+
+```
+Help me organize my inbox. Please review my email from Outlook.
+
+First, review my inbox from the last 24 hours and show me a summary:
+
+Total number of emails and a rough breakdown
+Any emails from my manager or my management chain
+Any urgent emails – look at the subject, contents, and if it is marked as high importance
+ 
+Let’s do a basic triage of each email. Ask me before making any changes.
+
+If spam, let’s delete the email.
+If not important to me, like a broad email update, let’s provide a synopsis and archive it.
+If a meeting invite, let’s accept, decline, or mark as tentative.
+If requiring a reply, let’s draft a reply and save it as a draft.
+If urgent, let’s draft a reply together. Let’s even SEND the reply!
+ 
+Start with the easiest changes first. Once I approve each change, take the action directly in my inbox one at a time.
+
+After we complete the last 24 hours, let’s offer to review the last few days (or weeks) of emails.
+```
+
+__Research a company__   
+
+```
+Help me analyze a company. If I do not provide one, ask me which one (and make a few suggestions, e.g. Microsoft (MSFT)).
+
+Use web search to gather the most current information available, including recent earnings reports, SEC filings, analyst commentary, and relevant news. Do an exhaustive search, and be sure to place extra emphasis on the official financial data (and not news or editorialization). This is not financial advice, but just to help people understand a company.
+
+Take the findings and create three things –
+
+A short executive summary, you share in the chat
+
+3 paragraphs covering the company, its performance, and key financial highlights
+
+Use a concise, analyst-style, tone
+
+A 2 page word document that is a cover sheet of the research
+
+Page 1 – company overview (name, ticker, sector, market cap, current price, 52-week range)
+
+Page 2 – recent developments (last 1-2 quarters of earnings, guidance updates, M&A activity), a summary of bull/bear arguments, and a table of key financial metrics
+
+A thorough spreadsheet with the financials. All tabs should include clear labels, source notes, and consistent formatting.
+
+Tab 1 — Income Statement: Last 3–5 years of annual data plus most recent quarterly results (revenue, COGS, gross profit, operating expenses, EBIT, net income, EPS)
+
+Tab 2 — Balance Sheet: Total assets, liabilities, equity, cash & equivalents, total debt, net debt
+
+Tab 3 — Cash Flow Statement: Operating cash flow, capex, free cash flow, dividends, share repurchases
+
+Tab 4 — Key Ratios & Metrics: Gross margin, operating margin, net margin, ROE, ROA, debt/equity, current ratio, EV/EBITDA, P/E, FCF yield
+
+Tab 5 — Valuation Snapshot: Current vs. 5-year average multiples, peer comparison if data is available
+```
+
+__Research key priorities__  
+```
+Retrieve all documents related to communication planning for [Project Z] from the last 4 weeks
+```
+
+__Review messaging__   
+```
+You are an attendee of this event. What are the key takeaways from this presentation and what will you learn?
+```
+
+__Summarize financial report__  
+```
+Summarize the finance report (or dataset) and highlight key insights and variances
+```
+
 ### Prompts for  minutes of meeting
 ```
 Write a meetings of meeting email to final communication in below format
