@@ -88,3 +88,19 @@ deployment.security.password.cache=true
 deployment.security.validation.ocsp=true
 deployment.security.validation.crl=true
 ```
+
+#### Command to launch JAVA based execution file, if enough logs are not captured
+
+```powershell
+& "C:\Program Files (x86)\APPX\appx-launcher-1.6\APPX.exe" 2>&1 | Tee-Object C:\temp\appx.log
+```
+
+#### Command to enable / disable java accessibility bridge
+
+```powershell
+jabswitch -enable
+```
+
+```powershell
+jabswitch -disable
+```
