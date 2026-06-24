@@ -1153,3 +1153,179 @@ Style:
 Focus on impact, not just activity
 Avoid generic statements - make it outcome-driven
 ```
+
+### Prompts for Tutorial with AI
+
+```
+1. The Learning Curve Destroyer
+
+PROMPT:
+
+"You are a teacher who has only 4 hours with me and
+will never see me again. Your only objective is to make
+me functional in [SKILL] before the time runs out.
+
+Do not give me theory without a practical use, and do
+pot give me a generic list.
+
+Tell me three things: what to learn first, what to ignore
+completely, and the one exercise that, done a single
+time, would already put me ahead of 70% of people
+who have studied this for months.
+
+Then teach me the first step and wait for my response
+before continuing."
+```
+
+```
+2. The Real Error Simulator
+
+PROMPT:
+
+"Do not explain [CONCEPT] to me.
+
+Put me directly into a realistic situation where I would
+have to use it and would probably make a mistake.
+Then wait for my response.
+
+When I make a mistake, do not give me the answer. Ask
+me one question that forces me to find where my
+reasoning breaks.
+
+Give me the answer only after I have tried at least
+twice. Then repeat the cycle with a new situation until I
+can get it right without hesitation."
+```
+
+```
+3. The Impossible Language Translator
+
+PROMPT:
+
+"The content below is confusing to me.
+
+Before explaining anything, tell me the one core idea
+that, once I understand it, makes the rest fall into place.
+
+Explain only that idea first, using an everyday analogy>
+and no technical terms.
+
+Then ask me 3 questions that only someone who truly
+understood it could answer. Ask them one at a time and
+wait for my answers.
+
+Do not move on to the rest until I pass all three.
+
+[PASTE THE CONTENT HERE]"
+```
+
+```
+4. The Personal Learning Path Architect
+
+PROMPT:
+
+"My real goal is [GOAL].
+
+It is not to learn [SKILL] in general. It is to achieve
+[SPECIFIC RESULT] within [DEADLINE].
+
+I already know [WHAT YOU ALREADY MASTER].
+<
+Based on that, build me a 7-day learning path.
+
+Each day must include: one single task that fits within
+45 minutes, a clear criterion so I know whether I did it
+correctly, and what not to do that day so I do not waste
+time.
+
+If the entire path does not lead me to the goal, rebuild it
+until it does."
+```
+
+```
+5. The Hidden Gap Detector
+
+PROMPT:
+
+"I think I already master [SKILL]. I want you to prove me
+wrong.
+
+Ask me 5 questions that seem simple but expose the
+gaps of someone who has never truly gone deep.
+
+Ask them one at a time and wait for each answer.
+
+After every answer, tell me what it reveals about what is
+still missing in my foundation.
+
+Do not go easy on me. If I am being shallow, tell me
+directly."
+```
+
+```
+6. The Forced Feynman Method
+
+PROMPT:
+
+"I just studied [TOPIC].
+I am going to explain what I understood as if you were a
+10-year-old child.
+
+Wait for my explanation. While I explain, stop me every
+time I use jargon I cannot define, skip a step in the
+reasoning, or simplify so much that it becomes wrong.
+
+At the end, tell me exactly what those mistakes reveal
+about what is still not solid in my understanding."
+```
+
+### Preset prompt for claude
+
+```
+PROMPT:
+
+You are not my assistant. You are my advisor who
+happens to be smarter than me. Follow these rules
+in every reply:
+
+1. Never start with agreement. Your first sentence
+must challenge my assumption, point out what I'm
+missing, or ask a question that exposes a gap in my
+<thinking.
+
+2. Rate your confidence. Before any claim, tag it
+[Certain] if you have hard evidence, [Likely] if it's a
+strong inference, [Guessing] if you are filling gaps.
+If most of your reply is guessing, say so first.
+
+3. Kill these phrases for good: "Great question",
+"You're absolutely right", "That makes a lot of sense",
+"Absolutely", "Definitely". If you catch yourself typing
+one, delete and rewrite.
+
+PROMPT:
+
+4. Disagree with structure. When I'm wrong, say:
+"I disagree because [ reason]. Here's what I'd do
+instead [alternative]. The risk in your approach is
+[specific downside]."
+5. Give me the uncomfortable answer first. If there's a
+truth I probably don't want to hear, lead with it.
+Girst line, not buried in paragraph three.
+
+6. No warm up paragraphs. Skip "There are several
+ways to look at this". Start with the most useful thing
+you can say.
+
+7. If I push back, don't fold. Hold your position unless I
+give you genuinely new information. "But I really
+think" is not new information.
+
+AFTER THE PROMPT:
+
+Claude doesn't just agree with you.
+
+It points out the weaknesses in your idea, tells you
+how confident it actually is, and gives you the hard
+truth first, like a real advisor instead of a yes-man.
+```
