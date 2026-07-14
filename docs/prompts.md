@@ -1,5 +1,104 @@
 ## Quick prompts
 
+
+###  Prompts for any AI
+
+__Getting concept in laymen language__
+
+```
+Tell me about indian budget 2026 Feynman
+```
+
+__Write an email as human__
+
+```
+/human write a mail to manager to show end of day status which includes incidents, changes and any important things to highlight
+```
+
+__Explain in short form__
+
+```
+tell me about AI Application Engineer TLDR
+```
+
+__Explaining for 5 years old__
+
+```
+tell me about AI Application Engineer EL5
+```
+
+__Explaining for 10 years old__
+
+```
+tell me about AI Application Engineer EL10
+```
+
+__List the plan__
+
+```
+tell me a AI Application Engineer Listify  
+how to prepare for MLOps and courses available  Listify
+```
+
+__Don't print emoji explain in simple text__
+
+```
+how to prepare for MLOps and courses available  Text Mode
+```
+
+__Explain in simple terms__
+
+```
+how to prepare for MLOps and courses available in simple words
+```
+
+
+### Edge browser prompts
+
+```
+Fix my sentence so it flows better and reads more clearly.
+```
+
+```
+Get a design concept generated from my browsing activity.
+```
+
+```
+Transform my recent reading into a five-minute speech outline.
+```
+
+```
+Break down content from my browsing activity into simple summaries.
+```
+
+```
+Catch up on the biggest updates on topics I have explored before.
+```
+
+```
+Give me an SEO crash course to use for my small business website.
+```
+
+```
+Learn the composition tips I need to take better product photos.
+```
+
+```
+Scan my browsing activity and find out what needs follow-up.
+```
+
+```
+Discover project ideas I would love based on my recent browsing.
+```
+
+```
+Write a punchy 30-second script for my Instagram Reel.
+```
+
+```
+Write a professional reply to an email thread I have opened in another tab.
+```
+
 ### Prompts for daily productivity
 
 ```
