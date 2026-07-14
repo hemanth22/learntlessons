@@ -1,6 +1,5 @@
 ## Quick prompts
 
-
 ###  Prompts for any AI
 
 __Getting concept in laymen language__
@@ -1427,4 +1426,38 @@ Claude doesn't just agree with you.
 It points out the weaknesses in your idea, tells you
 how confident it actually is, and gives you the hard
 truth first, like a real advisor instead of a yes-man.
+```
+
+
+### The Art of prompting: Ingredients for Optimal Inputs
+
+![The Art of prompting](https://raw.githubusercontent.com/hemanth22/Images/master/Art%20of%20Prompting%20ingredients.png)
+
+```
+Goal: What response do you want from Copilot?
+Example: Define Al Fluency, list three benefits for workforce agencies, and suggest two ways administrators can start building this skill
+```
+
+```
+Context: Why do you need it and who is involved?
+Example: for a workshop helping workforce leaders prepare staff and services for an Al-driven future of work.
+```
+
+```
+Source: Which information sources should Copilot use?
+Example: Use insights from reputable career development resources.
+```
+
+```
+Expectations: How should Copilot respond?
+Example: Keep it under 250 words and make it engaging and actionable.
+```
+
+Bring above prompts together as below.
+
+```
+Define Al Fluency, list three benefits for workforce agencies, and suggest two ways
+administrators can start building this skill for a workshop helping workforce leaders prepare
+staff and services for an Al-driven future of work. Use insights from reputable career
+development resources. Keep it under 250 words and make it engaging and actionable.
 ```
