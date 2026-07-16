@@ -110,6 +110,91 @@ meeting notes, and compile them into a checklist with due dates.
 ```
 
 ```
+Create my performance report for this week
+```
+
+```
+Look at the last five working days, identify all the meetings where I wask working on, add up all the lines I spent, breaking it down by how much time I spent with my manager and how much time I spent with my colleagues. Give me a recommendation on how I should be better focus my time.
+```
+
+```
+Read through my recent emails and chats and provide a comprehensive analysis of my communication style by identifying my core values, strenghts, weaknesses, skills and areas where I can improve professionally
+```
+
+```
+Act as a senior manager reviewing a Support Specialists performance
+
+Create a structured and concise 1:1 performance update for my manager
+
+Context:
+
+- Role: IT Support Specialist (Production Support/FIX/Infrastructure/Application Support)
+- Work includes: incident management, troubleshooting, system monitoring, patching, migration support, and stakeholder communication
+
+
+User the following format:
+
+1. Executive summary (3-4 lines)
+- Overall performance tone(stable/Improving/Challenges)
+- key contributions
+- Business Impact
+
+2. Key Achivements
+- Highlight measurable or high-impact work
+- include:
+  - critical incident resolution
+  - Large tasks (migration, patching, deployments)
+  - Automation or efficiency improvements
+  - Client or stakeholder appreciation (if any)
+
+3. Operational Metrics (if available)
+- Tickets handled / incidents resolved
+- SLA Adherence
+- System stability improvements
+- Any performance or uptime improvements
+
+4. Challenges / Risk
+- Issues faced (System instability, dependencies, delays)
+- Root cause (if known)
+- Mitigation steps taken
+
+5. Learning and Improvements
+- Skills developed (technical / tools / processes)
+- Knowledge gained (eg. FIX Protocol, Linux Tuning, KDB queries, etc)
+
+6. Next period priorities
+- Clear, actionable goals:
+  - Upcoming tasks
+  - Improvements planned
+  - Risk reduction actions
+
+7. Support required from manager
+- Dependencies
+- Escalations
+- Resource or access needs
+
+Style
+- Professional, concise and factual
+- Bullet points with clarity
+- Focus on impact, not just activity
+- Avoid generic statements - make it outcome driven
+```
+
+```
+The Prompt:
+
+Act as an experienced recruiter.
+Review the attached CVs for the [Job Title] role.
+
+For each candidate:
+* Summarise their relevant experience in 3-5 bullet points
+* Assess how well they match the job requirements
+* Highlight strengths, potential gaps, and any concerns
+* Provide a fit score out of 10 with rationale
+* Then rank the candidates from strongest to weakest and provide a shortlist recommendation with reasons.
+```
+
+```
 Can you help me create a prompt that generate the most accurate response
 ```
 
