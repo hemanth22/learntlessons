@@ -180,6 +180,7 @@ Style
 - Avoid generic statements - make it outcome driven
 ```
 
+__Recruiter special prompts__
 ```
 The Prompt:
 
