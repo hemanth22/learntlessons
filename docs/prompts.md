@@ -314,6 +314,101 @@ Tab 4 — Key Ratios & Metrics: Gross margin, operating margin, net margin, ROE,
 Tab 5 — Valuation Snapshot: Current vs. 5-year average multiples, peer comparison if data is available
 ```
 
+__Research on equity stock__
+
+```
+Act as a senior equity research analyst, management consultant, and industry expert.
+
+Analyze the company: Mars International India Pvt Ltd
+
+Provide a comprehensive report using the latest publicly available information.
+
+Include the following sections:
+
+Executive Summary
+What the company does
+Primary business model
+Key sources of revenue
+Industry classification
+Headquarters and global presence
+Products and Services
+List all major products, solutions, and services
+Explain each product in simple business terms
+Identify which products are manufactured versus software/services
+Describe the target customers for each product
+Revenue Analysis
+Total annual revenue for the latest fiscal year
+Revenue by product line/business segment
+Revenue contribution (%) from each segment
+Revenue trend over the last 5 years
+Geographic revenue breakdown by region/country
+Identify the fastest-growing business segments
+Manufacturing and Operations
+What products are manufactured
+Manufacturing locations
+Supply chain overview
+Key raw materials or technologies used
+Strategic production facilities
+Customer Analysis
+Major customer segments
+Industries served
+Enterprise customers
+Consumer customers
+Customer concentration risks if known
+Competitive Landscape
+Top 10 competitors
+Compare products against competitors
+Market share comparison
+Pricing position
+Strengths and weaknesses versus competitors
+Competitive Advantage (Moat)
+Brand strength
+Intellectual property
+Patents
+Distribution network
+Technology advantages
+Regulatory advantages
+Financial Performance
+Revenue
+Gross profit
+Operating profit
+Net profit
+Cash flow
+Debt levels
+Key financial ratios
+Growth Drivers
+New products
+Market expansion opportunities
+AI, cloud, digital transformation initiatives
+Acquisitions and partnerships
+Risks
+Competitive threats
+Regulatory risks
+Supply chain risks
+Customer concentration risks
+Macroeconomic risks
+SWOT Analysis
+Strengths
+Weaknesses
+Opportunities
+Threats
+Investment Perspective
+Long-term growth opportunities
+Key challenges
+Bull case
+Bear case
+Sources
+Cite annual reports, investor presentations, SEC filings, earnings reports, and reputable industry sources.
+Output Requirements:
+
+Use tables wherever helpful.
+Include revenue figures with currency and fiscal year.
+Include competitor comparison matrix.
+Clearly distinguish between facts and assumptions.
+Highlight any missing or unavailable information.
+Provide data accuracy confidence level (High/Medium/Low) for each major section.
+```
+
 __Research key priorities__  
 ```
 Retrieve all documents related to communication planning for [Project Z] from the last 4 weeks
