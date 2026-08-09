@@ -1693,3 +1693,52 @@ Translate this text into French:
 about vocabulary, phrases, and
 comprehension.
 ```
+
+### Microsoft 365 Prompts
+
+```
+What are five cool things Copilot can do ?
+```
+
+```
+Summarize today's MIM bridge and list all actions assigned to me
+```
+
+```
+What has Manager Name saide about Migration recently ?
+```
+
+```
+Create a management summary of this week's incidents and changes
+```
+
+```
+Analyze this attendence spreadsheet and compare WFO compliance between 2025 and 2026
+```
+
+```
+Trace the execution path causing this FIX Session failure and suggest likely root causes
+```
+
+```
+Correlate alerts, incidents, changes, emails, and meeting discussion to accelerate root cause analysis
+```
+
+```
+Create a leadership update summarizing this week's production incidents
+```
+
+```
+Create an executive summary of this week's production incidents
+```
+
+```
+Review recent incidents, emails, teams discussions, meetings, and change records related to an outage.
+Build a timeline, identify action items and summarize likely root cause
+
+Executive Summary
+Timeline
+Likely Root Cause Themes
+Action Items Identified
+Business Impact Observed
+```
