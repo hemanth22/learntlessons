@@ -1642,3 +1642,54 @@ administrators can start building this skill for a workshop helping workforce le
 staff and services for an Al-driven future of work. Use insights from reputable career
 development resources. Keep it under 250 words and make it engaging and actionable.
 ```
+
+### Language learning prompts
+
+```
+1. DAILY LESSON CREATOR
+Create a 30-minute French lesson
+focused on [grammar/speaking/
+listening comprehension]. Includes
+examples, exercises, and a short
+quiz.
+```
+
+```
+2. INSTANT FLASHCARDS
+Turn these words into flashcards:
+[list of 20]. Add usage examples
+and simple memorization tips that
+beginners can follow.
+```
+
+```
+3. REAL CONVERSATION MODE
+Play the role of a native French
+speaker. Have a natural
+conversation about [topic].
+Correct my mistakes as you go.
+```
+
+```
+4. GRAMMAR DECODER
+Explain this French rule: [insert].
+Use simple examples and highlight
+the three most common mistakes
+students make.
+```
+
+```
+5. PROGRESS EVALUATOR
+Give me a 10-question quiz based
+on what I've studied this week.
+Only reveal the answers after I've
+taken it.
+```
+
+```
+6. IMMERSION ENGINE
+Translate this text into French:
+[paste]. Then, ask me questions
+about vocabulary, phrases, and
+comprehension.
+```
