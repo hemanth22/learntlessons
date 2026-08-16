@@ -67,6 +67,25 @@ vagrant box list
 vagrant box add <name> <url> 
 ```
 
+## Vagrant command to add internal box from path
+
+```bash
+PS C:\HOMEWARE\VM\bitroidrocky\9> vagrant package --vagrantfile vagrant_file/Vagrantfile --output rockylinux9.box
+==> default: Clearing any previously set forwarded ports...
+==> default: Exporting VM...
+==> default: Compressing package to: C:/HOMEWARE/VM/bitroidrocky/9/rockylinux9.box
+==> default: Packaging additional file: vagrant_file/Vagrantfile
+```
+
+```bash
+PS C:\HOMEWARE\VM\bitroidrocky\9> vagrant box add --name rockylinux/9 --box-version 26.08 C:/HOMEWARE/VM/bitroidrocky/9/rockylinux9.box
+==> box: Box file was not detected as metadata. Adding it directly...
+You specified a box version constraint with a direct box file
+path. Box version constraints only work with boxes from Vagrant
+Cloud or a custom box host. Please remove the version constraint
+and try again.
+```
+
 ## Vagrant command to login
 
 ```bash

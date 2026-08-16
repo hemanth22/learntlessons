@@ -1694,7 +1694,7 @@ about vocabulary, phrases, and
 comprehension.
 ```
 
-### Microsoft 365 Prompts
+## Microsoft 365 Prompts
 
 ```
 What are five cool things Copilot can do ?
@@ -1741,4 +1741,263 @@ Timeline
 Likely Root Cause Themes
 Action Items Identified
 Business Impact Observed
+```
+
+## ChatGpt Prompts
+
+### Natural human-like writing
+
+```
+/human
+```
+
+### Specialist-level answers
+```
+/expert
+```
+
+### Founder mindset analysis
+
+```
+/ceo
+```
+
+### High-engagement content ideas
+
+```
+/viral
+```
+
+### Search-optimized content
+
+```
+/seo
+```
+
+### Find weaknesses and flaws
+
+```
+/critic
+```
+
+### Explain clearly and simply
+
+```
+/teacher
+```
+
+### Explain like I'm 5
+```
+/eli5
+```
+
+### Shortest possible answer
+
+```
+/brief
+```
+
+### Long-term planning mode
+```
+/strategy
+```
+
+### Persuasive marketing copy
+```
+/copywriter
+```
+
+### Deep research mode
+```
+/research
+```
+
+### Generate creative ideas
+
+```
+/brainstorm
+```
+
+### Improve any prompt
+```
+/promptengineer
+```
+
+### Summarize long content
+
+```
+/summarize
+```
+
+### Translate to any language
+
+```
+/translate
+```
+
+### Improve grammar & clarity
+```
+/improve
+```
+
+### Make it simpler to understand
+```
+/simplify
+```
+
+### Expand and add more details
+```
+/expand
+```
+
+### Compare pros and cons
+```
+/compare
+```
+
+### Make a list / bullet points
+```
+/list
+```
+
+### Convert to a table format
+
+```
+/table
+```
+
+### Create outline or structure
+```
+/outline
+```
+
+### Write code in any language
+
+```
+/code
+```
+
+### Find and fix code errors
+
+```
+/debug
+```
+
+### Explain code line by line
+```
+/explaincode
+```
+
+### Write professional emails
+
+```
+/email
+```
+
+### Write a cover letter
+```
+/coverletter
+```
+
+### Interview Q&A preparation
+```
+/interview
+```
+
+### Get motivation & inspiration
+```
+/motivate 
+```
+
+### Human rewrite
+
+```
+You are an editor
+with a sharp eye for writing that
+reads as built, not spoken. Rewrite
+this the way someone who actually
+went through it would say: a bit
+rougher, more direct. Cut anything
+that feels rehearsed or writfen to
+Sound impressive. Length: keep the same.
+Text: [paste ].
+```
+
+## LinkedIn Claude Prompts
+
+### LinkedIn Headline that Sells
+
+```
+You are a world-class Linkedln personal branding
+expert. Rewrite my Linkedln headline to make it highly
+attractive to recruiters in my field. Use clear keywords,
+job-specific value, and a positioning that makes me
+irresistible in search. Here's my profile for context: [PASTE
+LINKEDIN PROFILE]
+```
+
+### Optimize Your About Section
+```
+You are a top-tier Linkedln copywriter. Rewrite my 'About'
+section so that it clearly explains who I am, what
+problems I solve, and why I'm valuable while keeping it
+warm, clear, and keyword-optimized. Keep it under 260
+words. Here's my existing profile: [PASTE PROFILE TEXT]
+```
+
+### Rewrite Experience to Show ROI
+
+```
+You are a resume and Linkedln optimization specialist.
+Rewrite my 'Experience' section for each job listed in
+my Linkedln so it focuses on outcomes, numbers, KPIs,
+and skills recruiters look for. Make sure it's easy to
+skim and speaks in recruiter language. Here's my current
+experience section: [PASTE TEXT]
+```
+
+### Fix Your LinkedIn Profile Instantly
+
+```
+You are a professional LinkedIn profile
+optimizer for Fortune 500 job seekers. Review
+my entire LinkedIn profile below and suggest
+exact rewrites for headline, about, experience,
+skills, and featured sections. Make sure it's fully
+keyword-optimized for ATS and recruiter
+search. My goal: [Insert goal]. Here's the
+profile: [PASTE PROFILE TEXT]
+```
+
+### Inject Keywords To Rank Higher
+```
+You are a LinkedIn SEO expert. Scan my
+profile and inject high-ranking keywords for
+my industry (e.g., data science, UX, etc.) in a
+natural way to make it rank higher in recruiter
+search. Do not keyword stuff. My profile:
+[PASTE PROFILE TEXT]
+```
+
+### Build a Unique Valve Proposition
+
+```
+You are a personal branding strategist.
+Based on my experience and career goals,
+write a bold, specific Unique Valve
+Proposition that I can put at the top of
+my 'About' section to instantly hook
+recruiters and differentiate me. Here's my
+experience and industry: [PASTE DETAILS]
+```
+
+### Turn Your Profile Into a Pitch
+
+```
+You are a career storyteller and elevator
+pitch expert. Based on my LinkedIn profile,
+write a 30-second pitch that I can use
+in my summary section or video intro.
+Make it sharp, confident, and results-driven.
+Profile: [PASTE PROFILE TEXT]
 ```
