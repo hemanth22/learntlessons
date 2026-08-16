@@ -78,12 +78,38 @@ PS C:\HOMEWARE\VM\bitroidrocky\9> vagrant package --vagrantfile vagrant_file/Vag
 ```
 
 ```bash
-PS C:\HOMEWARE\VM\bitroidrocky\9> vagrant box add --name rockylinux/9 --box-version 26.08 C:/HOMEWARE/VM/bitroidrocky/9/rockylinux9.box
+vagrant box add --name bitroid/rockylinux9_28_06 C:/HOMEWARE/VM/bitroidrocky/9/rockylinux9.box
 ==> box: Box file was not detected as metadata. Adding it directly...
-You specified a box version constraint with a direct box file
-path. Box version constraints only work with boxes from Vagrant
-Cloud or a custom box host. Please remove the version constraint
-and try again.
+==> box: Adding box 'bitroid/rockylinux9_28_06' (v0) for provider: (amd64)
+    box: Unpacking necessary files from: file:///C:/HOMEWARE/VM/bitroidrocky/9/rockylinux9.box
+    box:
+==> box: Successfully added box 'bitroid/rockylinux9_28_06' (v0) for '(amd64)'!
+```
+
+```bash
+PS C:\HOMEWARE\VM\kube> vagrant box list
+bitroid/rockylinux10      (virtualbox, 1.0.0, (amd64))
+bitroid/rockylinux9       (virtualbox, 6.0.0, (amd64))
+bitroid/rockylinux9_28_06 (virtualbox, 0, (amd64))
+generic/alpine318         (virtualbox, 4.3.12, (amd64))
+generic/alpine38          (virtualbox, 4.3.12, (amd64))
+rockylinux/8              (virtualbox, 9.0.0, (amd64))
+rockylinux/9              (virtualbox, 6.0.0, (amd64))
+rockylinux10              (virtualbox, 0, (amd64))
+```
+
+```bash
+Vagrant.configure("2") do |config|
+  config.vm.box = "bitroid/rockylinux9_28_06"
+  
+  # REMOVE OR COMMENT OUT THIS LINE:
+  # config.vm.box_version = "26.08" 
+
+  # Prevent Vagrant from looking for newer versions on HashiCorp Cloud
+  config.vm.box_check_update = false 
+
+  # ... rest of your configuration (rsync, etc.)
+end
 ```
 
 ## Vagrant command to login
