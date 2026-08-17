@@ -40,3 +40,4 @@
 * [Visual Studio Commands](./VisualStudioCodeCommands.md)
 * [Continue Extensions](./continueext.md)
 * [Ollama](./Ollama.md)  
+* [WindowsHints](./WindowsHints.md)

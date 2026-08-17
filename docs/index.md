@@ -43,7 +43,7 @@
 |39 | [Visual Studio Commands](./VisualStudioCodeCommands.md) |
 |40 | [Continue Extension](./continueext.md) |
 |41 | [Ollama](./Ollama.md) |
-
+|42 | [WindowsHints](./WindowsHints.md) |
 
 
 ## About my blogs
