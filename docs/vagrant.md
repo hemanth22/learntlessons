@@ -235,12 +235,30 @@ vagrant box add Rocky-10-Vagrant-Vbox-10.2 https://dl.rockylinux.org/pub/rocky/1
 ## How to install GuestAddition inside vagrant rocky linux image
 
 ```bash
+echo "[TASK 1] Update packages"
+dnf -y update
+dnf distro-sync -y
+yum install -y kernel-headers
+yum install -y gcc make perl bzip2 elfutils-libelf-devel wget patch libgomp glibc-headers glibc-devel
+yum install -y kernel-devel
+echo "[TASK 2] Verify packages"
+rpm -q kernel-devel kernel-headers gcc make perl bzip2 elfutils-libelf-devel wget binutils patch libgomp glibc-headers glibc-devel
+echo "[TASK 3] Download VirtualBox Guest Additions"
 wget https://download.virtualbox.org/virtualbox/7.2.8/VBoxGuestAdditions_7.2.8.iso
+echo "[TASK 4] Mount VirtualBox Guest Additions"
 mkdir -p /opt/VBoxGuestAdditions_7.2.8
-cp /root/VBoxGuestAdditions_7.2.8.iso /opt
+cp -v /root/VBoxGuestAdditions_7.2.8.iso /opt
 mount -o loop /opt/VBoxGuestAdditions_7.2.8.iso /opt/VBoxGuestAdditions_7.2.8
+echo "[TASK 5] Execute VirtualBox Guest Additions"
 ls -ltr /opt/VBoxGuestAdditions_7.2.8
 cd /opt/VBoxGuestAdditions_7.2.8
 sh ./VBoxLinuxAdditions.run
+echo "[TASK 6] Purge VirtualBox Guest Additions"
+rm -v /root/VBoxGuestAdditions_7.1.4.iso
+echo "[TASK 7] Enable ssh password authentication"
+sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sed -i 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+systemctl reload sshd
+echo "[TASK 8] Set root password"
+echo -e "hemanth\nhemanth" | passwd root >/dev/null 2>&1
 ```
-
