@@ -53,5 +53,4 @@ Format-Hex ".\Desktop.lnk" | tee-object C:/temp/desktop_hex_dump.log
 
 ```powershell
 & "C:\Program Files (x86)\APPX\appx-launcher-1.1\APPX.exe" 2>&1 | Tee-Object C:\temp\appx.log
-& "C:\Program Files (x86)\APPX\appx-launcher-1.1\APPX.exe" 2>&1 | Tee-Object C:\temp\appx.log
 ```

@@ -57,19 +57,19 @@ vagrant global-status
 
 ## Vagrant command to list boxes installed
 
-```bash
+```powershell
 vagrant box list
 ```
 
 ## Vagrant command to add external url box
 
-```bash
+```powershell
 vagrant box add <name> <url> 
 ```
 
 ## Vagrant command to add internal box from path
 
-```bash
+```powershell
 PS C:\HOMEWARE\VM\bitroidrocky\9> vagrant package --vagrantfile vagrant_file/Vagrantfile --output rockylinux9.box
 ==> default: Clearing any previously set forwarded ports...
 ==> default: Exporting VM...
@@ -77,7 +77,7 @@ PS C:\HOMEWARE\VM\bitroidrocky\9> vagrant package --vagrantfile vagrant_file/Vag
 ==> default: Packaging additional file: vagrant_file/Vagrantfile
 ```
 
-```bash
+```powershell
 vagrant box add --name bitroid/rockylinux9_28_06 C:/HOMEWARE/VM/bitroidrocky/9/rockylinux9.box
 ==> box: Box file was not detected as metadata. Adding it directly...
 ==> box: Adding box 'bitroid/rockylinux9_28_06' (v0) for provider: (amd64)
@@ -86,7 +86,7 @@ vagrant box add --name bitroid/rockylinux9_28_06 C:/HOMEWARE/VM/bitroidrocky/9/r
 ==> box: Successfully added box 'bitroid/rockylinux9_28_06' (v0) for '(amd64)'!
 ```
 
-```bash
+```powershell
 PS C:\HOMEWARE\VM\kube> vagrant box list
 bitroid/rockylinux10      (virtualbox, 1.0.0, (amd64))
 bitroid/rockylinux9       (virtualbox, 6.0.0, (amd64))
@@ -205,3 +205,42 @@ vagrant ssh instance_name
 vagrant ssh manager -c 'cat /etc/hostname'  
 vagrant ssh worker -c 'cat /etc/hostname'
 ```
+
+## vagrant commmand to bring up in debug mode
+
+```powershell
+vagrant up --debug > debug.log 2>&1
+```
+
+## Vagrant command to add rockylinux boxes
+
+### Rockylinux8
+
+```powershell
+vagrant box add Rocky-8-Vagrant-Vbox-8.10 https://dl.rockylinux.org/pub/rocky/8.10/images/x86_64/Rocky-8-Vagrant-Vbox-8.10-20240528.0.x86_64.box
+```
+
+### Rockylinux9
+
+```powershell
+vagrant box add Rocky-9-Vagrant-Vbox-9.8 https://dl.rockylinux.org/pub/rocky/9.8/images/x86_64/Rocky-9-Vagrant-Vbox-9.8-20260525.0.x86_64.vagrant.virtualbox.box
+```
+
+### Rockylinux10
+
+```powershell
+vagrant box add Rocky-10-Vagrant-Vbox-10.2 https://dl.rockylinux.org/pub/rocky/10.2/images/x86_64/Rocky-10-Vagrant-Vbox-10.2-20260525.0.x86_64.vagrant.virtualbox.box
+```
+
+## How to install GuestAddition inside vagrant rocky linux image
+
+```bash
+wget https://download.virtualbox.org/virtualbox/7.2.8/VBoxGuestAdditions_7.2.8.iso
+mkdir -p /opt/VBoxGuestAdditions_7.2.8
+cp /root/VBoxGuestAdditions_7.2.8.iso /opt
+mount -o loop /opt/VBoxGuestAdditions_7.2.8.iso /opt/VBoxGuestAdditions_7.2.8
+ls -ltr /opt/VBoxGuestAdditions_7.2.8
+cd /opt/VBoxGuestAdditions_7.2.8
+sh ./VBoxLinuxAdditions.run
+```
+
