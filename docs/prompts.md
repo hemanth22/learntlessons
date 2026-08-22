@@ -98,6 +98,177 @@ Write a punchy 30-second script for my Instagram Reel.
 Write a professional reply to an email thread I have opened in another tab.
 ```
 
+```
+Interpret the funnel chart for non-technical stakeholders.
+```
+
+```
+Upload my budget and find out exactly where my money is going.
+```
+
+```
+Catch up on the biggest updates on topics I have explored before.
+```
+
+```
+Run Python code to scrape and track product prices online.
+```
+
+```
+Describe this academic paper like I'm a beginner.
+```
+
+```
+Summarize detailed research on cold plunges including the risks and benefits.
+```
+
+```
+Discover 10 compelling headlines for my productivity hacks blog.
+```
+
+```
+⚡ Productivity Blog Headlines
+“10-Minute Habits That Double Your Output”
+
+“The Science of Getting More Done in Less Time”
+
+“Stop Wasting Hours: Smart Hacks for Busy Minds”
+
+“From Chaos to Control: Productivity Secrets That Stick”
+
+“Work Smarter, Not Longer: Proven Daily Routines”
+
+“Unlock Peak Focus: Hacks to Beat Distractions”
+
+“The Lazy Person’s Guide to Maximum Efficiency”
+
+“Small Tweaks, Big Gains: Productivity Hacks That Work”
+
+“Master Your Day: Time-Saving Tricks for Professionals”
+
+“Productivity Myths Busted: What Actually Works”
+```
+
+```
+Help me decide which electric car to buy.
+```
+
+```
+Help me study for an upcoming final with focus and productivity tips.
+```
+
+```
+Follow simple step by step instructions to declutter my space.
+```
+
+```
+Review and suggest friendlier language of a comment I'm about to post.
+```
+
+```
+Use my uploaded resume and job description to create the perfect cover letter.
+```
+
+```
+Tell me what a diagram's correlation matrix shows about variables.
+```
+
+```
+Discover project ideas I would love based on my recent browsing.
+```
+
+```
+Write a punchy 30-second script for my Instagram Reel.
+```
+
+```
+Use online reviews to compare products across my tabs.
+```
+
+```
+Generate flashcards to learn cardiovascular medical terminology.
+```
+
+```
+Map out a week by week action plan to launch a online store.
+```
+
+```
+Trim my sentence down and make it easier to read.
+```
+
+```
+Write a heartfelt and personal thank you note for my mentor.
+```
+
+```
+Explore reads that go deeper on ideas I have been exploring.
+```
+
+```
+Identify trends, outliers, and opportunities based on sales data.
+```
+
+```
+Discover the full story and history behind the Statue of Liberty.
+```
+
+```
+Craft a genuine and engaging LinkedIn post on any topic.
+```
+
+```
+Show me an ideal 7-day itinerary for a first-time trip to Orlando.
+```
+
+```
+Turn my stream of thoughts into clear and structured writing.
+```
+
+```
+Show me top reviews for a product I'm thinking about buying.
+```
+
+```
+Study Spanish with flashcards built around food and restaurant vocabulary.
+```
+
+```
+Understand how the stock market works in beginner friendly terms.
+```
+
+```
+Write a professional reply to an email thread I have opened in another tab.
+```
+
+```
+Answer a few questions and get a logo designed for my brand.
+```
+
+```
+Understand quantum computing through everyday analogies.
+```
+
+```
+Tell me the main burnout advice from the Reddit thread I have opened.
+```
+
+```
+Compare project management tools for a 10-person design team.
+```
+
+```
+Tell me which of the hotels in my tabs is better for families.
+```
+
+```
+Map out a realistic week by week timeline for my home renovation.
+```
+
+```
+Summarize the video on this page
+```
+
 ### Prompts for daily productivity
 
 ```
