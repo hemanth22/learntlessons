@@ -244,6 +244,7 @@ yum install -y kernel-devel
 echo "[TASK 2] Verify packages"
 rpm -q kernel-devel kernel-headers gcc make perl bzip2 elfutils-libelf-devel wget binutils patch libgomp glibc-headers glibc-devel
 echo "[TASK 3] Download VirtualBox Guest Additions"
+cd /root/
 wget https://download.virtualbox.org/virtualbox/7.2.8/VBoxGuestAdditions_7.2.8.iso
 echo "[TASK 4] Mount VirtualBox Guest Additions"
 mkdir -p /opt/VBoxGuestAdditions_7.2.8
