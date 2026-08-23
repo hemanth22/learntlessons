@@ -273,10 +273,38 @@ echo -e "hemanth\nhemanth" | passwd root >/dev/null 2>&1
 # Install the kmod, which will bring in the guest additions package
 % dnf install kmod-vbox-guest-additions
 
+$ dnf install virtualbox-guest-additions kernel-devel-matched
+$ systemctl enable vboxservice
+$ systemctl status vboxservice
 # Reboot the system for it to take affect
 % systemctl reboot
 
 # Once your VM is up, you can verify the service is running:
 % systemctl status vboxclient
 % lsmod | grep vboxguest
+```
+
+## How to identify VBox process
+
+```bash
+[vagrant@localhost ~]$ systemctl list-unit-files | grep -i vbox
+vboxadd-service.service                    enabled         disabled
+vboxadd.service                            enabled         disabled
+[vagrant@localhost ~]$ systemctl status vboxadd.service vboxadd-service.service
+● vboxadd.service
+     Loaded: loaded (/opt/VBoxGuestAdditions-7.2.14/init/vboxadd; enabled; preset: disabled)
+     Active: active (exited) since Sun 2026-08-23 18:13:20 UTC; 21min ago
+    Process: 579 ExecStart=/opt/VBoxGuestAdditions-7.2.14/init/vboxadd start (code=exited, status=0/SUCCESS)
+   Main PID: 579 (code=exited, status=0/SUCCESS)
+        CPU: 575ms
+
+● vboxadd-service.service
+     Loaded: loaded (/opt/VBoxGuestAdditions-7.2.14/init/vboxadd-service; enabled; preset: disabled)
+     Active: active (running) since Sun 2026-08-23 18:13:20 UTC; 21min ago
+    Process: 868 ExecStart=/opt/VBoxGuestAdditions-7.2.14/init/vboxadd-service start (code=exited, status=0/SUCCESS)
+      Tasks: 9 (limit: 24762)
+     Memory: 2.0M (peak: 2.6M)
+        CPU: 584ms
+     CGroup: /system.slice/vboxadd-service.service
+             └─889 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
 ```
