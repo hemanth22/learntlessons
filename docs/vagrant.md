@@ -232,7 +232,7 @@ vagrant box add Rocky-9-Vagrant-Vbox-9.8 https://dl.rockylinux.org/pub/rocky/9.8
 vagrant box add Rocky-10-Vagrant-Vbox-10.2 https://dl.rockylinux.org/pub/rocky/10.2/images/x86_64/Rocky-10-Vagrant-Vbox-10.2-20260525.0.x86_64.vagrant.virtualbox.box
 ```
 
-## How to install GuestAddition inside vagrant rocky linux image
+## How to install GuestAddition inside vagrant rocky linux image using iso image
 
 ```bash
 echo "[TASK 1] Update packages"
@@ -262,4 +262,21 @@ sed -i 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/ssh
 systemctl reload sshd
 echo "[TASK 8] Set root password"
 echo -e "hemanth\nhemanth" | passwd root >/dev/null 2>&1
+```
+
+## How to install GuestAddition inside vagrant rocky linux image with dnf
+
+```bash
+# Install the release package
+% dnf install centos-release-kmods
+
+# Install the kmod, which will bring in the guest additions package
+% dnf install kmod-vbox-guest-additions
+
+# Reboot the system for it to take affect
+% systemctl reboot
+
+# Once your VM is up, you can verify the service is running:
+% systemctl status vboxclient
+% lsmod | grep vboxguest
 ```
