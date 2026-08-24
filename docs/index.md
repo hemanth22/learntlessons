@@ -44,6 +44,7 @@
 |40 | [Continue Extension](./continueext.md) |
 |41 | [Ollama](./Ollama.md) |
 |42 | [WindowsHints](./WindowsHints.md) |
+|43 | [LlamaCPP](./llamacpp.md) |
 
 
 ## About my blogs
