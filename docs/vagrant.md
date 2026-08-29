@@ -308,3 +308,16 @@ vboxadd.service                            enabled         disabled
      CGroup: /system.slice/vboxadd-service.service
              └─889 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
 ```
+
+
+## Vagrant command to verify vbguest status
+
+```powershell
+vagrant vbguest --status
+```
+
+## Vagrant command to install guestbox
+
+```powershell
+vagrant vbguest --do install
+```
