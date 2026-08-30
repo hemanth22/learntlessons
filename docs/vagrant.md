@@ -309,7 +309,6 @@ vboxadd.service                            enabled         disabled
              └─889 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
 ```
 
-
 ## Vagrant command to verify vbguest status
 
 ```powershell
@@ -321,3 +320,23 @@ vagrant vbguest --status
 ```powershell
 vagrant vbguest --do install
 ```
+
+## Vagrant errors FAQ
+
+### VERR_INTNET_FLT_IF_NOT_FOUND
+
+```text
+Error: VERR_INTNET_FLT_IF_NOT_FOUND  
+
+Recommendation:
+
+1. Open Oracle Virtual Machine
+2. Go to Files -> Tools -> Network
+3. Delete the Host-only Networks adaptor , which is matching with vagrant file private_network ip
+4. This will recreate when vagrant image is destroy and brought up
+
+Root Cause:
+
+This would have been cause due to inappropiate shutdown or delete vagrant resources manually.
+```
+
