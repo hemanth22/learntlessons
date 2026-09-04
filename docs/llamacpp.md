@@ -90,6 +90,7 @@ d-----        25-08-2026     00:16                models--ggml-org--gemma-3-270m
 
 ```powershell
 llama serve -hf ggml-org/gemma-3-270m-it-qat-GGUF:Q4_0
+```
 
 ```powershell
 llama serve -hf Qwen/Qwen3-0.6B-GGUF
