@@ -266,6 +266,15 @@ echo -e "hemanth\nhemanth" | passwd root >/dev/null 2>&1
 
 ## How to install GuestAddition inside vagrant rocky linux image with dnf
 
+
+```bash
+% dnf install centos-release-kmods
+% dnf install kmod-vbox-guest-additions
+% systemctl reboot
+```
+
+or 
+
 ```bash
 # Install the release package
 % dnf install centos-release-kmods
@@ -340,3 +349,11 @@ Root Cause:
 This would have been cause due to inappropiate shutdown or delete vagrant resources manually.
 ```
 
+### Repo list for references
+
+[RockyLinux 8 Repo](https://dl.rockylinux.org/vault/rocky/8.9/images/x86_64/)  
+[RockyLinux 9 Repo](https://dl.rockylinux.org/pub/rocky/9.8/images/x86_64/)  
+[RockyLinux 10 Repo](https://dl.rockylinux.org/pub/rocky/10.2/images/x86_64/)  
+[CentOS Packages](https://centos.pkgs.org/)  
+[RockyLinux Packages](https://rockylinux.pkgs.org/)  
+[CentOS 10 Stream][https://cloud.centos.org/centos/10-stream/x86_64/images/]  
