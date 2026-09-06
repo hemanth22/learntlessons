@@ -356,4 +356,4 @@ This would have been cause due to inappropiate shutdown or delete vagrant resour
 [RockyLinux 10 Repo](https://dl.rockylinux.org/pub/rocky/10.2/images/x86_64/)  
 [CentOS Packages](https://centos.pkgs.org/)  
 [RockyLinux Packages](https://rockylinux.pkgs.org/)  
-[CentOS 10 Stream][https://cloud.centos.org/centos/10-stream/x86_64/images/]  
+[CentOS 10 Stream](https://cloud.centos.org/centos/10-stream/x86_64/images/)  
