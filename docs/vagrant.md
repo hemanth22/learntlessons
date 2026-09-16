@@ -230,6 +230,7 @@ vagrant box add Rocky-9-Vagrant-Vbox-9.8 https://dl.rockylinux.org/pub/rocky/9.8
 
 ```powershell
 vagrant box add Rocky-10-Vagrant-Vbox-10.2 https://dl.rockylinux.org/pub/rocky/10.2/images/x86_64/Rocky-10-Vagrant-Vbox-10.2-20260525.0.x86_64.vagrant.virtualbox.box
+vagrant box add Rocky-10-Vagrant-Vbox-10.1 https://dl.rockylinux.org/vault/rocky/10.1/images/x86_64/Rocky-10-Vagrant-Vbox-10.1-20251116.0.x86_64.box
 ```
 
 ## How to install GuestAddition inside vagrant rocky linux image using iso image
