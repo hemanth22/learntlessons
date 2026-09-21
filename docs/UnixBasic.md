@@ -3013,6 +3013,82 @@ __Command to convert existing rsa to pem file__
 openssl rsa -in /root/.ssh/id_rsa -outform PEM -out /root/.ssh/centos8.pem
 ```
 
+### Alternative commands
+
+__Command to list alternatives__
+
+```
+[root@centos8 AIOnDevice]# alternatives --list
+arptables               auto    /usr/sbin/arptables-nft
+cifs-idmap-plugin       auto    /usr/lib64/cifs-utils/cifs_idmap_sss.so
+ebtables                auto    /usr/sbin/ebtables-nft
+iptables                auto    /usr/sbin/iptables-nft
+libnssckbi.so.x86_64    auto    /usr/lib64/pkcs11/p11-kit-trust.so
+man                     auto    /usr/bin/man.man-db
+man.7.gz                manual  /usr/share/man/man7/man.man-pages.7.gz
+soelim                  auto    /usr/bin/soelim.groff
+ld                      auto    /usr/bin/ld.bfd
+nc                      auto    /usr/bin/netcat
+python                  auto    /usr/bin/python3.14
+```
+
+__Command to point python version to latest package__
+
+```
+alternatives --install /usr/bin/python python /usr/bin/python3.14 1
+```
+
+__Command to change active python verions__
+
+```
+alternatives --config python
+```
+
+__Command to set python version mapping__
+
+```
+alternatives --set python /usr/bin/python3.14
+```
+
+__Command to check alternative config__
+
+```
+[root@centos8 AIOnDevice]# ls -ltr /etc/alternatives/
+total 0
+lrwxrwxrwx. 1 root root 34 May 26 00:10 libnssckbi.so.x86_64 -> /usr/lib64/pkcs11/p11-kit-trust.so
+lrwxrwxrwx. 1 root root 39 May 26 00:10 cifs-idmap-plugin -> /usr/lib64/cifs-utils/cifs_idmap_sss.so
+lrwxrwxrwx. 1 root root 27 May 26 00:10 iptables-save -> /usr/sbin/iptables-nft-save
+lrwxrwxrwx. 1 root root 30 May 26 00:10 iptables-restore -> /usr/sbin/iptables-nft-restore
+lrwxrwxrwx. 1 root root 22 May 26 00:10 iptables -> /usr/sbin/iptables-nft
+lrwxrwxrwx. 1 root root 28 May 26 00:10 ip6tables-save -> /usr/sbin/ip6tables-nft-save
+lrwxrwxrwx. 1 root root 31 May 26 00:10 ip6tables-restore -> /usr/sbin/ip6tables-nft-restore
+lrwxrwxrwx. 1 root root 23 May 26 00:10 ip6tables -> /usr/sbin/ip6tables-nft
+lrwxrwxrwx. 1 root root 27 May 26 00:10 ebtables-save -> /usr/sbin/ebtables-nft-save
+lrwxrwxrwx. 1 root root 30 May 26 00:10 ebtables-restore -> /usr/sbin/ebtables-nft-restore
+lrwxrwxrwx. 1 root root 37 May 26 00:10 ebtables-man -> /usr/share/man/man8/ebtables-nft.8.gz
+lrwxrwxrwx. 1 root root 22 May 26 00:10 ebtables -> /usr/sbin/ebtables-nft
+lrwxrwxrwx. 1 root root 43 May 26 00:10 arptables-save-man -> /usr/share/man/man8/arptables-nft-save.8.gz
+lrwxrwxrwx. 1 root root 28 May 26 00:10 arptables-save -> /usr/sbin/arptables-nft-save
+lrwxrwxrwx. 1 root root 46 May 26 00:10 arptables-restore-man -> /usr/share/man/man8/arptables-nft-restore.8.gz
+lrwxrwxrwx. 1 root root 31 May 26 00:10 arptables-restore -> /usr/sbin/arptables-nft-restore
+lrwxrwxrwx. 1 root root 38 May 26 00:10 arptables-man -> /usr/share/man/man8/arptables-nft.8.gz
+lrwxrwxrwx. 1 root root 33 May 26 00:10 arptables-helper -> /usr/libexec/arptables-nft-helper
+lrwxrwxrwx. 1 root root 23 May 26 00:10 arptables -> /usr/sbin/arptables-nft
+lrwxrwxrwx. 1 root root 37 May 26 00:10 soelim.1.gz -> /usr/share/man/man1/soelim.groff.1.gz
+lrwxrwxrwx. 1 root root 21 May 26 00:10 soelim -> /usr/bin/soelim.groff
+lrwxrwxrwx. 1 root root 38 May 26 00:10 whatis.1.gz -> /usr/share/man/man1/whatis.man-db.1.gz
+lrwxrwxrwx. 1 root root 22 May 26 00:10 whatis -> /usr/bin/whatis.man-db
+lrwxrwxrwx. 1 root root 35 May 26 00:10 man.1.gz -> /usr/share/man/man1/man.man-db.1.gz
+lrwxrwxrwx. 1 root root 19 May 26 00:10 man -> /usr/bin/man.man-db
+lrwxrwxrwx. 1 root root 39 May 26 00:10 apropos.1.gz -> /usr/share/man/man1/apropos.man-db.1.gz
+lrwxrwxrwx. 1 root root 23 May 26 00:10 apropos -> /usr/bin/apropos.man-db
+lrwxrwxrwx. 1 root root 38 May 26 00:10 man.7.gz -> /usr/share/man/man7/man.man-pages.7.gz
+lrwxrwxrwx. 1 root root 15 Sep 17 03:40 ld -> /usr/bin/ld.bfd
+lrwxrwxrwx. 1 root root 31 Sep 17 05:43 nc-man -> /usr/share/man/man1/netcat.1.gz
+lrwxrwxrwx. 1 root root 15 Sep 17 05:43 nc -> /usr/bin/netcat
+lrwxrwxrwx. 1 root root 19 Sep 21 10:41 python -> /usr/bin/python3.14
+```
+
 ### Journal Command
 
 __Command to View All Cron Job Logs__  
