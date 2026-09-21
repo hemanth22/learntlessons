@@ -42,3 +42,4 @@
 * [Ollama](./Ollama.md)  
 * [WindowsHints](./WindowsHints.md)
 * [LlamaCPP](./llamacpp.md)
+* [LlamaCPPPython](./llamacpppython.md)

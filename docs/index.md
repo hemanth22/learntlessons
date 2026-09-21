@@ -45,6 +45,7 @@
 |41 | [Ollama](./Ollama.md) |
 |42 | [WindowsHints](./WindowsHints.md) |
 |43 | [LlamaCPP](./llamacpp.md) |
+|44 | [LlamaCPPPython](./llamacpppython.md) |
 
 
 ## About my blogs
