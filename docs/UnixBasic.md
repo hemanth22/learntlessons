@@ -3089,6 +3089,30 @@ lrwxrwxrwx. 1 root root 15 Sep 17 05:43 nc -> /usr/bin/netcat
 lrwxrwxrwx. 1 root root 19 Sep 21 10:41 python -> /usr/bin/python3.14
 ```
 
+
+### How to verify if url is reachable with IPv4 or IPv6
+
+__Curl command to check endpoint reachable with IPv6__
+
+```bash
+curl -6 -v https://pypi.org/simple/hf/
+```
+
+__Curl command to check endpoint reachable with IPv4__
+
+```bash
+curl -4 -v https://pypi.org/simple/hf/
+```
+
+### Command to disable IPv6 in rockylinux10
+
+```bash
+[root@centos8 ~]# echo 'precedence ::ffff:0:0/96 100' | sudo tee /etc/gai.con
+precedence ::ffff:0:0/96 100
+[root@centos8 ~]# sysctl -w net.ipv6.conf.all.disable_ipv6=1
+net.ipv6.conf.all.disable_ipv6 = 1
+```
+
 ### Journal Command
 
 __Command to View All Cron Job Logs__  
