@@ -350,6 +350,93 @@ Root Cause:
 This would have been cause due to inappropiate shutdown or delete vagrant resources manually.
 ```
 
+### SSH TIMEOUT CONNECTIVITY ERROR  
+
+If you are getting below error, try investigating with below process
+
+```powershell
+PS C:\HOMEWARE\VM\centos8> vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: hostonly
+    default: Adapter 3: bridged
+==> default: Forwarding ports...
+    default: 8000 (guest) => 8000 (host) (adapter 1)
+    default: 80 (guest) => 8089 (host) (adapter 1)
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+Timed out while waiting for the machine to boot. This means that
+Vagrant was unable to communicate with the guest machine within
+the configured ("config.vm.boot_timeout" value) time period.
+
+If you look above, you should be able to see the error(s) that
+Vagrant had when attempting to connect to the machine. These errors
+are usually good hints as to what may be wrong.
+
+If you're using a custom box, make sure that networking is properly
+working and you're able to connect to the machine. It is a common
+problem that networking isn't setup properly in these boxes.
+Verify that authentication configurations are also setup properly,
+as well.
+
+If the box appears to be booting properly, you may want to increase
+the timeout ("config.vm.boot_timeout") value.
+PS C:\HOMEWARE\VM\centos8> ssh root@centos8
+ssh: connect to host centos8 port 22: Connection timed out
+PS C:\HOMEWARE\VM\centos8> ssh root@centos8
+ssh: connect to host centos8 port 22: Connection timed out
+PS C:\HOMEWARE\VM\centos8> ssh -vvvv root@centos8
+debug1: OpenSSH_for_Windows_10.0p2 Win32-OpenSSH-GitHub, LibreSSL 4.2.0
+debug3: Started with: "C:\\\\Program Files\\\\OpenSSH\\\\ssh.exe" -vvvv root@centos8
+debug1: Reading configuration data C:\\Users\\hemanth/.ssh/config
+debug1: C:\\Users\\hemanth/.ssh/config line 13: Applying options for centos8
+debug3: Failed to open file:C:/ProgramData/ssh/ssh_config error:2
+debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> 'C:\\Users\\hemanth/.ssh/known_hosts'
+debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> 'C:\\Users\\hemanth/.ssh/known_hosts2'
+debug2: resolving "centos8" port 22
+debug3: resolve_host: lookup centos8:22
+debug3: channel_clear_timeouts: clearing
+debug3: ssh_connect_direct: entering
+debug1: Connecting to centos8 [192.168.56.9] port 22.
+debug3: finish_connect - ERROR: async io completed with error: 10060, io:00000166872CA2D0
+debug1: connect to address 192.168.56.9 port 22: Connection timed out
+```
+
+```powershell
+PS C:\HOMEWARE\VM\centos8> & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" list runningvms
+"centos8_default_1789623491210_54859" {d8df879e-be28-41fd-b791-42dbd19936da}
+PS C:\HOMEWARE\VM\centos8> & "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm "centos8_default_1789623491210_54859" screenshotpng "$PWD\centos8.png"
+```
+
+```powershell
+Select-String -Path "$env:USERPROFILE\VirtualBox VMs\centos8_default_1789623491210_54859\Logs\VBox.log" -Pattern "NEM|Hyper-V|HMR3Init" | Select-Object -First 10
+```
+
+If it is due to HyperV unusual startup.
+Execute below commands in powershell as an admin
+
+```powershell
+bcdedit /set hypervisorlaunchtype off
+Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All -NoRestart
+Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -NoRestart
+Disable-WindowsOptionalFeature -Online -FeatureName HypervisorPlatform -NoRestart
+```
+
+Restart VM using below
+
+```powershell
+vagrant halt --force
+vagrant up
+```
+
 ### Repo list for references
 
 [RockyLinux 8 Repo](https://dl.rockylinux.org/vault/rocky/8.9/images/x86_64/)  
