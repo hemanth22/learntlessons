@@ -2202,7 +2202,15 @@ du -h --max-depth=1 * | sort -rh | head -n 20
 	dateformat -%Y%m%d-%s
         rotate 4
         compress
+        missingok
+        notifyempty
 }
+```
+
+## Command to dry run logrotate
+
+```shell
+logrotate -d  /etc/logrotate.d/catalina
 ```
 
 ## Command to debug and force start the logs
