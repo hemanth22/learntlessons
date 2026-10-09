@@ -2172,3 +2172,35 @@ in my summary section or video intro.
 Make it sharp, confident, and results-driven.
 Profile: [PASTE PROFILE TEXT]
 ```
+
+### SQL Query to extract table schema for Github Copilot investigation
+
+```sql
+SELECT OWNER || '.' || TABLE_NAME || : ||
+RTRIM(
+XMLCAST(
+XMLAGG(
+XMLELEMENT(
+
+COLUMN_NAME || (' || DATA_TYPE || ),
+
+ORDER BY COLUMN ID
+) AS CLOB
+
+SELECT OWNER || || TABLE_NAME
+
+e,
+
+)
+
+),
+
+) AS SCHEMA DEF
+FROM ALL TAB COLUMNS
+WHERE OWNER NOT IN (
+SYS',
+'SYSTEM'
+
+GROUP BY OWNER, TABLE NAME
+ORDER BY OWNER, TABLE_NAME;
+```
