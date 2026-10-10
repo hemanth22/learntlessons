@@ -2204,3 +2204,162 @@ SYS',
 GROUP BY OWNER, TABLE NAME
 ORDER BY OWNER, TABLE_NAME;
 ```
+
+### Prompt for my vagrant project
+
+```
+You are a senior Linux and virtualization engineer with deep, current knowledge of
+Vagrant, Oracle VirtualBox, and RHEL-family distributions (RHEL 10 / Rocky Linux 10).
+
+## Environment (exact versions, do not assume older ones)
+- Host OS: OS Name	Microsoft Windows 11 Home Single Language Version 10.0.26300 Build 26300
+- CPU: Processor	11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz, 2419 Mhz, 4 Core(s), 8 Logical Processor(s)
+- Vagrant: 2.4.9
+- VirtualBox: 7.2.18 r175117
+- Guest OS: Rocky Linux 10.2 (Red Quartz)
+- Guest hostname: centos8 (legacy name only. The guest is NOT CentOS 8, so do not give CentOS 8 / RHEL 8 answers)
+- Vagrant box: https://dl.rockylinux.org/pub/rocky/10.2/images/x86_64/Rocky-10-Vagrant-Vbox-10.2-20260525.0.x86_64.vagrant.virtualbox.box
+##- Guest Additions version: [output of `VBoxManage --version` and `vagrant vbguest --status` if used]
+##- Plugins: [output of `vagrant plugin list`]
+
+## Vagrantfile
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+
+VAGRANT_EXPERIMENTAL="disks"
+
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "bitroid/rockylinux102"
+  #config.vm.url = "https://download.rockylinux.org/pub/rocky/9.8/images/x86_64/Rocky-9-Vagrant-Vbox-9.8-20260525.0.x86_64.vagrant.virtualbox.box"
+  config.vm.hostname = "centos8"
+  config.vm.box_version = "0"
+  config.vm.provision "shell", path: "bootstrap.sh"
+  config.disksize.size = '30GB'
+  #config.vm.synced_folder ".", "/vagrant", type: "rsync"
+  config.vm.network "forwarded_port", guest: 8000, host: 8000 ## FastAPI
+  config.vm.network "forwarded_port", guest: 9090, host: 9090 ## Cockpit
+  #config.vm.network "forwarded_port", guest: 3000, host: 3000
+  #config.vm.network "forwarded_port", guest: 5000, host: 5000
+  #config.vm.network "forwarded_port", guest: 9200, host: 9200
+  #config.vm.network "forwarded_port", guest: 5601, host: 5601
+  #config.vm.network "forwarded_port", guest: 8080, host: 8080
+  #config.vm.network "forwarded_port", guest: 8081, host: 8081 # Nexus artefactory
+  #config.vm.network "forwarded_port", guest: 8200, host: 8200
+  #config.vm.network "forwarded_port", guest: 8201, host: 8201
+  #config.vm.network "forwarded_port", guest: 8025, host: 8025 # MailHog
+  #config.vm.network "forwarded_port", guest: 6603, host: 6603 # MariaDB
+  #config.vm.network "forwarded_port", guest: 5432, host: 5432 # PostgreSQL
+  config.vm.network "forwarded_port", guest: 80, host: 8089
+  #config.vm.network "forwarded_port", guest: 4440, host: 4440 # RunDecK
+  config.vm.network "private_network", ip: "192.168.56.9", netmask: "255.255.255.0"
+  config.vm.network "public_network", bridge: "Realtek USB GbE Family Controller",
+      use_dhcp_assigned_default_route: true
+  config.vm.boot_timeout = 300
+
+  ## To verify the bridge use command: VBoxManage list bridgedifs
+  ## VBoxManage list bridgedifs | grep '^Name:' | sed 's/^Name:[[:space:]]*//'
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access
+  # via 127.0.0.1 to disable public access
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  # config.vm.synced_folder "./data", "/vagrant_data"
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    config.vbguest.auto_update = false
+    config.vbguest.no_install = true
+  end
+
+  config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+      vb.gui = false
+  #
+  #   # Customize the amount of memory on the VM:
+      #vb.memory = "10240"
+      vb.memory = "4096"
+      #vb.memory = "8192" # 8GB
+      #vb.memory = "1024"# 1GB
+      vb.cpus = "4"
+      #vb.customize ['modifyvm', :id, '--nested-hw-virt', 'on']
+  end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
+end
+
+## Goal
+[what you are trying to achieve, in one or two sentences]
+
+## Problem
+[what happens instead]
+
+## Exact error output
+[paste verbatim. For Vagrant issues, include the relevant part of `vagrant up --debug`;
+for guest issues, include `journalctl -xe` or the relevant service log]
+
+## What I've already tried
+[list steps and results so they aren't suggested again]
+
+## Instructions for your answer
+1. First state the most likely root cause and your confidence level.
+2. Give step-by-step fix commands that are valid for Rocky Linux 10 (dnf, systemd,
+   firewalld, SELinux enforcing by default) and for Vagrant 2.4.x / VirtualBox 7.2.x.
+3. Mark clearly which commands run on the HOST and which run inside the GUEST.
+4. Include a verification command after each fix so I can confirm it worked.
+5. If a fix depends on a version-specific behavior, say which version introduced it.
+6. If you are not sure about something, say so explicitly instead of guessing, and
+   tell me what additional output would confirm it.
+7. Do not suggest disabling SELinux or the firewall unless there's no other option;
+   if you do, explain the risk.
+```
