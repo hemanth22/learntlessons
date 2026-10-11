@@ -2363,3 +2363,267 @@ for guest issues, include `journalctl -xe` or the relevant service log]
 7. Do not suggest disabling SELinux or the firewall unless there's no other option;
    if you do, explain the risk.
 ```
+
+## Claude Prompts
+
+### 1. Claude Prompt for Resume Optimization
+
+```
+Act as an expert resume writer and recruiter with experience hiring candidates in my industry.
+
+I am applying for this role: [Insert job title]
+Here is the job description: [Paste job description]
+Here is my current resume: [Paste resume]
+
+Analyze my resume and suggest improvements to make it better aligned with this position. Focus on:
+- Relevant keywords
+- Missing skills
+- Stronger achievement-based bullet points
+- Clear professional language
+- Sections that should be improved or removed
+
+Do not invent experience I do not have.
+```
+
+### 2. Claude Prompt for Tailoring Your Resume to a Job Description
+
+```
+Act as a professional resume optimization specialist.
+
+My resume: [Paste resume]
+The job description: [Paste job description]
+
+Create a tailored version of my resume for this specific job. Make the resume more relevant by improving:
+- The professional summary
+- Work experience bullet points
+- Skills section
+- Keywords related to the job description
+
+Keep everything truthful and based only on my real experience. Do not exaggerate or add responsibilities I have not had.
+```
+
+### 3. Claude Prompt for Writing a Cover Letter
+
+
+```
+Act as a professional career coach and cover letter writer.
+
+Company name: [Insert company name]
+Job title: [Insert job title]
+Job description: [Paste job description]
+My background: [Paste your experience, achievements, or resume]
+
+Write a personalized cover letter for this position. Make it:
+- Professional but natural
+- Specific to the company and role
+- Focused on my most relevant experience
+- Confident without sounding exaggerated
+- Around 250-350 words
+
+Do not use generic phrases like "I am writing to express my interest" unless they sound natural in context.
+```
+
+### 4. Claude Prompt for Finding Resume Gaps
+
+```
+Act as a hiring manager reviewing my application for this role.
+
+My resume: [Paste resume]
+Job description: [Paste job description]
+
+Review my resume and tell me:
+- Why a recruiter might reject this application
+- Which important skills or keywords are missing
+- Which parts of my experience should be emphasized more
+- Which bullet points sound weak or unclear
+- What I should change before applying
+
+Be direct, specific, and practical. Do not rewrite the full resume unless I ask you to.
+```
+
+### 5. Claude Prompt for Improving Resume Bullet Points
+
+```
+Act as an expert resume writer. Improve the following resume bullet points so they sound stronger, clearer, and more achievement-focused.
+
+Current bullet points: [Paste bullet points]
+Target role: [Insert job title]
+
+Make the bullet points:
+- More specific
+- More results-oriented
+- More relevant to the target role
+- Clear and easy to understand
+
+Do not invent numbers, achievements, or responsibilities. If a metric is missing, suggest where I could add one.
+```
+
+### 6. Claude Prompt for LinkedIn Profile Optimization
+
+```
+Act as a LinkedIn profile optimization expert.
+
+My target role: [Insert job title]
+My industry: [Insert industry]
+My current experience: [Paste experience or resume]
+
+Improve the following LinkedIn sections:
+- Headline
+- About section
+- Experience descriptions
+- Skills section
+
+Make my profile more attractive to recruiters searching for candidates in this field. Keep the tone professional, clear, and natural. Do not make it sound overly promotional.
+```
+
+### 7. Claude Prompt for Recruiter Messages
+
+```
+Write a short LinkedIn message to a recruiter about a job I want to apply for.
+
+Job title: [Insert job title]
+Company: [Insert company name]
+My background: [Add 2-3 relevant details about your experience]
+Reason I am interested: [Add reason]
+
+Create a message that:
+- Introduces me naturally
+- Mentions the role
+- Highlights my relevant experience
+- Sounds polite and professional
+- Ends with a simple call to action
+
+Keep it under 100 words.
+```
+
+### 8. Claude Prompt for a Message to a Hiring Manager
+
+```
+Write a short message to a hiring manager for this role.
+
+Role: [Insert job title]
+Company: [Insert company name]
+Job description: [Paste job description]
+My relevant experience: [Paste short background]
+
+Create a message that:
+- Shows I understand the role
+- Connects my experience to the team's needs
+- Sounds confident but not pushy
+- Is easy to read
+- Ends with a polite question or call to action
+
+Keep it concise and natural.
+```
+
+### 9. Claude Prompt for Interview Preparation
+
+```
+Act as an interviewer for the following role.
+
+Job title: [Insert job title]
+Company: [Insert company name]
+Job description: [Paste job description]
+My resume: [Paste resume]
+
+Create an interview preparation guide that includes:
+- 15 likely interview questions
+- Example answers based on my experience
+- Skills I should emphasize
+- Possible weaknesses in my profile
+- Questions I can ask the interviewer
+
+Keep the answers realistic and based only on the information I provided.
+```
+
+### 10. Claude Prompt for Behavioral Interview Answers
+
+```
+Act as an interview coach. Help me answer this behavioral interview question:
+
+Question: [Paste interview question]
+My example or experience: [Paste your situation, task, action, and result if you have them]
+
+Create a strong answer using the STAR method:
+- Situation
+- Task
+- Action
+- Result
+
+Make the answer sound natural, confident, and professional. If my example is missing details, tell me what information I should add.
+```
+
+### 11. Claude Prompt for Explaining a Career Change
+
+```
+Act as a career advisor. Help me explain my transition from my current role to my target role.
+
+Current role: [Insert current role]
+Target role: [Insert target role]
+My background: [Paste relevant experience]
+
+Create:
+- A resume summary for this career change
+- A short cover letter explanation
+- An interview answer for "Why are you changing careers?"
+- A list of transferable skills I should highlight
+
+Make the explanation positive, clear, and professional.
+```
+
+### 12. Claude Prompt for Creating a Job Search Strategy
+
+```
+Act as my job search strategist.
+
+Target role: [Insert job title]
+Experience level: [Insert years of experience]
+Industry: [Insert industry]
+Location: [Insert location or remote preference]
+Current situation: [Briefly describe your job search]
+
+Create a weekly job search plan that includes:
+- How many jobs to apply to
+- How to choose the right jobs
+- How often to tailor my resume
+- When to contact recruiters
+- How to track applications
+- How to prepare for interviews
+
+Make the plan realistic and easy to follow.
+```
+
+### 13. Claude Prompt for ATS Optimization (Keyword Matching)
+
+```
+Act as an ATS (applicant tracking system) optimization expert.
+
+My resume: [Paste resume]
+The job description: [Paste job description]
+
+Do the following:
+1. Extract the most important hard skills, tools, and keywords from the job description, ranked by how prominently they appear.
+2. Show which of those keywords already appear in my resume and which are missing.
+3. Suggest where I can naturally add the missing keywords, using only skills and experience I genuinely have.
+4. Flag any formatting that could break ATS parsing (tables, columns, text in headers, images, graphics).
+
+Keep every suggestion truthful to my real background.
+```
+
+### 14. Claude Prompt for a CV (Not Just a US Resume)
+
+```
+Act as a professional CV writer familiar with international hiring conventions.
+
+My current resume or CV: [Paste document]
+Target country: [e.g. UK, Germany, Australia]
+Target role: [Role title]
+
+Rewrite my document as a CV that matches the conventions of the target country, including:
+- Appropriate length and section order for that market
+- Which personal details to include or leave out (photo, date of birth, nationality) based on local norms and anti-discrimination rules
+- Regional wording and spelling conventions
+- A short personal profile or statement if it is expected there
+
+Keep everything truthful to my real experience, and flag anything that is legally or culturally risky to include.
+```
