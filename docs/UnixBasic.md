@@ -2899,6 +2899,22 @@ top -bc -o +%CPU | head -n 20
 find -inum 208802 -exec rm -i {} \;
 ```
 
+## find command to perform housekeeping for Solarcapture solarflare pcap files
+
+```shell
+find /SolarCapture/pcap-out/ -maxdepth 1 -name 'prod_*.pcap*' | awk -F'pcap' '{if($2+0<12345) print}' | wc -l
+```
+
+```shell
+find /SolarCapture/pcap-out/ -maxdepth 1 -name 'prod_*.pcap*' | awk -F'pcap' '{if($2+0<12345) print}' | xargs rm -rf
+```
+
+## find command to gunzip pcap files
+
+```shell
+find /SolarCapture/pcap-out/ -maxdepth 1 -name 'prod_*.pcap*' | awk -F'pcap' '{if($2+0>=12345) print}' | xargs -P 8 -n 1 gunzip
+```
+
 ## tar commands
 
 ### create a tar file
