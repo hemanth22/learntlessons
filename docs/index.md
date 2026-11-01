@@ -46,6 +46,7 @@
 |42 | [WindowsHints](./WindowsHints.md) |
 |43 | [LlamaCPP](./llamacpp.md) |
 |44 | [LlamaCPPPython](./llamacpppython.md) |
+|45 | [Ramalama](./llamacpppython.md) |  
 
 
 ## About my blogs
