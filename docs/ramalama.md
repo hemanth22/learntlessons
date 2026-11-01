@@ -8,20 +8,48 @@ python -m pip install ramalama --user
 
 ### How to install llama.cpp
 
-```
+```powershell
 winget install ggml.llamacpp
 ```
 
 ### How to run ramalama with no container
 
-```
+```powershell
 ramalama --nocontainer run -c 4096 ollama://granite4:micro
 ```
 
 ### What is the ramalama API endpoint with llama cpp
 
-```
+```powershell
 http://localhost:8080/#/
+```
+
+```powershell
+curl.exe http://localhost:8080/health
+``
+
+### What is the command to list models
+
+```powershell
+PS C:\Users\hemanth> ramalama --nocontainer list
+SHORTNAME NAME                            MODIFIED       SIZE
+          ollama://library/granite4:micro 31 minutes ago 1.96 GB
+```
+
+### What is the command to check if model is running
+
+```powershell
+Get-Process llama-server -ErrorAction SilentlyContinue
+```
+
+```powershell
+curl.exe http://localhost:8080/v1/models
+```
+
+### What is the command to delete models
+
+```powershell
+PS C:\Users\hemanth> ramalama --nocontainer rm ollama://granite4:micro
 ```
 
 ### Example usage
