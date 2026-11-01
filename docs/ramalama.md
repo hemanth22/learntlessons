@@ -717,3 +717,66 @@ a0244918127c  quay.io/ramalama/ramalama:0.24      llama-server --ho...  23 minut
 ```bash
  ramalama pull ollama://qwen3:0.6b
 ```
+
+### ramalama command with minimum document
+
+```bash
+[root@centos8 docs]# cd /root/llmdocs/
+[root@centos8 llmdocs]# ls -ltr ./docs/
+total 8
+-rw-r--r--. 1 root root 7289 Nov  1 16:25 TWS.md
+```
+
+### ramalama command to generate rag image with minimum document
+
+```bash
+[root@centos8 llmdocs]# cd /root/llmdocs/
+[root@centos8 llmdocs]# ramalama rag --chunk-size 250 ./docs localhost/tws-rag
+Starting VLM server...
+Starting embedding server...
+58f1307e02ea9e696d879523e649e921db82de7552c6b0b9f00bf25d6413fca2
+8151a1e050dbe6ba2c1d4521665627c2fe185b340615953754c9e20640d462b7
+VLM server is ready.
+Embedding server is ready.
+Found 1 file(s): 0 need VLM, 1 text-only
+Reading TWS.md (1/1)...
+Chunking documents...
+  10 chunks created
+Embedding chunks via llama.cpp...
+  Embedding 10/10 chunks...
+Stored 10 vectors in Qdrant
+Building localhost/tws-rag ...
+e5e751963bdf597cf459ef93bb254922da2fc4620d70e53881f3680975e9317e
+```
+
+### ramalama command to generate rag image with minimum document
+
+```bash
+[root@centos8 llmdocs]# ramalama run --ngl 0 --ctx-size 8192 --threads 4 --rag localhost/tws-rag ollama://qwen3:0.6b
+9b0a41762fad7be2aa3f678d5a383b29b480e8e3854ca64ec6f5c85f2cc4bfa2
+8d398b1190eff15046dbe1ce001f99210f9f39b267c11cf83986a4a59b3ee3ea
+9d474428329d6dfe719df7571664fddd203fe10adf7b21a2d29ebdb3ab04a22f
+🦭 > What command shows the status of jobs? /no_think
+The command that shows the status of jobs in IBM TWS is:
+
+**`RECOVERY RERUN REPEATEVERY 0010 FOR 2 ATTEMPS`**.
+🦭 > What command shows the status of jobs?
+The command that shows the status of jobs in IBM TWS is:
+
+**`RECOVERY RERUN REPEATEVERY 0010 FOR 2 ATTEMPS`**.
+🦭 > how to write a file watch definition for a job ?
+To define a file watch in IBM Tivoli Workload Scheduler (TWS), you can use the `filewatch` command. The command format is:
+
+```bash
+/opt/wa/TWS/bin/filewatch -condition <condition> -filename <filename> -deadline <deadline> -interval <interval>
+```
+
+### Example:
+```bash
+/opt/wa/TWS/bin/filewatch -condition wcr -filename /tmp/hello.txt -deadline 3600 -interval 60
+```
+
+This command sets up a file watcher to monitor the `/tmp/hello.txt` file for 1 hour (deadline of 3600 seconds) and a 1-minute interval (interval of 60 seconds). The output will trigger an alert if the file is not found within the specified time window.
+🦭 > /bye
+[root@centos8 llmdocs]#
+```
